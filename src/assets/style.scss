@@ -1,0 +1,102 @@
+/*-----------------------------------------------------------------------------------
+
+    Template Name: Qichen - Restaurant HTML Template
+    Template URI: site.com
+    Description: Qichen is a creative & unique Restaurant HTML Template . This template is exclusive to Restaurants, Fast Food, Bakery, Cafe, Food Shop, Tea/Coffee Shop, Seafood Restaurant, Catering, and Food Business Websites.
+    Author: WebTend 
+    Author URI: https://webtend.net/
+    Version: 1.0
+
+--------------------------
+    CSS INDEX
+--------------------------
+    01. Default css 
+    02. Sections css
+    03. Header css 
+    04. Hero css
+    05. About css
+    06. Features css
+    07. Category css
+    08. Menu css
+    09. Video css
+    10. Elements css
+    11. Gallery css
+    12. Reservation css
+    13. Testimonial css
+    14. Team css
+    15. Faq css
+    16. Products css
+    17. Partner css
+    18. Blog css
+    19. Contact css
+    20. Footer css
+
+
+    
+-----------------------------------------------------------------------------------*/
+
+// global variables
+@import './_variables.scss';
+
+// global Mixins
+@import './_mixin.scss';
+
+// common
+@import './_common.scss';
+
+// Sections
+@import './sections/_sections.scss';
+
+// Header
+@import './sections/_header.scss';
+
+// Hero
+@import './sections/_hero.scss';
+
+// About
+@import './sections/_about.scss';
+
+// Features
+@import './sections/_features.scss';
+
+// Category
+@import './sections/_category.scss';
+
+// Menu
+@import './sections/_menu.scss';
+
+// Video
+@import './sections/_video.scss';
+
+// Elements
+@import './sections/_elements.scss';
+
+// Gallery
+@import './sections/_gallery.scss';
+
+// Reservation
+@import 'sections/_reservation.scss';
+
+// Testimonial
+@import './sections/_testimonial.scss';
+
+// Team
+@import './sections/_team.scss';
+
+// Faq
+@import './sections/_faq.scss';
+
+// Products
+@import './sections/_products.scss';
+
+// Partner
+@import './sections/_partner.scss';
+
+// Blog
+@import './sections/_blog.scss';
+
+// Contact
+@import './sections/_contact.scss';
+
+// Footer
+@import './sections/_footer.scss';

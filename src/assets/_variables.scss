@@ -1,0 +1,28 @@
+
+// Font Family
+
+$forum: 'estedad', cursive;
+
+$opensans: 'estedad', Open Sans;
+$mehrit: 'mehrit';
+
+// Colors
+
+$heading: #0E1317;
+
+$text-color: #666666;
+
+$primary: #bd9834;
+
+
+// Responsive Variables
+
+$xl: 'only screen and (min-width: 1200px)';
+$lp: 'only screen and (min-width: 1200px) and (max-width: 1600px)';
+$lm : '(max-width: 1199px)';
+$lg : 'only screen and (min-width: 992px) and (max-width: 1199px)';
+$xm:'(max-width: 991px)';
+$md:'only screen and (min-width: 768px) and (max-width: 991px)';
+$xs:'(max-width: 767px)';
+$xss:'(max-width: 575px)';
+$sm: 'only screen and (min-width: 576px) and (max-width: 767px)';
