@@ -375,7 +375,7 @@ textarea.form_control {
   height: 145px;
 }
 
-.header-navigation.breakpoint-on .nav-menu .main-menu ul li .dd-trigger, .hero-arrows .slick-arrow, .fancy-features-item .icon, .single-features-item .icon, .single-features-item-two .icon, .single-category-item .content .icon-btn, .single-menu-item .thumb, .single-menu-item-two .thumb, .single-menu-item-three .thumb, .menu-grid-item-one .thumb, .menu-grid-item-two .hover-content .text .icon-btn, .menu-grid-item-two .thumb, .video-one_image-box .play-content-box .video-popup i, .call-button .icon, .qichen-pagination ul li a, .gallery-item-one .gallery-img .hover-overlay .icon-btn, .gallery-item-two .gallery-img .hover-overlay, .gallery-item-two .gallery-img .hover-overlay .icon-btn, .testimonial-arrows .slick-arrow, .single-team-item-two .chef-img .hover-content ul.social-link li a, .single-product-item .product-thumbnail, .single-product-item .product-thumbnail span.discount, .product-details-wrapper .product-info ul.social-link li a, .blog-details-wrapper .blog-post .entry-footer .social-share a, .post-navigation-item .post-nav-item .thumb .overlay {
+.header-navigation.breakpoint-on .nav-menu .main-menu ul li .dd-trigger, .hero-arrows .slick-arrow, .fancy-features-item .icon, .single-features-item .icon, .single-features-item-two .icon, .single-menu-item .thumb, .single-menu-item-two .thumb, .single-menu-item-three .thumb, .menu-grid-item-one .thumb, .menu-grid-item-two .hover-content .text .icon-btn, .menu-grid-item-two .thumb, .video-one_image-box .play-content-box .video-popup i, .call-button .icon, .qichen-pagination ul li a, .gallery-item-one .gallery-img .hover-overlay .icon-btn, .gallery-item-two .gallery-img .hover-overlay, .gallery-item-two .gallery-img .hover-overlay .icon-btn, .testimonial-arrows .slick-arrow, .single-team-item-two .chef-img .hover-content ul.social-link li a, .single-product-item .product-thumbnail, .single-product-item .product-thumbnail span.discount, .product-details-wrapper .product-info ul.social-link li a, .blog-details-wrapper .blog-post .entry-footer .social-share a, .post-navigation-item .post-nav-item .thumb .overlay {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -927,6 +927,28 @@ button {
 /*---==================
     02. Sections css 
 =================----*/
+.main-sections {
+  padding: 25px 44px;
+  position: relative;
+}
+
+.parallax-sight {
+  padding: 100px 30px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-attachment: fixed;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.parallax-sight.one {
+  background-image: url("/src/images/e2csce.jpg");
+}
+
 .about-shape-section .shape {
   position: absolute;
   z-index: -1;
@@ -979,17 +1001,6 @@ button {
 .about-shape-two-section .shape.shape-two {
   top: 190px;
   right: 200px;
-}
-
-.category-bg-section:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background-color: rgba(223, 63, 0, 0.9);
-  z-index: -1;
 }
 
 .video-line-section .line-shape {
@@ -1718,6 +1729,10 @@ button {
     04. Hero css 
 =================----*/
 /*====== Banner One ======*/
+.main-banner {
+  text-align: center;
+}
+
 .bannereo {
   padding: 240px 0 60px;
   position: absolute;
@@ -2226,68 +2241,6 @@ button {
 
 .single-features-item-two P {
   margin-bottom: 22px;
-}
-
-/*---==================
-    07. Category css 
-=================----*/
-.single-category-item {
-  background-color: #fff;
-  padding: 30px 40px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-}
-
-@media (max-width: 1199px) {
-  .single-category-item {
-    padding: 30px 30px;
-  }
-}
-
-@media (max-width: 767px) {
-  .single-category-item {
-    padding: 30px 20px;
-  }
-}
-
-.single-category-item:hover .content .icon-btn {
-  background-color: #0E1317;
-  border-color: transparent;
-  color: #fff;
-}
-
-.single-category-item:hover .content h3.title {
-  color: #bd9834;
-}
-
-.single-category-item .icon {
-  flex: 0 0 auto;
-  width: 85px;
-  height: 85px;
-  margin-right: 20px;
-}
-
-.single-category-item .content {
-  width: 100%;
-  align-items: center;
-}
-
-.single-category-item .content h3.title {
-  flex-grow: 1;
-}
-
-.single-category-item .content .icon-btn {
-  width: 55px;
-  height: 55px;
-  border: 1px solid rgba(14, 19, 23, 0.1);
-  background-color: transparent;
-  border-radius: 5px;
-  -webkit-transition: all 0.3s ease-out 0s;
-  -moz-transition: all 0.3s ease-out 0s;
-  -ms-transition: all 0.3s ease-out 0s;
-  -o-transition: all 0.3s ease-out 0s;
-  transition: all 0.3s ease-out 0s;
 }
 
 /*---==================

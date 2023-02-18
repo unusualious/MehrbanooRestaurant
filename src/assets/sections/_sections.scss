@@ -2,7 +2,26 @@
 /*---==================
     02. Sections css 
 =================----*/
+.main-sections{
+padding: 25px 44px;
+position: relative;
 
+}
+.parallax-sight{
+    padding: 100px 30px;
+     overflow: hidden; 
+     position: relative; 
+     width: 100%; 
+      background-attachment: fixed; 
+     background-size: cover;
+      -moz-background-size: cover;
+       -webkit-background-size: cover;
+        background-repeat: no-repeat;
+         background-position: top center;
+    &.one{
+        background-image: url("/src/images/e2csce.jpg");
+    }
+}
 .about-shape-section{
     & .shape{
         position: absolute;
@@ -43,20 +62,6 @@
             top: 190px;
             right: 200px;
         }
-    }
-}
-
-
-.category-bg-section{
-    &:after{
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
-        width: 100%;
-        height: 100%;
-        background-color: rgba(223, 63, 0, 0.9);
-        z-index: -1;
     }
 }
 
