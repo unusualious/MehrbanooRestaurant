@@ -9,24 +9,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Forum&family=Open+Sans:wght@400;500;600;700&display=swap');
 
 /* Base CSS */ 
+// @font-face {
+//     font-family: 'mehrit';
+//     src: url('/src/assets/fonts/KalamehWeb-Bold.eot');
+//     src: url('/src/assets/fonts/KalamehWeb-Bold.eot?#iefix') format('embedded-opentype'),
+//         url('/src/assets/fonts/KalamehWeb-Bold.woff2') format('woff2'),
+//         url('/src/assets/fonts/KalamehWeb-Bold.ttf') format('true-type'),
+//         url('/src/assets/fonts/KalamehWeb-Bold.woff') format('woff');
+//     font-style: normal;
+//     font-display: swap;
+//     font-weight: 500;
+// }
 @font-face {
     font-family: 'mehrit';
-    src: url('/src/assets/fonts/KalamehWeb-Bold.eot');
-    src: url('/src/assets/fonts/KalamehWeb-Bold.eot?#iefix') format('embedded-opentype'),
-        url('/src/assets/fonts/KalamehWeb-Bold.woff2') format('woff2'),
-        url('/src/assets/fonts/KalamehWeb-Bold.ttf') format('true-type'),
-        url('/src/assets/fonts/KalamehWeb-Bold.woff') format('woff');
-    font-style: normal;
-    font-display: swap;
-    font-weight: 500;
-}
-@font-face {
-    font-family: 'mehrit';
-    src: url('/src/assets/fonts/KalamehWeb-Regular.eot');
-    src: url('/src/assets/fonts/KalamehWeb-Regular.eot?#iefix') format('embedded-opentype'),
-        url('/src/assets/fonts/KalamehWeb-Regular.woff2') format('woff2'),
-        url('/src/assets/fonts/KalamehWeb-Regular.ttf') format('true-type'),
-        url('/src/assets/fonts/KalamehWeb-Regular.woff') format('woff');
+    src: url('/src/assets/fonts/KalamehWeb-Black.eot');
+    src: url('/src/assets/fonts/KalamehWeb-Black.eot?#iefix') format('embedded-opentype'),
+        url('/src/assets/fonts/KalamehWeb-Black.woff2') format('woff2'),
+        url('/src/assets/fonts/KalamehWeb-Black.ttf') format('true-type'),
+        url('/src/assets/fonts/KalamehWeb-Black.woff') format('woff');
     font-style: normal;
     font-display: swap;
 }

@@ -42,17 +42,8 @@
 /* Base CSS */
 @font-face {
   font-family: 'mehrit';
-  src: url("/src/assets/fonts/KalamehWeb-Bold.eot");
-  src: url("/src/assets/fonts/KalamehWeb-Bold.eot?#iefix") format("embedded-opentype"), url("/src/assets/fonts/KalamehWeb-Bold.woff2") format("woff2"), url("/src/assets/fonts/KalamehWeb-Bold.ttf") format("true-type"), url("/src/assets/fonts/KalamehWeb-Bold.woff") format("woff");
-  font-style: normal;
-  font-display: swap;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'mehrit';
-  src: url("/src/assets/fonts/KalamehWeb-Regular.eot");
-  src: url("/src/assets/fonts/KalamehWeb-Regular.eot?#iefix") format("embedded-opentype"), url("/src/assets/fonts/KalamehWeb-Regular.woff2") format("woff2"), url("/src/assets/fonts/KalamehWeb-Regular.ttf") format("true-type"), url("/src/assets/fonts/KalamehWeb-Regular.woff") format("woff");
+  src: url("/src/assets/fonts/KalamehWeb-Black.eot");
+  src: url("/src/assets/fonts/KalamehWeb-Black.eot?#iefix") format("embedded-opentype"), url("/src/assets/fonts/KalamehWeb-Black.woff2") format("woff2"), url("/src/assets/fonts/KalamehWeb-Black.ttf") format("true-type"), url("/src/assets/fonts/KalamehWeb-Black.woff") format("woff");
   font-style: normal;
   font-display: swap;
 }
@@ -2200,6 +2191,7 @@ button {
 
 .single-features-item-two {
   padding: 0 30px;
+  text-align: center;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -3827,7 +3819,7 @@ form.reservation-form .nice-select ul.list {
 }
 
 .single-testimonial-one .testimonial-inner-content > p {
-  font-size: 27px;
+  font-size: 19px;
   line-height: 45px;
   color: #FFFFFF;
   margin-bottom: 40px;
@@ -5748,15 +5740,19 @@ form.reservation-form .nice-select ul.list {
   color: #fff;
 }
 
+.footer-widget {
+  padding: 30px;
+}
+
 .footer-widget h4.widget-title {
-  font-size: 27px;
+  font-size: 20px;
   line-height: 45px;
   margin-bottom: 15px;
 }
 
 .about-company-widget .footer-content .footer-logo {
-  background-color: #bd9834;
-  padding: 20px 35px;
+  padding: 10px 35px;
+  margin: 0 50px;
 }
 
 .about-company-widget .footer-content > p {

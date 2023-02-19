@@ -39,8 +39,9 @@
 }
 
 .footer-widget{
+    padding: 30px;
     & h4.widget-title{
-        font-size: 27px;
+        font-size: 20px;
         line-height: 45px;
         margin-bottom: 15px;
     }
@@ -49,8 +50,8 @@
 .about-company-widget{
     & .footer-content{
         & .footer-logo{
-            background-color: $primary;
-            padding: 20px 35px;
+            padding: 10px 35px;
+    margin: 0 50px;
         }
         & > p{
             margin-bottom: 20px;

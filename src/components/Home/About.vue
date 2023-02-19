@@ -8,7 +8,7 @@
     </div>
 
 
-    <div class="container-fluid about-us main-sections about-section pt-130 pb-80">
+    <div class="container-fluid about-us main-sections about-section light-gray-bg">
         <div class="row  align-items-center">
             <div class="col-md-5">
                 <!--=== About Content Box ===-->
@@ -46,7 +46,6 @@ export default {
 </script>
 <style lang="scss">
     .about-us{
-        background: #e3ded7;
     padding: 70px 0;
     border-radius: 29px;
     margin-top: -60px;
