@@ -14,7 +14,7 @@
                 <!--=== About Content Box ===-->
                 <div class="about-content-box content-box-gap mb-40 wow animate__animated animate__fadeInLeft">
                     <div class="section-title section-title-left mb-30">
-                        <span class="sub-title">درباره مهربانر</span>
+                        <span class="sub-title">درباره مهربانو</span>
                         <h2>بهترین طعم ها را با ما 
                             خواهید چشید
                         </h2>

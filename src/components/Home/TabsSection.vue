@@ -236,7 +236,7 @@ export default {
     background-color: transparent;
     color: #eee;
     border-radius: 6px 6px 0 0;
-    border: 3px solid #164c24;
+    border: 3px solid #556b2f;
     position: relative;
     font-weight: 600;
 
@@ -244,7 +244,7 @@ export default {
                             content: " ";
                             width: 25px;
                             height: 2px;
-                            background-color: #164c24;
+                            background-color: #556b2f;
                             position: absolute;
                             bottom:0;
                             right: -25px;
@@ -253,7 +253,7 @@ export default {
                             content: " ";
                             width: 25px;
                             height: 2px;
-                            background-color: #164c24;
+                            background-color: #556b2f;
                             position: absolute;
                             bottom: 0;
                             left: -25px;
@@ -282,7 +282,7 @@ export default {
                 border-radius: 14px;
                 border: 2px solid #242424;
                 &:hover{
-                    border-color: #164c24;
+                    border-color: #556b2f;
                     cursor: pointer;
                 }
                 .item-wrapper {
