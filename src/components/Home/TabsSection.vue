@@ -2,196 +2,667 @@
     <div class="container-fluid tabs-section main-sections ">
         <div class="row ">
             <div class="parallax-sight one">
-        <div class="tabs-menu col-12">
-            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#launchdinner" type="button" role="tab" aria-controls="pills-home" aria-selected="true">انواع غذا</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#starter" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">دسر ها</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#breakfast" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">صبحانه ها</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#drinks" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">نوشیدنی ها</button>
-  </li>
-</ul>
-<div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="launchdinner" role="tabpanel" aria-labelledby="pills-home-tab">
-
-                                <div class="menu-item">
-                                    <div class="item-wrapper">
-                                        <!-- items img start -->
-                                        <div class="menu-img">
-                                            <div class="menu-img-inner">
-                                                <img src="/src/images/menu/thumb-3.png" alt="Img">
-                                            </div>
+                <div class="tabs-menu col-12">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#launchdinner" type="button" role="tab" aria-controls="pills-home" aria-selected="true">انواع غذا</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#drinks" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">نوشیدنی ها</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#starter" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">هم غذاها</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#breakfast" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">صبحانه</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="launchdinner" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
                                         </div>
-                                        <!-- items img end -->
-                                        <!-- section title start -->
-                                        <h3>
-        صبحانه سنتی
-    </h3>
-                                        <span class="item-divider"></span>
-                                        <span class="item-price">۱۴,۰۰۰ تومان</span>
-                                        <!-- section title end -->
                                     </div>
-                                    <!-- divider start -->
-                                    <div class="divider-m"></div>
-                                    <!-- divider end -->
-                                    <!-- section txt start -->
-                                    <p class="item-description"> پنیر، مربا، کره، گوجه، خیار، گردو، میوه های فصل، خرما</p>
-                                    <!-- section txt end -->
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>چلو جوجه کباب ران </h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
                                 </div>
-                                <div class="menu-item">
-                                    <div class="item-wrapper">
-                                        <!-- items img start -->
-                                        <div class="menu-img">
-                                            <div class="menu-img-inner">
-                                                <img src="/src/images/menu/thumb-2.png" alt="Img">                                                
-                                            </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">طبخ با 330 گرم ران مرغ</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
                                         </div>
-                                        <!-- items img end -->
-                                        <!-- section title start -->
-                                        <h3>
-                                            صبحانه انگلیسی   
-    </h3>
-                                        <span class="item-divider"></span>
-                                        <span class="item-price">۱۴,۰۰۰ تومان</span>
-                                        <!-- section title end -->
                                     </div>
-                                    <!-- divider start -->
-                                    <div class="divider-m"></div>
-                                    <!-- divider end -->
-                                    <!-- section txt start -->
-                                    <p class="item-description">  لوبیا، قارچ، سوسیس، نیمرو، لیمو یا نارنج، زیتون، گوجه گیلاسی، اسنک بیکن</p>
-                                    <!-- section txt end -->
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>چلو جوجه کباب سینه </h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
                                 </div>
-                                <div class="menu-item">
-                                    <div class="item-wrapper">
-                                        <!-- items img start -->
-                                        <div class="menu-img">
-                                            <div class="menu-img-inner">
-                                                <img src="/src/images/menu/thumb-1.png" alt="Img">
-                                            </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">طبخ با 330 گرم سینه مرغ</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
                                         </div>
-                                        <!-- items img end -->
-                                        <!-- section title start -->
-                                        <h3>
-                                            صبحانه آمریکایی 
-    </h3>
-                                        <span class="item-divider"></span>
-                                        <span class="item-price">۱۴,۰۰۰ تومان</span>
-                                        <!-- section title end -->
                                     </div>
-                                    <!-- divider start -->
-                                    <div class="divider-m"></div>
-                                    <!-- divider end -->
-                                    <!-- section txt start -->
-                                    <p class="item-description">  نیمرو، پنکیک عسل یا نوتلا، اسنک بیکن، گوجه گیلاسی، لیمو یا نارنج</p>
-                                    <!-- section txt end -->
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>چلو خورشت فسنجان</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
                                 </div>
-  </div>
-  <div class="tab-pane fade" id="starter" role="tabpanel" aria-labelledby="pills-profile-tab">
-    <h3>
-        صبحانه انگلیسی
-    </h3>
-    <p>
-        لوبیا، قارچ، سوسیس، نیمرو، لیمو یا نارنج، زیتون، گوجه گیلاسی، اسنک بیکن
-    </p>
-    <span>۱۴,۰۰۰ تومان</span>
-  </div>
-  <div class="tab-pane fade" id="breakfast" role="tabpanel" aria-labelledby="pills-profile-tab">
-    <div class="menu-item">
-                                    <div class="item-wrapper">
-                                        <!-- items img start -->
-                                        <div class="menu-img">
-                                            <div class="menu-img-inner">
-                                                <img src="/src/images/menu/thumb-3.png" alt="Img">
-                                            </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">طبخ با ران یا سینه مرغ</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
                                         </div>
-                                        <!-- items img end -->
-                                        <!-- section title start -->
-                                        <h3>
-        صبحانه سنتی
-    </h3>
-                                        <span class="item-divider"></span>
-                                        <span class="item-price">۱۴,۰۰۰ تومان</span>
-                                        <!-- section title end -->
                                     </div>
-                                    <!-- divider start -->
-                                    <div class="divider-m"></div>
-                                    <!-- divider end -->
-                                    <!-- section txt start -->
-                                    <p class="item-description"> پنیر، مربا، کره، گوجه، خیار، گردو، میوه های فصل، خرما</p>
-                                    <!-- section txt end -->
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>چلو قیمه سیب زمینی</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
                                 </div>
-                                <div class="menu-item">
-                                    <div class="item-wrapper">
-                                        <!-- items img start -->
-                                        <div class="menu-img">
-                                            <div class="menu-img-inner">
-                                                <img src="/src/images/menu/thumb-2.png" alt="Img">                                                
-                                            </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">طبخ با 100 گرم گوشت گوسفندی</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
                                         </div>
-                                        <!-- items img end -->
-                                        <!-- section title start -->
-                                        <h3>
-                                            صبحانه انگلیسی   
-    </h3>
-                                        <span class="item-divider"></span>
-                                        <span class="item-price">۱۴,۰۰۰ تومان</span>
-                                        <!-- section title end -->
                                     </div>
-                                    <!-- divider start -->
-                                    <div class="divider-m"></div>
-                                    <!-- divider end -->
-                                    <!-- section txt start -->
-                                    <p class="item-description">  لوبیا، قارچ، سوسیس، نیمرو، لیمو یا نارنج، زیتون، گوجه گیلاسی، اسنک بیکن</p>
-                                    <!-- section txt end -->
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>چلو قیمه بادمجان</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
                                 </div>
-                                <div class="menu-item">
-                                    <div class="item-wrapper">
-                                        <!-- items img start -->
-                                        <div class="menu-img">
-                                            <div class="menu-img-inner">
-                                                <img src="/src/images/menu/thumb-1.png" alt="Img">
-                                            </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">طبخ با 100 گرم گوشت گوسفندی</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
                                         </div>
-                                        <!-- items img end -->
-                                        <!-- section title start -->
-                                        <h3>
-                                            صبحانه آمریکایی 
-    </h3>
-                                        <span class="item-divider"></span>
-                                        <span class="item-price">۱۴,۰۰۰ تومان</span>
-                                        <!-- section title end -->
                                     </div>
-                                    <!-- divider start -->
-                                    <div class="divider-m"></div>
-                                    <!-- divider end -->
-                                    <!-- section txt start -->
-                                    <p class="item-description">  نیمرو، پنکیک عسل یا نوتلا، اسنک بیکن، گوجه گیلاسی، لیمو یا نارنج</p>
-                                    <!-- section txt end -->
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>چلو قورمه سبزی</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
                                 </div>
-  </div>
-
-<div class="tab-pane fade" id="drinks" role="tabpanel" aria-labelledby="pills-contact-tab">
-    <h3>
-        صبحانه سنتی
-    </h3>
-    <p>
-        پنیر، مربا، کره، گوجه، خیار، گردو، میوه های فصل، خرما
-    </p>
-    <span>۱۴,۰۰۰ تومان</span>
-
-  </div>
-        </div>
-
-</div>
-
-</div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">طبخ با 100 گرم گوشت گوسفندی</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>چلو قیمه نثار</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">طبخ با 200 گرم گوشت گوسفندی</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>زرشک پلو با مرغ</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">برنج ایرانی طبخ با ران یا سینه</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>تهچین خورشتی</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">قیمه - قورمه - ترکیبی</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>خوراک جوجه کباب</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">طبخ با 330 گرم سینه یا ران مرغ و دورچین</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-2.png" alt="Img">                                                
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>کشک و بادمجان</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">کشک محلی</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>میرزاقاسمی</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">سرو با نیمرو و نان</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>شامی پوک</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">سه عدد شامی، سرو با خیارشور گوجه و نان</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>کوفته برنجی</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">یک عدد کوفته با نان</p>
+                                <!-- section txt end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>چلو کره زعفرانی</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                                <!-- section txt start -->
+                                <p class="item-description">برنج ایرانی و زعفرانی</p>
+                                <!-- section txt end -->
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="starter" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>ماست بورانی اسنفاج</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>ماست سنتی</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>زیتون</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>سبزی خوردن</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>سالاد شیرازی</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="breakfast" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>املت </h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>نیمرو </h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>سوسیس تخم مرغ </h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>املت سوسیس </h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end --> 
+                                    <!-- section title start -->
+                                    <h3>کره پنیر با نون تازه </h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>چای تازه دم </h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="drinks" role="tabpanel" aria-labelledby="pills-contact-tab">
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>شربت زعفرانی</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>شربت لیمو</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">۱۴,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>دوغ سنتی</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>نوشابه</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                            <div class="menu-item">
+                                <div class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <h3>آب معدنی</h3>
+                                    <span class="item-divider"></span>
+                                    <span class="item-price">؟؟؟,۰۰۰ تومان</span>
+                                    <!-- section title end -->
+                                </div>
+                                <!-- divider start -->
+                                <div class="divider-m"></div>
+                                <!-- divider end -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
