@@ -93,7 +93,7 @@
                             <div class="search-btn" data-bs-toggle="modal" data-bs-target="#search-modal"><i class="fas fa-search"></i></div>
                         </div>
                         <div class="nav-call-button">
-                            <span><img src="../" alt="icon"><a href="tel:000(123)45689">000 (123) 456 89</a></span>
+                            <span><img src="" alt="icon"><a href="tel:000(123)45689">000 (123) 456 89</a></span>
                         </div>
                         <div class="menu-button d-xl-block d-none">
                             <a href="contact.html" class="main-btn btn-red">سفارش میز<i class="fas fa-long-arrow-right"></i></a>

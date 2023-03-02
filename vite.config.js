@@ -10,5 +10,6 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  transformIgnorePatterns: ['/node_modules/(?!@ionic/vue|@ionic/vue-router)']
 })
