@@ -1,11 +1,4 @@
-<script setup>
-import Header from '../components/Home/Header.vue'
-import HomeCarouselSection from '../components/Home/HomeCarouselSection.vue'; 
-import TabsSection from '../components/Home/TabsSection.vue';
-import About from '../components/Home/About.vue';
-import Services from '../components/Home/Services.vue';
-// import MenuSecond from '../components/Home/MenuSecond.vue';
-</script>
+
 <template>
 
 <!-- <div class="preloader">
@@ -179,3 +172,35 @@ import Services from '../components/Home/Services.vue';
 <a href="#" class="back-to-top" ><i class="far fa-angle-up"></i></a>
     
 </template>
+<script >
+
+import Header from '../components/Home/Header.vue';
+import HomeCarouselSection from '../components/Home/HomeCarouselSection.vue'; 
+import TabsSection from '../components/Home/TabsSection.vue';
+import About from '../components/Home/About.vue';
+import Services from '../components/Home/Services.vue';
+// import MenuSecond from '../components/Home/MenuSecond.vue';
+export default {
+    name:"home",
+  data() {
+    return {
+      count: 0
+    }
+  },
+
+  // Methods are functions that mutate state and trigger updates.
+  // They can be bound as event listeners in templates.
+  methods: {
+    increment() {
+      this.count++
+    }
+  },
+
+  // Lifecycle hooks are called at different stages
+  // of a component's lifecycle.
+  // This function will be called when the component is mounted.
+  mounted() {
+    console.log(`The initial count is ${this.count}.`)
+  },
+}
+</script>

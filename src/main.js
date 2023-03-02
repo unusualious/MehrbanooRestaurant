@@ -6,4 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import './assets/main.css'
 import "bootstrap"
 import 'animate.css';
+import $ from "jquery";
+import * as Vue from 'vue';
 createApp(App).mount('#app')
