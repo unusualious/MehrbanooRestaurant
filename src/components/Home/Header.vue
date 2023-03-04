@@ -1,6 +1,6 @@
 <template>
     <header class="header-area transparent-header">
-    <div class="top-bar">
+    <!-- <div class="top-bar">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-7">
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--=== Header Navigation ===-->
     <div class="header-navigation navigation-one">
         <div class="nav-overlay"></div>
@@ -43,65 +43,33 @@
                         <!--=== Main Menu ===-->
                         <nav class="main-menu">
                             <ul>
-                                <li class="menu-item has-children"><a href="#">خانه</a>
+                                <li class="menu-item has-children">    <router-link to="/">خانه</router-link>
+                                 </li>
+                                <li class="menu-item has-children"><a href="">خوشمزه ها </a>
                                     <ul class="sub-menu">
-                                        <li><a href="index.html">رستوران مهربانو</a></li>
-                                        <li><a href="index-2.html">غذاهای خانگی</a></li>
-                                        <li><a href="index-3.html">دسرها</a></li>
+                                        <li><a href="">نوشیدنی ها</a></li>
+                                        <li><a href="">غذاهای خانگی</a></li>
+                                        <li><a href="">دسرها</a></li>
+                                        <li><a href="">صبخانه های لذیذ</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item has-children"><a href="#">نوشیدنی ها</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="menu-fastfood.html">شاهکار سرآشپز</a></li>
-                                        <li><a href="menu-seafood.html">غذاهای دریایی</a></li>
-                                    </ul>
+                                <li class="menu-item">   <router-link to="/aboutus">درباره ما</router-link></li>
+                                <li class="menu-item has-children"><router-link to="/blog">بلاگ</router-link>
                                 </li>
-                                <li class="menu-item"><a href="about.html">درباره ما</a></li>
-                                <li class="menu-item has-children"><a href="#">خرید</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="products.html">گالری تصاویر</a></li>
-                                        <li><a href="product-details.html">بی نظیر و عالی</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item has-children"><a href="#">بلاگ </a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blog-standard.html">بلاگ استاندارد</a></li>
-                                        <li><a href="blog-details.html">جزئیات بلاگ</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item has-children"><a href="#">صفحه ها</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="gallery.html">Our Gallery</a></li>
-                                        <li><a href="chefs.html">آشپزان ما</a></li>
-                                        <li><a href="history.html">Our History</a></li>
-                                        <li><a href="reservations.html">Reservations</a></li>
-                                        <li><a href="404.html">404</a></li>
-                                        <li><a href="faq.html">Faq</a></li>
-                                        <li><a href="contact.html">Contact</a></li>
-                                    </ul>
+                                <li class="menu-item has-children"><router-link to="/contact">تماس با ما</router-link>
                                 </li>
                             </ul>
                         </nav>
-                        <!--=== Nav Button ===-->
-                        <div class="menu-button mt-40 d-xl-none">
-                            <a href="contact.html" class="main-btn btn-red">سفارش میز<i class="fas fa-long-arrow-right"></i></a>
-                        </div>
+
                     </div>
                     <!--=== Nav right Item ===-->
                     <div class="nav-right-item d-flex align-items-center"> 
                         <div class="search-button">
                             <div class="search-btn" data-bs-toggle="modal" data-bs-target="#search-modal"><i class="fas fa-search"></i></div>
                         </div>
-                        <div class="nav-call-button">
-                            <span><img src="" alt="icon"><a href="tel:000(123)45689">000 (123) 456 89</a></span>
-                        </div>
                         <div class="menu-button d-xl-block d-none">
-                            <a href="contact.html" class="main-btn btn-red">سفارش میز<i class="fas fa-long-arrow-right"></i></a>
-                        </div>
-                        <div class="navbar-toggler">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                            <a href="contact.html" class="main-btn"><span>شماره تماس : 02122457895<font-awesome-icon :icon="['fas', 'LongArrowAltRight']" /></span></a>
+
                         </div>
                     </div>
                 </div>
@@ -110,3 +78,20 @@
     </div>
 </header><!--====== End Header ======-->
 </template>
+<script>
+export default {
+    name:"Header",
+    data(){
+        fh:""
+    },
+    methods:{
+    isMobile() {
+   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+     return true
+   } else {
+     return false
+   }
+ }
+    },
+}
+</script>

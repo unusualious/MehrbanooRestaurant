@@ -1,28 +1,6 @@
 
 <template>
 
-<!-- <div class="preloader">
-    <div class="loader">
-        <div class="pre-shadow"></div>
-        <div class="pre-box"></div>
-    </div>
-</div> -->
-<!--====== End Preloader ======-->
-<!--====== Search From ======-->
-<div class="modal fade search-modal" id="search-modal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <form>
-                <div class="form_group">
-                    <input type="text" class="form_control" placeholder="Search here" name="search">
-                    <label><i class="fa fa-search"></i></label>
-                </div>
-            </form>
-        </div>
-    </div>
-</div><!--====== Search From ======-->
-<!--====== Start Header ======-->
-<Header />
 <HomeCarouselSection />
 <!--=== Start Banner Section ===-->
 <About />
@@ -39,7 +17,6 @@
                 <!--=== Section Title ===-->
                 <div class="section-title text-center text-white mb-50 wow fadeInDown">
                     <span class="sub-title">بازخورد های مشتریان</span>
-        
                 </div>
             </div>
             <div class="row">
@@ -107,81 +84,24 @@
 </section><!--=== End Testimonial Section ===-->
 
 <!--=== Start Footer ===-->
-<footer class="footer-default light-gray-bg p-r z-1 ">
-    <div class="bg_cover" style="background-image: url(/src/images/bg/dot-bg.png);"></div>
-    <!--=== Footer Widget Area ===-->
-    <div class="footer-widget-area pb-10 pb-40">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <!--=== Footer Widget ===-->
-                    <div class="footer-widget about-company-widget  wow fadeInUp">
-                        <div class="footer-content">
-                            <a href="index.html" class="footer-logo mb-30"><img src="/src/images/logo/logo.png" alt="Brand Logo"></a>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-md-4">
-                    <!--=== Footer Widget ===-->
-                    <div class="footer-widget footer-nav-widget  wow fadeInDown">
-                        <h4 class="widget-title">دسترسی سریع</h4>
-                        <div class="footer-nav-content">
-                            <ul class="footer-nav">
-                                <li><a href="#">درباره رستوران</a></li>
-                                <li><a href="#">اطلاعات تماس</a></li>
-                                <li><a href="#">پیشنهاد های ویژه</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <!--=== Footer Widget ===-->
-                    <div class="footer-widget contact-info-widget pl-lg-70 mb-40 wow fadeInDown">
-                        <div class="contact-info-box mb-20">
-                            <h4 class="widget-title">تماس با ما</h4>
-                            <span class="title">شماره تماس : :</span>
-                            <a href="tel:+125865892">+98 2586 5892</a>
-                            <p><a href="mailto:hello@example.com">hello@example.com</a></p>
-                        </div>
-                        <div class="contact-info-box mb-20">
-                            <span class="title">نشانی : نیاوران، کوچه </span>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--=== Copyright Area ===-->
-    <div class="copyright-area border-top-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <!--=== Copyright Text ===-->
-                    <div class="copyright-text">
-                        <P>&copy; کلیه حقوق این سایت برای رستوران مهربانو محفوظ است</P>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</footer><!--=== End Footer ===-->
 <!--=== End Reservation Section ===-->
 <!--====== Back To Top  ======-->
 <a href="#" class="back-to-top" ><i class="far fa-angle-up"></i></a>
     
 </template>
 <script >
-
-import Header from '../components/Home/Header.vue';
-import HomeCarouselSection from '../components/Home/HomeCarouselSection.vue'; 
-import TabsSection from '../components/Home/TabsSection.vue';
-import About from '../components/Home/About.vue';
-import Services from '../components/Home/Services.vue';
-// import MenuSecond from '../components/Home/MenuSecond.vue';
+    import HomeCarouselSection from '../components/Home/HomeCarouselSection.vue'
+    import TabsSection from '../components/Home/TabsSection.vue'
+    import About from '../components/Home/About.vue'
+    import Services from '../components/Home/Services.vue'
+    // import MenuSecond from '../components/Home/MenuSecond.vue';
+    
 export default {
     name:"home",
+    components: {
+        HomeCarouselSection,TabsSection,About,Services
+  },
   data() {
     return {
       count: 0
@@ -193,7 +113,14 @@ export default {
   methods: {
     increment() {
       this.count++
-    }
+    },
+    isMobile() {
+   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+     return true
+   } else {
+     return false
+   }
+ }
   },
 
   // Lifecycle hooks are called at different stages

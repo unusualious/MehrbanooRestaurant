@@ -22,32 +22,25 @@
         <img :src="'https://picsum.photos/1920/1080?random'+n" />
     </swiper-slide> -->
     <swiper-slide>
-        <img src="/src/images/bg/slide1_mehrbanoo.jpg" alt="">
-    </swiper-slide>
-    <swiper-slide>
-        <img src="/src/images/bg/slide2_mehrbanoo.jpg" alt="">
-    </swiper-slide>
-</Swiper>
-    </div>
-    <section class="bannereo">
+        <section class="bannereo">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-7">
+            <div class="col-lg-7 col-12">
                 <!--=== Hero Content ===-->
                 <div class="bannereo-contents mb-40 pr-lg-40">
-                    <h3> یک سفر خوشمزه را آغاز کنیم </h3>
-                    <h2>      غذای بیرون بر</h2>
+                    <h3  v-if="!isMobile()"> یک سفر خوشمزه را آغاز کنیم </h3>
+                    <h2  v-if="!isMobile()">      غذای بیرون بر</h2>
                     <p class="wow fadeInDown" data-wow-delay=".7s">
                   
 ارسال غذا  با رعایت کلیه نکات بهداشتی و بسته‌بندی اصولی انجام می‌شود. همچنین کلیه سفارشات، متناسب با تعداد آن‌ها، با موتور یا ماشین‌های مخصوص و مجهز به باکس حفظ دما و قفسه نگهدارنده حمل می‌شوند تا غذا با بالاترین کیفیت و کاملاً گرم تحویل گردد.
                     </p>
-                    <div class="hero-button wow animate__animated animate__fadeInUp" data-wow-delay=".9s">
-                        <span><img src="/src/images/down-arrow.png" alt=""></span>
-                        <a href="menu-seafood.html" class="main-btn btn-red">ثبت سفارش<i class="far fa-arrow-right"></i></a>
+                    <div  v-if="!isMobile()" class="hero-button wow animate__animated animate__fadeInUp" data-wow-delay=".9s">
+         
+                        <a href="menu-seafood.html" class="main-btn "><span>ثبت سفارش<i class="far fa-arrow-right"></i></span></a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 ">
+            <div class="col-lg-5 .d-none .d-sm-block">
                 <!--=== Hero Image ===-->
                 <div class="bannereo-img wow animate__animated animate__fadeInRight" data-wow-delay=".7s">
                     <img src="/src/images/hero/ed3err_mehrbanoo.jpg" alt="Hero Image">
@@ -56,6 +49,43 @@
         </div>
     </div>
 </section><!--=== End Banner Section ===-->
+<img v-if="!isMobile()" src="/src/images/bg/slide1_mehrbanoo.jpg" alt="">
+        <img v-else src="/src/images/bg/slide1-mobmehrbanoo.jpg" alt="">
+    </swiper-slide>
+    <swiper-slide>
+        <section class="bannereo">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7 col-12">
+                <!--=== Hero Content ===-->
+                <div class="bannereo-contents mb-40 pr-lg-40">
+                    <h3  v-if="!isMobile()"> یک سفر خوشمزه را آغاز کنیم </h3>
+                    <h2  v-if="!isMobile()">      غذای بیرون بر</h2>
+                    <p class="wow fadeInDown" data-wow-delay=".7s">
+                  
+ارسال غذا  با رعایت کلیه نکات بهداشتی و بسته‌بندی اصولی انجام می‌شود. همچنین کلیه سفارشات، متناسب با تعداد آن‌ها، با موتور یا ماشین‌های مخصوص و مجهز به باکس حفظ دما و قفسه نگهدارنده حمل می‌شوند تا غذا با بالاترین کیفیت و کاملاً گرم تحویل گردد.
+                    </p>
+                    <div  v-if="!isMobile()" class="hero-button wow animate__animated animate__fadeInUp" data-wow-delay=".9s">
+                     
+                        <a href="menu-seafood.html" class="main-btn "><span>ثبت سفارش<i class="far fa-arrow-right"></i></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 .d-none .d-sm-block">
+                <!--=== Hero Image ===-->
+                <div class="bannereo-img wow animate__animated animate__fadeInRight" data-wow-delay=".7s">
+                    <img src="/src/images/hero/ed3err_mehrbanoo.jpg" alt="Hero Image">
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--=== End Banner Section ===-->
+<img v-if="!isMobile()" src="/src/images/bg/slide2_mehrbanoo.jpg" alt="">
+        <img v-else src="/src/images/bg/slide2-mobmehrbanoo.jpg" alt="">
+    </swiper-slide>
+</Swiper>
+    </div>
+
 </template>
 <script >
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper';
@@ -87,10 +117,19 @@ export default {
             centeredSlides: true,
             slidesPerView: 'auto',
             autoplay: {
-                delay: 8000,
+                delay: 80000,
             },
         };
     },
+    methods: {
+    isMobile() {
+   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+     return true
+   } else {
+     return false
+   }
+ }
+  },
 }
 </script>
 <style lang="">

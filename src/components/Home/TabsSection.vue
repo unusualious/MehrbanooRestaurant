@@ -14,7 +14,7 @@
                             <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#starter" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">هم غذاها</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#breakfast" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">صبحانه</button>
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#breakfast" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"> صبحانه های لذیذ</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
@@ -24,7 +24,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/chelojoojekabab.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -46,7 +46,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/chelojoojekabab.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -68,7 +68,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/chelogheimesibzamini.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -90,7 +90,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/chelogheimesibzamini.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -112,7 +112,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/chelogheimebademjan.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -134,7 +134,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/cheloghormesabzi.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -156,7 +156,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/chelogheimenesar.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -178,7 +178,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/zereshkpolobaranemorgh.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -200,7 +200,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/zereshkpolobaranemorgh.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -222,7 +222,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/chelojoojekabab.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -244,7 +244,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-2.png" alt="Img">                                                
+                                            <img src="/src/images/foods/kashkebademjan.png" alt="Img">                                                
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -266,7 +266,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                            <img src="/src/images/foods/mirzaghasemi.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -288,7 +288,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                            <img src="/src/images/foods/shami3adad.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -310,7 +310,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                            <img src="/src/images/foods/koofteberengi.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -332,7 +332,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                            <img src="/src/images/foods/koofteberengi.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -356,7 +356,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                            <img src="/src/images/foods/koofteberengi.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -375,7 +375,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-1.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -394,7 +394,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-1.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -413,7 +413,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-1.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -432,7 +432,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-1.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-1.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -453,7 +453,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-3.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -472,7 +472,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-3.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -491,7 +491,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-3.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -510,7 +510,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-3.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -529,7 +529,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-3.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end --> 
@@ -548,7 +548,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-3.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -569,7 +569,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-3.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -588,7 +588,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-3.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -607,7 +607,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-3.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -626,7 +626,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-3.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -645,7 +645,7 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/menu/thumb-3.png" alt="Img">
+                                            <img src="/src/images/foods/thumb-3.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
@@ -684,6 +684,12 @@ export default {
         padding: 50px;
         margin-right: 15px;
 
+        @media (max-width : 750px) {
+            padding: 0;
+            margin-right: 0;
+
+        }
+
         .nav {
             display: flex;
             justify-content: center !important;
@@ -697,19 +703,20 @@ export default {
 
                 button {
                     color: #fff;
-                    // font-family: mehrit;
-                    font-family: 'marr';
-                    font-weight: 800;
-                    font-size: 22px;
+                    font-weight: 200;
+                    font-family: 'mehrit';
+                    border-radius: 0;
+                    font-size: 17px;
+                    border-bottom: 3px solid #556b2f;
 
                     &.active {
                         border-bottom: none !important;
-    background-color: transparent;
-    color: #eee;
-    border-radius: 6px 6px 0 0;
-    border: 3px solid #556b2f;
-    position: relative;
-    font-weight: 600;
+                        background-color: transparent;
+                        color: #e97451;
+                        border-radius: 6px 6px 0 0;
+                        border: 3px solid #556b2f;
+                        position: relative;
+                        font-weight: 600;
 
                         &::after {
                             content: " ";
@@ -717,9 +724,10 @@ export default {
                             height: 2px;
                             background-color: #556b2f;
                             position: absolute;
-                            bottom:0;
+                            bottom: 0;
                             right: -25px;
                         }
+
                         &::before {
                             content: " ";
                             width: 25px;
@@ -735,92 +743,100 @@ export default {
         }
 
         .tab-content {
-            .tab-pane{
-                &.active{
+            .tab-pane {
+                &.active {
 
-    
-                padding-top: 15px;
-            display: grid;
 
-            @media (min-width: 768px) {
-                grid-column-gap: 40px;
-                grid-template-columns: repeat(2, 1fr);
-            }
+                    padding-top: 15px;
+                    display: grid;
 
-            .menu-item {
-                margin: 25px 14px;
-                padding: 14px 12px;
-                border-radius: 14px;
-                border: 2px solid #242424;
-                &:hover{
-                    border-color: #556b2f;
-                    cursor: pointer;
-                }
-                .item-wrapper {
-                    display: flex;
-                    align-items: baseline;
-                    min-height: 90px;
+                    @media (min-width: 768px) {
+                        grid-column-gap: 40px;
+                        grid-template-columns: repeat(2, 1fr);
+                    }
 
-                    .menu-img {
-                        position: relative;
-                        padding: 0 0 0 95px;
-                        width: 80px;
-                        height: 80px;
+                    .menu-item {
+                        margin: 25px 14px;
+                        padding: 14px 12px;
+                        border-radius: 14px;
+                        border: 2px solid #242424;
 
-                        .menu-img-inner {
-                            width: 80px;
-                            height: 80px;
-                            -webkit-border-radius: 50%;
-                            -moz-border-radius: 50%;
-                            -ms-border-radius: 50%;
-                            -o-border-radius: 50%;
-                            border-radius: 50%;
-                            overflow: hidden;
-
-                            img {
-                                width: 100%;
-                                height: 100%;
-                                left: 50%;
-                                top: 50%;
-                                -webkit-transform: translate(-50%, -50%);
-                                -moz-transform: translate(-50%, -50%);
-                                -ms-transform: translate(-50%, -50%);
-                                -o-transform: translate(-50%, -50%);
-                                transform: translate(-50%, -50%);
-                                object-fit: cover;
-                                object-position: center;
+                        &:hover {
+                            border-color: #556b2f;
+                            cursor: pointer;
+                            img{
+                                transform: translate(-46%, -52%) !important;
                             }
+                        }
+
+                        .item-wrapper {
+                            display: flex;
+                            align-items: baseline;
+                            min-height: 90px;
+
+                            .menu-img {
+                                position: relative;
+                                padding: 0 0 0 95px;
+                                width: 80px;
+                                height: 80px;
+
+                                .menu-img-inner {
+                                    width: 80px;
+                                    height: 80px;
+                                    -webkit-border-radius: 50%;
+                                    -moz-border-radius: 50%;
+                                    -ms-border-radius: 50%;
+                                    -o-border-radius: 50%;
+                                    border-radius: 50%;
+                                    overflow: hidden;
+
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        left: 50%;
+                                        top: 50%;
+                                        transition: all 0.3s ease-in;
+                                        -webkit-transform: translate(-50%, -50%);
+                                        -moz-transform: translate(-50%, -50%);
+                                        -ms-transform: translate(-50%, -50%);
+                                        -o-transform: translate(-50%, -50%);
+                                        transform: translate(-50%, -50%);
+                                        object-fit: cover;
+                                        object-position: center;
+                                    }
+                                }
+                            }
+
+                            .item-price {
+                                font-size: 15px;
+                                font-weight: 800;
+                                text-align: center;
+                                text-transform: uppercase;
+                                color: #e0e0e0;
+                                line-height: 1.5;
+                                letter-spacing: 0.04em;
+                            }
+
+                            h3 {
+                                color: #e0e0e0;
+                                font-family: unset;
+                            }
+                        }
+
+                        .item-description {
+                            color: #e0e0e0;
+                            margin-right: 25px;
                         }
                     }
 
-                    .item-price {
-                        font-size: 15px;
-                        font-weight: 800;
-                        text-align: center;
-                        text-transform: uppercase;
-                        color: #e0e0e0;
-                        line-height: 1.5;
-                        letter-spacing: 0.04em;
-                    }
-                    h3{
-                        color: #e0e0e0;
-                        font-family: unset;
+                    .item-divider {
+                        flex: 1;
+                        border-bottom: 1px dashed #e0e0e0;
+                        margin: 0 15px;
                     }
                 }
-                 .item-description{
-                        color: #e0e0e0;
-                        margin-right: 25px;
-                    }
-            }
-
-            .item-divider {
-                flex: 1;
-                border-bottom: 1px dashed #e0e0e0;
-                margin: 0 15px;
             }
         }
-    }
-    }
     }
 
 
