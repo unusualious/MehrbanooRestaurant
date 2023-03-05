@@ -117,6 +117,7 @@
 html {
   font-size: 100%;
   direction: rtl;
+  overflow-x: hidden;
 }
 
 * {
@@ -403,12 +404,6 @@ textarea.form_control {
   background-repeat: no-repeat;
 }
 
-@media (max-width: 575px) {
-  .sub-title:before, .sub-title:after {
-    display: none;
-  }
-}
-
 .sub-title:before {
   background: url(/src/images/shape/divider2.png);
   background-size: contain;
@@ -494,10 +489,6 @@ ul.ratings li i {
 }
 
 /*===== All Bg =====*/
-.dark-black-bg {
-  background-color: #0E1317;
-}
-
 .dark-red-bg {
   background-color: #e9c46a;
 }
@@ -1072,6 +1063,12 @@ button {
   .working-bg-section .hours-bg {
     display: none;
   }
+}
+
+.testimonial-section-one {
+  background-image: url("/src/images/bg/mepresx.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .testimonial-section-one .shape {
@@ -1750,7 +1747,11 @@ button {
 }
 
 .mobile-header .mobile-top-head .call-btn {
-  margin: 3px 8px;
+  padding: 6px 12px;
+  margin-top: 10px;
+  background: #556b2f;
+  border-radius: 5px;
+  color: #fff;
 }
 
 .mobile-header .ham-menu-absolute {
@@ -3824,8 +3825,6 @@ form.reservation-form .nice-select ul.list {
   position: absolute;
   left: 0;
   top: 0;
-  width: 150px;
-  height: 150px;
   border-radius: 50%;
 }
 
@@ -3893,9 +3892,9 @@ form.reservation-form .nice-select ul.list {
 }
 
 .single-testimonial-one .testimonial-inner-content {
-  background-color: #0E1317;
-  padding: 35px 60px 50px;
-  border: 1px solid #bd9834;
+  background-color: rgba(27, 27, 27, 0.95);
+  padding: 15px 60px 20px;
+  border: 1px solid #e1734a;
 }
 
 @media (max-width: 991px) {

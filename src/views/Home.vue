@@ -8,7 +8,7 @@
 <!-- <MenuSecond /> -->
 <Services />
 <!--=== Start Testimonial Section ===-->
-<section class="testimonial-section-one dark-black-bg p-r z-1 pt-120 pb-120">
+<section class="testimonial-section-one p-r z-1 ">
     <div class="shape line-shape-one"><span><img src="/src/images/shape/line-1.png" alt="Shape"></span></div>
     <div class="shape shape-one"><span><img src="/src/images/hero/01foodstocks.png" alt=""></span></div>
     <div class="container">
@@ -23,9 +23,8 @@
                 <div class="col-lg-4">
                     <!--=== Testimonial Image Box ===-->
                     <div class="testimonial-one_image-box p-r wow fadeInLeft">
-                        <img src="/src/images/testimonial/thumb-1.jpg" class="testimonial-img-one" alt="Testimonial Image">
-                        <img src="/src/images/testimonial/thumb-2.jpg" class="testimonial-img-two" alt="Testimonial Image">
-                        <img src="/src/images/testimonial/thumb-3.jpg" class="testimonial-img-three" alt="Testimonial Image">
+                        <img src="/src/images/testimonial/coconut.png" class="testimonial-img-one" alt="Testimonial Image">
+                        <img src="/src/images/testimonial/tomoto-draw.png" class="testimonial-img-three" alt="Testimonial Image">
                     </div>
                 </div>
                 <div class="col-lg-8">
@@ -41,10 +40,10 @@
                                     <div class="author-quote-box d-flex justify-content-between">
                                         <div class="author-title-thumb d-flex">
                                             <div class="author-thumb">
-                                                <img src="/src/images/testimonial/author-thumb-1.jpg" alt="Author Thumb">
+                                                <img src="/src/images/testimonial/author-thumb-1.png" alt="Author Thumb">
                                             </div>
                                             <div class="author-title">
-                                                <h3 class="title">حمید جلیلی</h3>
+
                                                 <p class="position">مشتری جدید</p>
                                             </div>
                                         </div>
@@ -62,11 +61,10 @@
                                     <div class="author-quote-box d-flex justify-content-between">
                                         <div class="author-title-thumb d-flex">
                                             <div class="author-thumb">
-                                                <img src="/src/images/testimonial/author-thumb-1.jpg" alt="Author Thumb">
+                                                <img src="/src/images/testimonial/author-thumb-1.png" alt="Author Thumb">
                                             </div>
                                             <div class="author-title">
-                                                <h3 class="title">Brian A. Barnes</h3>
-                                                <p class="position">CEO & Founder</p>
+                                                <p class="position">مشتری جدید</p>
                                             </div>
                                         </div>
                                         <div class="quote">

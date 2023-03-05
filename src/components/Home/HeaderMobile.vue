@@ -9,7 +9,9 @@
     <div class="mobile-top-head">
 
         <a href="index.html" class="brand-logo"><img src="/src/images/logo/logo.png" alt="Site Logo"></a>
-        <a href="tel:8665562570" class="main-btn call-btn "><span>تماس بگیرید<font-awesome-icon :icon="['fas', 'phone']" /></span></a>
+        <div>
+            <a href="tel:8665562570" class="call-btn "><span><font-awesome-icon :icon="['fas', 'phone']" /> تماس بگیرید</span></a>
+        </div>
                  
                    
         <div class="hamber">

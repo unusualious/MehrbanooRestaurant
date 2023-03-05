@@ -116,6 +116,7 @@
 html {
     font-size: 100%;
     direction: rtl;
+    overflow-x: hidden;
 }
 
 * {
@@ -410,9 +411,7 @@ textarea.form_control {
         height: 40px;
         background-repeat: no-repeat;
 
-        @media #{$xss} {
-            display: none;
-        }
+        
     }
 
     &:before {
@@ -517,9 +516,6 @@ ul.ratings {
 
 /*===== All Bg =====*/
 
-.dark-black-bg {
-    background-color: #0E1317;
-}
 
 .dark-red-bg {
     background-color: $primary;

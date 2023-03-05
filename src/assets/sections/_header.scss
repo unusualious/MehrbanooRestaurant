@@ -628,7 +628,11 @@
         }
 
         .call-btn {
-            margin: 3px 8px;
+            padding: 6px 12px;
+            margin-top: 10px;
+            background: $green;
+            border-radius: 5px;
+            color: #fff;
         }
     }
 

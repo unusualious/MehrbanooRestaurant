@@ -111,6 +111,9 @@ position: relative;
 }
 
 .testimonial-section-one{
+    background-image: url("/src/images/bg/mepresx.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     & .shape{
         position: absolute;
         z-index: -1;
