@@ -1,6 +1,4 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
 import Home from './views/Home.vue'
 </script>
 
@@ -10,6 +8,9 @@ import Home from './views/Home.vue'
     <!-- <TheWelcome /> -->
     <Home />
   </main>
+  <div>
+      <router-view/>
+  </div>
 </template>
 
 <style scoped>
