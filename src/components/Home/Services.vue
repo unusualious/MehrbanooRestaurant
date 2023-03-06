@@ -4,8 +4,8 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-6 col-lg-12">
                         <div class="section-title text-center mb-40">
-                            <span class="sub-title">خدمات بی نظیر </span>
-                            <h2>چرا مهربانو انتخاب مناسبی برای شماست ؟</h2>
+                            <span class="sub-title">  به مهربانو خوش آمدید </span>
+                            <h2>چرا مهربانو ؟</h2>
                         </div>
                     </div>
                 </div>

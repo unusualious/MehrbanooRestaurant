@@ -58,5 +58,3 @@ export default {
     <Footer/>
   </main>
 </template>
-
-<style scoped></style>

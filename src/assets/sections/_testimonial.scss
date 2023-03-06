@@ -68,8 +68,6 @@
         position: absolute;
         left: 0;
         top: 0;
-        width: 150px;
-        height: 150px;
         border-radius: 50%;
     }
     & .testimonial-img-two{
@@ -128,9 +126,9 @@
         z-index: -1;
     }
     & .testimonial-inner-content{
-        background-color: #0E1317;
-        padding: 35px 60px 50px;
-        border: 1px solid #bd9834;
+        background-color: rgba(27,27, 27,0.95);
+    padding: 15px 60px 20px;
+    border: 1px solid #e1734a;
         @media #{$xm}{
             padding: 35px 30px 50px;
         }
