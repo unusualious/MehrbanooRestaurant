@@ -7,5 +7,6 @@ import './src/assets/main.css'
 import "bootstrap"
 import 'animate.css';
 import router from './router'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(router).component("font-awesome-icon", FontAwesomeIcon).mount('#app')
