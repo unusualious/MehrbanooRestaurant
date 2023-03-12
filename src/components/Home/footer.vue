@@ -5,7 +5,7 @@
     <div class="footer-widget-area pb-10 pb-40">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 col-12">
                     <!--=== Footer Widget ===-->
                     <div class="footer-widget about-company-widget  wow fadeInUp">
                         <div class="footer-content">
@@ -13,7 +13,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" col-md-4">
+                <div class=" col-md-4 .d-none .d-sm-block ">
                     <!--=== Footer Widget ===-->
                     <div class="footer-widget footer-nav-widget  wow fadeInDown">
                         <h4 class="widget-title">دسترسی سریع</h4>
@@ -26,17 +26,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 col-12">
                     <!--=== Footer Widget ===-->
                     <div class="footer-widget contact-info-widget pl-lg-70 mb-40 wow fadeInDown">
                         <div class="contact-info-box mb-20">
                             <h4 class="widget-title">تماس با ما</h4>
                             <span class="title">شماره تماس : :</span>
-                            <a href="tel:+125865892">+98 2586 5892</a>
-                            <p><a href="mailto:hello@example.com">hello@example.com</a></p>
+                            <a href="tel:02126850157">02126850157</a> 
+                            <span>  -  </span>
+                            <a href="tel:٠٩١٢٨٨٩٧٠٠٨">09128897008</a>
+                            <p><a href="mailto:hello@example.com">info@mehrbanoo.restaurant</a></p>
                         </div>
                         <div class="contact-info-box mb-20">
-                            <span class="title">نشانی : نیاوران، کوچه </span>
+                            <span class="title">نشانی :نیاوران- سه راه یاسر- خیابان تبریزی-کوچه محمودی یک </span>
 
                         </div>
                     </div>

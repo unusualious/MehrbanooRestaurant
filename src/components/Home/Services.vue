@@ -19,7 +19,7 @@
                                 <div class="text">
                                     <h3 class="title">کیفیت عالی و پیشرو بودن</h3>
                                     <p>ما همواره تلاش می کنیم در خدمت رسانی به مشتریانمان پیشرو باشیم و کیفیت را سرلوحه کار خود قرار دهیم</p>
-                                    <a href="about.html" class="btn-link">بیشتر بخوانید<i class="far fa-arrow-right"></i></a>
+                                    <a  class="btn-link">بیشتر بخوانید<i class="far fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                                 <div class="text">
                                     <h3 class="title">آشپزان کارآزموده</h3>
                                     <p>تیم آشپزی شکل گرفته از تجربه و جوانی به ترکیبی از تکنیکهای سنتی و مدرن</p>
-                                    <a href="about.html" class="btn-link">بیشتر بخوانید<i class="far fa-arrow-right"></i></a>
+                                    <a  class="btn-link">بیشتر بخوانید<i class="far fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                                 <div class="text">
                                     <h3 class="title">ارسال سریع</h3>
                                     <p>یکی از مهمترین امتیاز ها برای ما تازه بودن غذا ها و رساندن سریع غذاها بدون مشکل سرد شدن </p>
-                                    <a href="about.html" class="btn-link">بیشتر بخوانید<i class="far fa-arrow-right"></i></a>
+                                    <a  class="btn-link">بیشتر بخوانید<i class="far fa-arrow-right"></i></a>
                                 </div>
                             </div>
                         </div>

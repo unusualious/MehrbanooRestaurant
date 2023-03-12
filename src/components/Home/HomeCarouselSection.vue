@@ -50,7 +50,7 @@
     </div>
 </section><!--=== End Banner Section ===-->
 <img v-if="!isMobile()" src="/src/images/bg/slide1_mehrbanoo.jpg" alt="">
-        <img v-else src="/src/images/bg/slide1-mobmehrbanoo.jpg" alt="">
+        <img v-else src="/src/images/bg/slide-mobile-1ess.jpg" alt="">
     </swiper-slide>
     <swiper-slide>
         <section class="bannereo">
@@ -81,7 +81,7 @@
     </div>
 </section><!--=== End Banner Section ===-->
 <img v-if="!isMobile()" src="/src/images/bg/slide2_mehrbanoo.jpg" alt="">
-        <img v-else src="/src/images/bg/slide2-mobmehrbanoo.jpg" alt="">
+        <img v-else src="/src/images/bg/slide-mobile-2ess.jpg" alt="">
     </swiper-slide>
 </Swiper>
     </div>

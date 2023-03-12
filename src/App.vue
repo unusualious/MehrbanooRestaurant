@@ -43,7 +43,7 @@ export default {
         <div class="modal-content">
           <form>
             <div class="form_group">
-              <input type="text" class="form_control" placeholder="Search here" name="search">
+              <input type="text" class="form_control" placeholder="اینجا جستجو کنید" name="search">
               <label><i class="fa fa-search"></i></label>
             </div>
           </form>

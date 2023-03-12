@@ -10,7 +10,7 @@
 
     <div class="container-fluid about-us main-sections about-section light-gray-bg">
         <div class="row  align-items-center">
-            <div class="col-md-6">
+            <div class="col-md-6 col-12">
                 <!--=== About Content Box ===-->
                 <div class="about-content-box content-box-gap mb-40 wow animate__animated animate__fadeInLeft">
                     <div class="section-title section-title-left mb-30">
@@ -23,7 +23,7 @@
                     <a href="menu-seafood.html" class="main-btn "><span class="white">نمایش بیشتر <i class="far fa-arrow-right"></i></span></a>
                 </div>
             </div>
-            <div  v-if="!isMobile()" class="col-md-6">
+            <div v-if="!isMobile()"   class="col-md-6 ">
                 <!--=== About Content Box ===-->
                 <div class="about-image-gallery ml-lg-40">
                     <div class="row">
@@ -36,6 +36,9 @@
                     </div>
                 </div>
             </div>
+            <div v-if="isMobile()" class="about-image-gallery ml-lg-40">
+                            <img src="/src/images/foods/gheimenesar-left.jpg" class="mb-40 wow animate__animated animate__fadeInDown" alt="About Image">
+                </div>
         </div>
     </div>
 </template>

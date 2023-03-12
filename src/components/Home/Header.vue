@@ -31,7 +31,7 @@
                 <!--=== Site Branding ===-->
                 <div class="site-branding">
                     <!-- <a href="index.html" class="brand-logo"><img src="/src/images/logo/logo-white.png" alt="Site Logo"></a> -->
-                    <a href="index.html" class="brand-logo"><img src="/src/images/logo/logo.png" alt="Site Logo"></a>
+                    <router-link class="brand-logo" to="/"><img src="/src/images/logo/logo.png" alt="Site Logo"></router-link>
                 </div>
                 <!--=== Nav Inner Menu ===-->
                 <div class="nav-inner-menu">
@@ -65,10 +65,10 @@
                     <!--=== Nav right Item ===-->
                     <div class="nav-right-item d-flex align-items-center"> 
                         <div class="search-button">
-                            <div class="search-btn" data-bs-toggle="modal" data-bs-target="#search-modal"><i class="fas fa-search"></i></div>
+                            <div class="search-btn" data-bs-toggle="modal" data-bs-target="#search-modal"> جستجو ..<i class="fas fa-search"></i></div>
                         </div>
                         <div class="menu-button d-xl-block d-none">
-                            <a href="contact.html" class="main-btn"><span>شماره تماس : 02122457895<font-awesome-icon :icon="['fas', 'LongArrowAltRight']" /></span></a>
+                            <a href="contact.html" class="main-btn"><span>شماره تماس : 02126850157<font-awesome-icon :icon="['fas', 'LongArrowAltRight']" /></span></a>
 
                         </div>
                     </div>

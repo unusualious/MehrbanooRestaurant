@@ -67,29 +67,6 @@
 }
 
 @font-face {
-  font-family: 'nitiuu';
-  src: url("/src/assets/fonts/PelakFABold.ttf");
-  src: url("/src/assets/fonts/PelakFABold.eot?#iefix") format("embedded-opentype"), url("/src/assets/fonts/PelakFABold.woff2") format("woff2"), url("/src/assets/fonts/PelakFABold.ttf") format("true-type"), url("/src/assets/fonts/PelakFABold.woff") format("woff");
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'nitiuu';
-  src: url("/src/assets/fonts/PelakFA-ExtraBold.ttf");
-  src: url("/src/assets/fonts/PelakFA-ExtraBold.eot?#iefix") format("embedded-opentype"), url("/src/assets/fonts/PelakFA-ExtraBold.woff2") format("woff2"), url("/src/assets/fonts/PelakFA-ExtraBold.ttf") format("true-type"), url("/src/assets/fonts/PelakFA-ExtraBold.woff") format("woff");
-  font-style: normal;
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: 'nitiuu';
-  src: url("/src/assets/fonts/PelakFA-light.ttf");
-  src: url("/src/assets/fonts/PelakFA-light.eot?#iefix") format("embedded-opentype"), url("/src/assets/fonts/PelakFA-light.woff2") format("woff2"), url("/src/assets/fonts/PelakFA-light.ttf") format("true-type"), url("/src/assets/fonts/PelakFA-light.woff") format("woff");
-  font-style: normal;
-  font-weight: 100;
-}
-
-@font-face {
   font-family: 'yekan';
   src: url("/src/assets/fonts/Yekan-Bakh-Medium.eot");
   src: url("/src/assets/fonts/Yekan-Bakh-Medium.woff?#iefix") format("woff"), url("/src/assets/fonts/Yekan-Bakh-Medium.woff2") format("woff2"), url("/src/assets/fonts/Yekan-Bakh-Medium.ttf") format("true-type");
@@ -170,12 +147,12 @@ h6 {
 }
 
 h1 {
-  font-size: 30px;
+  font-size: 26px;
   line-height: 1em;
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 23px;
   line-height: 53px;
 }
 
@@ -212,8 +189,9 @@ ol {
 }
 
 p {
-  color: #666666;
+  color: #212121;
   margin: 0px;
+  text-align: justify;
 }
 
 input,
@@ -229,9 +207,9 @@ img {
 body {
   font-weight: normal;
   font-style: normal;
-  color: #666666;
-  font-family: "estedad", Open Sans;
-  font-size: 19px;
+  color: #212121;
+  font-family: "yekan", Open Sans;
+  font-size: 17px;
   line-height: 29px;
   overflow-x: hidden;
 }
@@ -440,6 +418,7 @@ textarea.form_control {
 @media (max-width: 767px) {
   .section-title.section-title-left .sub-title {
     font-size: 16px;
+    margin: 0 20px;
   }
 }
 
@@ -1688,19 +1667,35 @@ button {
 .mobile-header .mobile-top-head {
   display: flex;
   position: relative;
-  padding: 10px;
+  padding: 8px;
+  align-items: center;
+}
+
+.mobile-header .mobile-top-head .mobile-top-head-item {
+  flex-grow: 1;
+  flex-basis: 30%;
+}
+
+.mobile-header .mobile-top-head .mobile-top-head-item:not(.call-btn-sec) {
+  max-width: 30%;
 }
 
 .mobile-header .mobile-top-head a {
   flex: 1 1 auto;
+  text-align: right;
 }
 
 .mobile-header .mobile-top-head a img {
-  width: 115px;
+  width: 100px;
+}
+
+.mobile-header .mobile-top-head .call-btn-sec {
+  text-align: center;
 }
 
 .mobile-header .mobile-top-head .hamber {
   flex: 1 1 auto;
+  text-align: left;
   width: auto;
   margin: 0 auto;
   -webkit-transition: all .7s ease;
@@ -1715,9 +1710,9 @@ button {
 
 .mobile-header .mobile-top-head .bar {
   display: block;
-  height: 5px;
-  width: 40px;
-  background: #e9c46a;
+  height: 3px;
+  width: 35px;
+  background: #fff;
   border-radius: 35px;
   margin: 10px auto;
   -webkit-transition: all .7s ease;
@@ -1752,7 +1747,49 @@ button {
   margin-top: 10px;
   background: #556b2f;
   border-radius: 5px;
+  font-family: 'marr';
   color: #fff;
+}
+
+.mobile-header .menu-elements {
+  position: fixed;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 89vh;
+  top: 11vh;
+  left: 0;
+  padding: 100px 25px;
+  text-align: center;
+  border-top: 2px solid #576b2b;
+  background: rgba(38, 42, 27, 0.95);
+  -webkit-transition: all 400ms ease-out;
+  -moz-transition: all 400ms ease-out;
+  -ms-transition: all 400ms ease-out;
+  -o-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+}
+
+.mobile-header .menu-elements ul li {
+  padding: 11px 15px;
+}
+
+.mobile-header .menu-elements ul li a {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: 'marr';
+}
+
+.mobile-header .menu-elements .search-btn {
+  color: #fff;
+  margin-bottom: 40px;
+  margin-top: -20px;
+}
+
+.mobile-header .menu-elements.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .mobile-header .ham-menu-absolute {
@@ -1832,26 +1869,36 @@ button {
 
 @media (max-width: 767px) {
   .bannereo .bannereo-contents {
-    margin: 5px 10px;
+    margin: 10px;
+    border: 4px solid rgba(229, 194, 96, 0.35);
+    padding: 0 15px;
   }
 }
 
-.bannereo .bannereo-contents h3 {
+.bannereo h3 {
   margin: 15px 4px;
   color: #fff;
   font-family: 'marr';
 }
 
-.bannereo .bannereo-contents h2 {
+.bannereo h2 {
   margin: 15px 4px;
   color: #e97451;
 }
 
-.bannereo .bannereo-contents p {
+.bannereo p {
   color: #fff;
   line-height: 2.2;
-  font-size: 19px;
+  font-size: 17px;
   margin: 20px 0;
+}
+
+@media (max-width: 767px) {
+  .bannereo p {
+    line-height: 1.8;
+    font-size: 18px;
+    text-align: justify;
+  }
 }
 
 /*====== Banner Two ======*/
@@ -1900,7 +1947,7 @@ button {
   background: url(../images/hero/tag-bg.png) no-repeat;
   background-size: cover;
   color: #fff;
-  font: 400 27px "estedad", cursive;
+  font: 400 27px "yekan", cursive;
   margin-bottom: 40px;
 }
 
@@ -2020,26 +2067,15 @@ button {
 
 /*====== Page Banner ======*/
 .page-banner {
-  padding: 290px 0 150px;
+  padding: 160px 0 120px;
   position: relative;
   z-index: 1;
 }
 
 @media (max-width: 1199px) {
   .page-banner {
-    padding: 210px 0 150px;
+    padding: 180px 0 150px;
   }
-}
-
-.page-banner:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: '';
-  width: 100%;
-  height: 100%;
-  background-color: rgba(10, 0, 0, 0.8);
-  z-index: -1;
 }
 
 .page-banner .page-banner-content h1 {
@@ -2317,6 +2353,7 @@ button {
 
 .single-features-item-two h3.title {
   margin-bottom: 13px;
+  font-family: 'marr';
 }
 
 .single-features-item-two P {
@@ -2621,7 +2658,7 @@ button {
 }
 
 .menu-grid-item-one .text span.price {
-  font: 400 27px "estedad", cursive;
+  font: 400 27px "yekan", cursive;
   line-height: 30px;
   color: #e9c46a;
 }
@@ -2759,7 +2796,7 @@ button {
 }
 
 .menu-grid-item-two .text span.price {
-  font: 400 27px "estedad", cursive;
+  font: 400 27px "yekan", cursive;
   line-height: 30px;
   color: #e9c46a;
 }
@@ -3011,7 +3048,7 @@ ul.slick-dots li.slick-active {
   background-color: #e9c46a;
   padding: 13px 25px;
   color: #fff;
-  font: 400 27px "estedad", cursive;
+  font: 400 27px "yekan", cursive;
   line-height: 30px;
   margin-inline-start: -70px;
   margin-bottom: 30px;
@@ -3035,7 +3072,7 @@ ul.slick-dots li.slick-active {
 
 .single-history-item .history-content-box .author-title-thumb .author-title h4 span {
   font-size: 16px;
-  color: #666666;
+  color: #212121;
 }
 
 .single-hour-box h4.title {
@@ -3107,7 +3144,7 @@ ul.slick-dots li.slick-active {
 }
 
 .single-info-box .info p {
-  font-family: "estedad", cursive;
+  font-family: "yekan", cursive;
   color: #0E1317;
   font-size: 24px;
   line-height: 32px;
@@ -3256,7 +3293,7 @@ ul.slick-dots li.slick-active {
   height: 60px;
   border: 1px solid rgba(14, 19, 23, 0.1);
   color: #0E1317;
-  font: 600 20px "estedad", cursive;
+  font: 600 20px "yekan", cursive;
   margin-bottom: 10px;
 }
 
@@ -3824,6 +3861,7 @@ form.reservation-form .nice-select ul.list {
 
 .testimonial-one_image-box .testimonial-img-one {
   position: absolute;
+  width: 66px;
   left: 0;
   top: 0;
   border-radius: 50%;
@@ -3965,7 +4003,7 @@ form.reservation-form .nice-select ul.list {
 
 .single-testimonial-two .testimonial-inner-content > p {
   color: #fff;
-  font: 400 35px "estedad", cursive;
+  font: 400 35px "yekan", cursive;
   line-height: 46px;
   margin-bottom: 32px;
 }
@@ -4156,7 +4194,7 @@ form.reservation-form .nice-select ul.list {
   padding: 5px 15px;
   display: inline-block;
   background-color: #e9c46a;
-  font: 500 14px "estedad", Open Sans;
+  font: 500 14px "yekan", Open Sans;
   color: #fff;
 }
 
@@ -4232,7 +4270,7 @@ form.reservation-form .nice-select ul.list {
   padding: 5px 15px;
   display: inline-block;
   background-color: #e9c46a;
-  font: 500 14px "estedad", Open Sans;
+  font: 500 14px "yekan", Open Sans;
   color: #fff;
   margin-bottom: 10px;
 }
@@ -4298,7 +4336,7 @@ form.reservation-form .nice-select ul.list {
   background-color: rgba(223, 63, 0, 0.07);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
-  font: 400 27px "estedad", cursive;
+  font: 400 27px "yekan", cursive;
   line-height: 30px;
   width: 100%;
   color: #0E1317;
@@ -4468,7 +4506,7 @@ form.reservation-form .nice-select ul.list {
   height: 80px;
   border-radius: 50%;
   background-color: #e9c46a;
-  font: 400 24px "estedad", cursive;
+  font: 400 24px "yekan", cursive;
   color: #fff;
   line-height: 26px;
   padding: 10px;
@@ -4509,7 +4547,7 @@ form.reservation-form .nice-select ul.list {
 
 .single-product-item .product-info span.price {
   color: #e9c46a;
-  font: 400 27px "estedad", cursive;
+  font: 400 27px "yekan", cursive;
   line-height: 30px;
 }
 
@@ -4633,7 +4671,7 @@ form.reservation-form .nice-select ul.list {
 }
 
 .product-details-wrapper .product-info ul.social-link li span {
-  font: 400 24px "estedad", cursive;
+  font: 400 24px "yekan", cursive;
   color: #0E1317;
   margin-inline-end: 15px;
 }
@@ -4659,7 +4697,7 @@ form.reservation-form .nice-select ul.list {
 .description-tabs .nav-link {
   position: relative;
   padding: 0;
-  font: 400 27px "estedad", cursive;
+  font: 400 27px "yekan", cursive;
   color: #0E1317;
   margin-inline-end: 50px;
   padding-bottom: 20px;
@@ -4762,7 +4800,7 @@ form.reservation-form .nice-select ul.list {
 
 .products-sidebar-area .product-category-widget .category-nav li a span.dot-border {
   flex-grow: 1;
-  border-bottom: 1px dashed #666666;
+  border-bottom: 1px dashed #212121;
   margin-bottom: 5px;
 }
 
@@ -4774,7 +4812,7 @@ form.reservation-form .nice-select ul.list {
   border: none;
   font-size: 16px;
   line-height: 22px;
-  color: #666666;
+  color: #212121;
 }
 
 .products-sidebar-area .price-range-widget .ui-widget-content {
@@ -5229,7 +5267,7 @@ form.reservation-form .nice-select ul.list {
 .blog-details-wrapper .blog-post .main-post .entry-content .quote-admin .quote-inner-content .quote-admin-content h5 {
   display: flex;
   align-items: center;
-  font: 600 18px "estedad", Open Sans;
+  font: 600 18px "yekan", Open Sans;
 }
 
 .blog-details-wrapper .blog-post .main-post .entry-content .quote-admin .quote-inner-content .quote-admin-content h5:before {
@@ -5253,7 +5291,7 @@ form.reservation-form .nice-select ul.list {
 }
 
 .blog-details-wrapper .blog-post .entry-footer .tag-links a {
-  font: 400 18px "estedad", cursive;
+  font: 400 18px "yekan", cursive;
   margin-inline-start: 5px;
 }
 
@@ -5482,7 +5520,7 @@ form.reservation-form .nice-select ul.list {
 }
 
 .comments-area .comment .comment-wrap .comment-author-content span.author-name {
-  font: 400 24px "estedad", cursive;
+  font: 400 24px "yekan", cursive;
   color: #0E1317;
 }
 
@@ -5493,8 +5531,8 @@ form.reservation-form .nice-select ul.list {
 }
 
 .comments-area .comment .comment-wrap .comment-author-content span.author-name span.date {
-  font: 400 14px "estedad", Open Sans;
-  color: #666666;
+  font: 400 14px "yekan", Open Sans;
+  color: #212121;
   margin-inline-start: 20px;
 }
 

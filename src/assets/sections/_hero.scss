@@ -28,7 +28,11 @@
     margin: 20px;
     border: 10px solid rgba(229,194,96,0.35);
     @media #{$xs} {
-        margin: 5px 10px;
+            margin: 10px;
+            border: 4px solid rgba(229,194,96,0.35);
+            padding: 0 15px;
+
+          }
     }
     // background: rgba(69,25,16,0.5);
     h3{
@@ -43,11 +47,14 @@
     p{
         color: #fff;
         line-height: 2.2;
-        font-size: 19px;
+        font-size: 17px;
         margin: 20px 0;
-
+        @media #{$xs} {
+            line-height: 1.8;
+            font-size: 18px;
+            text-align: justify;
+          }
     }
-  }
 }
 
 
@@ -183,22 +190,13 @@
 /*====== Page Banner ======*/ 
 
 .page-banner{
-    padding: 290px 0 150px;
+    padding: 160px 0 120px;
     position: relative;
     z-index: 1;
     @media #{$lm}{
-        padding: 210px 0 150px;
+        padding: 180px 0 150px;
     }
-    &:after{
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
-        width: 100%;
-        height: 100%;
-        background-color: rgba(10, 0, 0, 0.8);
-        z-index: -1;
-    }
+
     & .page-banner-content{
         & h1{
             font-size: 90px;

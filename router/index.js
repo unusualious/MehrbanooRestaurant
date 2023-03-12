@@ -11,22 +11,14 @@ import '../src/assets/main.css'
 import "bootstrap"
 import 'animate.css'
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faPhone,faMagnifyingGlass,faLongArrowAltRight} from "@fortawesome/free-solid-svg-icons";
+import { faPhoneFlip,faPhone,faMagnifyingGlass,faLongArrowAltRight} from "@fortawesome/free-solid-svg-icons";
 
 
-library.add(faPhone,faMagnifyingGlass,faLongArrowAltRight);
+library.add(faPhoneFlip,faPhone,faMagnifyingGlass,faLongArrowAltRight);
 
 const routes = [
-<<<<<<<
     { path: '/', component: Home },
-=======
-    {
-        path: '/',
-        // redirect: { path: "/index.html" },
-        name: 'Home',
-        component: Home
-    },
->>>>>>>
+
     { path: '/aboutus', component: AboutUs },
     { path: '/blog', component: Blog },
     { path: '/gallery', component: Gallery },

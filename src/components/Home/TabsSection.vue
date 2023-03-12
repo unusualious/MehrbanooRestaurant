@@ -943,7 +943,7 @@ export default {
             display: flex;
             justify-content: center !important;
             flex-wrap: nowrap;
-            align-items: flex-start;
+            align-items: flex-end;
             padding: 6px 2px;
             border-radius: 5px;
 
@@ -955,7 +955,7 @@ export default {
                     font-weight: 200;
                     font-family: 'mehrit';
                     border-radius: 0;
-                    font-size: 17px;
+                    font-size: 16px;
                     border-bottom: 3px solid #556b2f;
 
                     &.active {
@@ -1010,17 +1010,22 @@ export default {
                         border-radius: 14px;
                         border: 2px solid #242424;
 
+                        @media (max-width: 768px) {
+                            margin: 20px 0;
+                        }
+
                         &:hover {
                             border-color: #556b2f;
                             cursor: pointer;
-                            img{
+
+                            img {
                                 transform: translate(-46%, -52%) !important;
                             }
                         }
 
                         .item-wrapper {
                             display: flex;
-                            align-items: baseline;
+                            align-items: center;
                             min-height: 90px;
 
                             .menu-img {
@@ -1060,21 +1065,27 @@ export default {
                                 font-size: 15px;
                                 font-weight: 800;
                                 text-align: center;
+                                font-family: 'marr';
                                 text-transform: uppercase;
                                 color: #e0e0e0;
                                 line-height: 1.5;
                                 letter-spacing: 0.04em;
+
                             }
 
                             h3 {
                                 color: #e0e0e0;
-                                font-family: unset;
+                                font-family: 'marr';
+                                font-size: 18px;
+                                line-height: 1.4;
                             }
                         }
 
                         .item-description {
                             color: #e0e0e0;
                             margin-right: 25px;
+                            font-family: 'marr';
+                            font-size: 17px;
                         }
                     }
 
@@ -1090,5 +1101,4 @@ export default {
 
 
 
-}
-</style>
+}</style>
