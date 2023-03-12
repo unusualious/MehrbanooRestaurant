@@ -17,7 +17,16 @@ import { faPhone,faMagnifyingGlass,faLongArrowAltRight} from "@fortawesome/free-
 library.add(faPhone,faMagnifyingGlass,faLongArrowAltRight);
 
 const routes = [
+<<<<<<<
     { path: '/', component: Home },
+=======
+    {
+        path: '/',
+        // redirect: { path: "/index.html" },
+        name: 'Home',
+        component: Home
+    },
+>>>>>>>
     { path: '/aboutus', component: AboutUs },
     { path: '/blog', component: Blog },
     { path: '/gallery', component: Gallery },
