@@ -923,7 +923,7 @@ button {
 }
 
 .parallax-sight {
-  padding: 100px 30px;
+  padding: 90px 30px 60px;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -936,7 +936,7 @@ button {
 }
 
 .parallax-sight.one {
-  background-image: url("/src/images/e2csce.jpg");
+  background-image: url("/src/images/e2c48hio.webp");
 }
 
 .about-shape-section .shape {
