@@ -1,5 +1,5 @@
 <template lang="">
-<section class="features-section main-sections light-gray-bg pb-75">
+<section class="features-section main-sections">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-6 col-lg-12">

@@ -349,7 +349,7 @@ textarea.form_control {
   justify-content: center;
 }
 
-.top-bar .top-right ul.social-link li a:hover, .top-bar.text-white .top-right ul.social-link li a:hover, .header-navigation .nav-right-item .nav-call-button span a:hover, .navigation-white.header-navigation .nav-right-item .nav-call-button span a:hover, .single-menu-item .text h3.item-title-price:hover, .single-menu-item-two .text h3.item-title-price:hover, .single-menu-item-three .text h3.item-title-price:hover, .products-sidebar-area .product-category-widget .category-nav li a:hover, .blog-item-one .entry-content h3.title:hover, .blog-item-two .entry-content h3.title:hover, .blog-quote-item .entry-content h3.title:hover, .blog-details-wrapper .blog-post .entry-footer .tag-links a:hover, .sidebar-widget-area .category-widget .category-nav li a:hover, .sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content .post-title-date span.posted-on:hover, .footer-nav-content ul.footer-nav li a:hover, .contact-info-widget .contact-info-box h3:hover, .contact-info-widget .contact-info-box > p:hover a, .copyright-area .copyright-nav ul li a:hover {
+.top-bar .top-right ul.social-link li a:hover, .top-bar.text-white .top-right ul.social-link li a:hover, .header-navigation .nav-right-item .nav-call-button span a:hover, .navigation-white.header-navigation .nav-right-item .nav-call-button span a:hover, .single-menu-item .text h3.item-title-price:hover, .single-menu-item-two .text h3.item-title-price:hover, .single-menu-item-three .text h3.item-title-price:hover, .products-sidebar-area .product-category-widget .category-nav li a:hover, .blog-details-wrapper .blog-post .entry-footer .tag-links a:hover, .sidebar-widget-area .category-widget .category-nav li a:hover, .sidebar-widget-area .recent-post-widget .recent-post-list .post-thumbnail-content .post-title-date span.posted-on:hover, .footer-nav-content ul.footer-nav li a:hover, .contact-info-widget .contact-info-box h3:hover, .contact-info-widget .contact-info-box > p:hover a, .copyright-area .copyright-nav ul li a:hover {
   color: #e9c46a;
 }
 
@@ -1046,7 +1046,7 @@ button {
 }
 
 .testimonial-section-one {
-  background-image: url("/src/images/bg/mepresx.jpg");
+  background-image: url("/src/images/bg/mepresx.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -3943,7 +3943,6 @@ form.reservation-form .nice-select ul.list {
 }
 
 .single-testimonial-one .testimonial-inner-content > p {
-  font-size: 19px;
   line-height: 45px;
   color: #FFFFFF;
   margin-bottom: 40px;
@@ -4997,43 +4996,44 @@ form.reservation-form .nice-select ul.list {
   margin-inline-end: 8px;
 }
 
-.blog-item-one .post-thumbnail {
+.blog-portion {
+  padding: 40px 0;
+}
+
+.blog-portion:not(.no-bg) {
+  background-image: url(/src/images/bg/banner-2-ripoo.webp);
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}
+
+.blog-portion.no-bg {
+  background: #e4e4e4;
+}
+
+.blog-portion .blog-portion-part {
+  margin: 0 6px;
+  border-radius: 15px;
+  box-shadow: rgba(25, 25, 25, 0.4) 3px 1px 7px 1px;
+}
+
+.blog-portion .blog-portion-part .post-thumbnail {
   position: relative;
+  border-bottom: 4px solid #eae7df;
 }
 
-.blog-item-one .post-thumbnail img {
+.blog-portion .blog-portion-part .post-thumbnail img {
   width: 100%;
+  border-radius: 15px 15px 0 0;
 }
 
-.blog-item-one .post-thumbnail .post-date {
-  position: absolute;
-  bottom: -35px;
-  right: 30px;
+.blog-portion .blog-portion-part .entries {
+  padding: 30px 18px;
+  background: white;
+  border-radius: 0 0 15px 15px;
 }
 
-.blog-item-one .post-thumbnail .post-date a {
-  text-align: center;
-  background-color: #fff;
-  color: #0E1317;
-  padding: 8px 18px;
-  font-size: 30px;
-  font-weight: 600;
-  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
-}
-
-.blog-item-one .post-thumbnail .post-date a span {
-  display: block;
-  font-size: 16px;
-  line-height: 22px;
-  text-transform: uppercase;
-}
-
-.blog-item-one .entry-content {
-  padding-top: 35px;
-}
-
-.blog-item-one .entry-content span.tag-btn {
+.blog-portion .blog-portion-part .entries span.tag-btn {
   padding: 5px 15px;
   border-radius: 14px;
   font-weight: 600;
@@ -5042,159 +5042,37 @@ form.reservation-form .nice-select ul.list {
   background-color: #e9c46a;
   color: #fff;
   margin-bottom: 18px;
+  position: absolute;
+  top: -20px;
 }
 
-.blog-item-one .entry-content h3.title {
-  font-size: 27px;
-  line-height: 34px;
-  margin-bottom: 18px;
+.blog-portion .blog-portion-part .entries h3.title {
+  font-size: 21px;
+  line-height: 26px;
+  letter-spacing: 0.4px;
+  margin-bottom: 20px;
+  font-family: 'marr';
+  text-shadow: 0px 1px 0 #212121;
 }
 
-@media (max-width: 1199px) {
-  .blog-item-one .entry-content h3.title {
-    font-size: 22px;
-    line-height: 32px;
-  }
+.blog-portion .blog-portion-part .entries h3.title:hover {
+  color: #e1734a;
+  text-shadow: 0px 1px 0 #e1734a;
 }
 
-.blog-item-one .entry-content p {
+.blog-portion .blog-portion-part .entries p {
   margin-bottom: 15px;
 }
 
-.blog-item-two .post-thumbnail {
-  position: relative;
-}
-
-.blog-item-two .post-thumbnail img {
-  width: 100%;
-}
-
-.blog-item-two .post-thumbnail .post-date {
-  position: absolute;
-  bottom: -35px;
-  right: 30px;
-}
-
-.blog-item-two .post-thumbnail .post-date a {
+.blog-portion .blog-more {
+  padding-top: 35px;
   text-align: center;
-  background-color: #e9c46a;
-  color: #fff;
-  padding: 8px 18px;
-  font-size: 30px;
-  font-weight: 600;
-  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
-}
-
-.blog-item-two .post-thumbnail .post-date a span {
-  display: block;
-  font-size: 16px;
-  line-height: 22px;
-  text-transform: uppercase;
-}
-
-.blog-item-two .entry-content {
-  padding-top: 40px;
-}
-
-.blog-item-two .entry-content .post-meta {
-  margin-bottom: 7px;
-}
-
-.blog-item-two .entry-content .post-meta ul li {
-  margin-inline-end: 20px;
-  margin-bottom: 10px;
-}
-
-.blog-item-two .entry-content h3.title {
-  font-size: 30px;
-  line-height: 37px;
-  color: #000000;
-  margin-bottom: 12px;
-}
-
-@media (max-width: 767px) {
-  .blog-item-two .entry-content h3.title {
-    font-size: 22px;
-    line-height: 30px;
-  }
-}
-
-.blog-item-two .entry-content > p {
-  margin-bottom: 30px;
-}
-
-.blog-quote-item {
-  background-color: #FCECE6;
-  padding: 32px 40px 36px;
-}
-
-.blog-quote-item .entry-content h3.title {
-  font-size: 30px;
-  line-height: 37px;
-  margin-bottom: 8px;
-  color: #000;
-}
-
-@media (max-width: 767px) {
-  .blog-quote-item .entry-content h3.title {
-    font-size: 22px;
-    line-height: 30px;
-  }
-}
-
-.blog-quote-item .entry-content h5 {
-  display: inline-flex;
-  align-items: center;
-  color: #000;
-}
-
-.blog-quote-item .entry-content h5::before {
-  display: inline-flex;
-  content: '';
-  width: 55px;
-  height: 1px;
-  background-color: #0E1317;
-  margin-inline-end: 15px;
-}
-
-.blog-standard-section .sidebar-widget-area,
-.blog-details-section .sidebar-widget-area {
-  margin-inline-end: 30px;
-}
-
-@media (max-width: 1199px) {
-  .blog-standard-section .sidebar-widget-area,
-  .blog-details-section .sidebar-widget-area {
-    margin-inline-end: 0px;
-  }
-}
-
-.blog-details-wrapper,
-.blog-standard-wrapper {
-  padding-inline-start: 50px;
-  padding-inline-end: 75px;
-}
-
-@media only screen and (min-width: 1200px) and (max-width: 1600px) {
-  .blog-details-wrapper,
-  .blog-standard-wrapper {
-    padding-inline-start: 20px;
-    padding-inline-end: 30px;
-  }
-}
-
-@media (max-width: 1199px) {
-  .blog-details-wrapper,
-  .blog-standard-wrapper {
-    padding-inline-start: 0px;
-    padding-inline-end: 0px;
-  }
 }
 
 .blog-details-wrapper .blog-post .post-thumbnail {
   position: relative;
   margin-bottom: 40px;
+  border-bottom: 4px solid #eae7df;
 }
 
 .blog-details-wrapper .blog-post .post-thumbnail .post-date {
@@ -5226,24 +5104,24 @@ form.reservation-form .nice-select ul.list {
   margin-bottom: 10px;
 }
 
-.blog-details-wrapper .blog-post .main-post .entry-content h3.title {
+.blog-details-wrapper .blog-post .main-post .entries h3.title {
   font-size: 30px;
   line-height: 37px;
   margin-bottom: 10px;
 }
 
 @media (max-width: 991px) {
-  .blog-details-wrapper .blog-post .main-post .entry-content h3.title {
+  .blog-details-wrapper .blog-post .main-post .entries h3.title {
     font-size: 24px;
     line-height: 32px;
   }
 }
 
-.blog-details-wrapper .blog-post .main-post .entry-content > p {
+.blog-details-wrapper .blog-post .main-post .entries > p {
   margin-bottom: 35px;
 }
 
-.blog-details-wrapper .blog-post .main-post .entry-content .quote-admin {
+.blog-details-wrapper .blog-post .main-post .entries .quote-admin {
   padding: 20px 40px 25px;
   border-inline-start: 3px solid red;
   background-color: #fff;
@@ -5251,26 +5129,26 @@ form.reservation-form .nice-select ul.list {
   margin-bottom: 30px;
 }
 
-.blog-details-wrapper .blog-post .main-post .entry-content .quote-admin .quote-inner-content .quote-admin-content h3 {
+.blog-details-wrapper .blog-post .main-post .entries .quote-admin .quote-inner-content .quote-admin-content h3 {
   font-size: 27px;
   line-height: 36px;
   margin-bottom: 10px;
 }
 
 @media (max-width: 991px) {
-  .blog-details-wrapper .blog-post .main-post .entry-content .quote-admin .quote-inner-content .quote-admin-content h3 {
+  .blog-details-wrapper .blog-post .main-post .entries .quote-admin .quote-inner-content .quote-admin-content h3 {
     font-size: 22px;
     line-height: 30px;
   }
 }
 
-.blog-details-wrapper .blog-post .main-post .entry-content .quote-admin .quote-inner-content .quote-admin-content h5 {
+.blog-details-wrapper .blog-post .main-post .entries .quote-admin .quote-inner-content .quote-admin-content h5 {
   display: flex;
   align-items: center;
   font: 600 18px "yekan", Open Sans;
 }
 
-.blog-details-wrapper .blog-post .main-post .entry-content .quote-admin .quote-inner-content .quote-admin-content h5:before {
+.blog-details-wrapper .blog-post .main-post .entries .quote-admin .quote-inner-content .quote-admin-content h5:before {
   display: inline-flex;
   content: '';
   width: 45px;
@@ -5448,17 +5326,6 @@ form.reservation-form .nice-select ul.list {
 
 .post-navigation-item .post-nav-item .content h6:hover {
   color: #e9c46a;
-}
-
-.post-navigation-item .post-nav-item .content span.post-date {
-  font-size: 14px;
-  line-height: 19px;
-  color: #e9c46a;
-  margin-bottom: 10px;
-}
-
-.post-navigation-item .post-nav-item .content span.post-date i {
-  margin-inline-end: 10px;
 }
 
 .comments-area {

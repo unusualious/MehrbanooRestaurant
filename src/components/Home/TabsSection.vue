@@ -488,14 +488,14 @@
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/foods/mirzaghasemi.Webp" alt="Img">
+                                            <img src="/src/images/foods/mirzaghasemi.webp" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
                                     <!-- section title start -->
                                     <div>
                                         <h3>میرزاقاسمی</h3>
-                                        <span v-if="isMobile()" class="item-price">95,000 تومان</span>
+                                        <span v-if="isMobile()" clanpm run devss="item-price">95,000 تومان</span>
                                     </div>
                                     <span v-if="!isMobile()"  class="item-divider"></span>
                                     <span v-if="!isMobile()" class="item-price">110,000 تومان</span>

@@ -7,6 +7,8 @@
 <TabsSection />
 <!-- <MenuSecond /> -->
 <Services />
+<Blog/>
+
 <!--=== Start Testimonial Section ===-->
 <section class="testimonial-section-one p-r z-1 ">
     <div class="shape line-shape-one"><span><img src="/src/images/shape/line-1.png" alt="Shape"></span></div>
@@ -93,12 +95,13 @@
     import TabsSection from '../components/Home/TabsSection.vue'
     import About from '../components/Home/About.vue'
     import Services from '../components/Home/Services.vue'
+    import Blog from '../components//Home/Blog.vue'
     // import MenuSecond from '../components/Home/MenuSecond.vue';
     
 export default {
     name:"home",
     components: {
-        HomeCarouselSection,TabsSection,About,Services
+        HomeCarouselSection,TabsSection,About,Services, Blog
   },
   data() {
     return {
