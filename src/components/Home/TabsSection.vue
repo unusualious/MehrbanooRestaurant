@@ -5,11 +5,11 @@
                 <div class="tabs-menu col-12">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li v-for="category in foodCategories" class="nav-item" role="presentation">
-                            <button class="nav-link" :class="{'active': isTabActive(category.foodCategoryID)}" id="pills-home-tab" data-bs-toggle="pill" :data-bs-target="'#category_' + category.foodCategoryID" type="button" role="tab" aria-controls="pills-home" :aria-selected="isTabActive(category.foodCategoryID)">{{category.title}}</button>
+                            <button class="nav-link" :class="{'active': category.isActive}" id="pills-home-tab" data-bs-toggle="pill" :data-bs-target="'#category_' + category.foodCategoryID" type="button" role="tab" aria-controls="pills-home" :aria-selected="category.isActive">{{category.title}}</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
-                        <div v-for="category in foodCategories" class="tab-pane fade" :class="{'show active': isTabActive(category.foodCategoryID)}" :id="'category_' + category.foodCategoryID"  role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div v-for="category in foodCategories" class="tab-pane fade" :class="{'show active': category.isActive}" :id="'category_' + category.foodCategoryID"  role="tabpanel" aria-labelledby="pills-home-tab">
                             <div v-for="food in foodsOfCategory(category.foodCategoryID)" class="menu-item">
                                 <div class="item-wrapper">
                                     <!-- items img start -->
@@ -76,9 +76,6 @@ export default {
         },
         foodsOfCategory(id) {
             return this.foods.filter(d => d.foodCategoryID === id)
-        },
-        isTabActive(id) {
-            return 3 === id;
         },
         getPriceString(priceInt){
             var length = priceInt.toString().length;
