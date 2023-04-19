@@ -4,1052 +4,33 @@
             <div class="parallax-sight one">
                 <div class="tabs-menu col-12">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#launchdinner" type="button" role="tab" aria-controls="pills-home" aria-selected="true">انواع غذا</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#drinks" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">نوشیدنی ها</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#starter" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">هم غذاها</button>
-                        </li>
-                        <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#breakfast" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"> صبحانه های لذیذ</button>
+                        <li v-for="category in foodCategories" class="nav-item" role="presentation">
+                            <button class="nav-link" :class="{'active': isTabActive(category.foodCategoryID)}" id="pills-home-tab" data-bs-toggle="pill" :data-bs-target="'#category_' + category.foodCategoryID" type="button" role="tab" aria-controls="pills-home" :aria-selected="isTabActive(category.foodCategoryID)">{{category.title}}</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="launchdinner" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <div class="menu-item">
+                        <div v-for="category in foodCategories" class="tab-pane fade" :class="{'show active': isTabActive(category.foodCategoryID)}" :id="'category_' + category.foodCategoryID"  role="tabpanel" aria-labelledby="pills-home-tab">
+                            <div v-for="food in foodsOfCategory(category.foodCategoryID)" class="menu-item">
                                 <div class="item-wrapper">
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <img src="/src/images/foods/chelojoojekababran.webp" alt="Img">
+                                            <img v-if="food.picAddress" :src="getFullImageAddress(food.picAddress)" alt="Img">
+                                            <img v-else src="/src/images/foods/default.png" alt="Img">
                                         </div>
                                     </div>
                                     <!-- items img end -->
                                     <!-- section title start -->
                                     <div>
-                                        <h3>چلو جوجه کباب ران </h3>
-                                        <p class="item-description">طبخ با 330 گرم ران مرغ</p>
-                                        <span v-if="isMobile()" class="item-price">205,000 تومان</span>
+                                        <h3>{{food.title}}</h3>
+                                        <p class="item-description">{{food.description}}</p>
+                                        <span v-if="isMobile()" class="item-price">{{getPriceString(food.price)}} تومان</span>
                                     </div>
                               
                                     <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">205,000 تومان</span>
+                                    <span v-if="!isMobile()" class="item-price">{{getPriceString(food.price)}} تومان</span>
                                     <!-- section title end -->
                                 </div>
-                                <!-- divider start -->
-
-                  
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                              
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/chelojoojekababsine.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>چلو جوجه کباب سینه </h3>
-                                        <p class="item-description">طبخ با 330 گرم سینه مرغ</p>
-                                        <span v-if="isMobile()" class="item-price">195,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()"  class="item-price">195,000 تومان</span>
-                                
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                           
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>چلو فسنجان(ران)</h3>
-                                        <p class="item-description">طبخ با ران مرغ</p>
-                                        <span v-if="isMobile()" class="item-price">208,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">208,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                          
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>خورشت فسنجان(ران)</h3>
-                                        <p class="item-description">طبخ با ران مرغ</p>
-                                        <span v-if="isMobile()" class="item-price">145,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">145,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                              
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/gheime-sibzamini.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>چلو قیمه سیب زمینی</h3>
-                                        <p class="item-description">طبخ با 100 گرم گوشت گوسفندی</p>
-                                        <span v-if="isMobile()" class="item-price">153,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">153,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/khoreshtgheymesibzamini.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>خورشت قیمه سیب زمینی</h3>
-                                        <p class="item-description">طبخ با 100 گرم گوشت گوسفندی</p>
-                                        <span v-if="isMobile()" class="item-price">93,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">93,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/chelogheimebademjan.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>چلو قیمه بادمجان</h3>
-                                        <p class="item-description">طبخ با 100 گرم گوشت گوسفندی</p>
-                                        <span v-if="isMobile()" class="item-price">158,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">158,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/khoreshtgheyme.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>خورشت قیمه بادمجان</h3>
-                                        <p class="item-description">طبخ با 100 گرم گوشت گوسفندی</p>
-                                        <span v-if="isMobile()" class="item-price">98,000  تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">98,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                   
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/ghormesabzi.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>چلو قورمه سبزی</h3>
-                                        <p class="item-description">طبخ با 100 گرم گوشت گوسفندی</p>
-                                              <span v-if="isMobile()" class="item-price">153,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">153,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/khoreshtghormesabzi.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>خورشت قورمه سبزی</h3>
-                                        <p class="item-description">طبخ با 100 گرم گوشت گوسفندی</p>
-                                        <span v-if="isMobile()" class="item-price">93,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">93,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/chelogheimenesar.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>چلو قیمه نثار</h3>
-                                        <p class="item-description">طبخ با 200 گرم گوشت گوسفندی</p>
-  <span v-if="isMobile()" class="item-price">248,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">248,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/zereshkpolobaranemorghs.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>زرشک پلو با مرغ(سینه)</h3>
-                                        <p class="item-description">برنج ایرانی طبخ با سینه مرغ</p>
-                                        <span v-if="isMobile()" class="item-price">158,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">158,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/zereshkpolobaranemorgh.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>زرشک پلو با مرغ(ران)</h3>
-                                        <p class="item-description">برنج ایرانی طبخ با ران مرغ</p>
-                                        <span v-if="isMobile()" class="item-price">148,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">148,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/tahchinkhoreshti.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>تهچین خورشتی</h3>
-                                        <p class="item-description">قیمه - قورمه - ترکیبی</p>
-                                        <span v-if="isMobile()" class="item-price">153,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">153,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>تهچین ساده</h3>
-                                        <span v-if="isMobile()" class="item-price">60,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">60,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                                <p class="item-description"></p>
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/khorakjoojekabab.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>خوراک جوجه کباب</h3>
-                                        <span v-if="isMobile()" class="item-price">155,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">155,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                                <p class="item-description">طبخ با 330 گرم سینه یا ران مرغ و دورچین</p>
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>خوراک مرغ با دورچین</h3>
-                                        <span v-if="isMobile()" class="item-price">79,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">79,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                                <p class="item-description"></p>
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/kashkebademjan.webp" alt="Img">                                                
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>کشک و بادمجان</h3>
-                                        <span v-if="isMobile()" class="item-price">95,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">95,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                                <p class="item-description">کشک محلی</p>
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/mirzaghasemi.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>میرزاقاسمی</h3>
-                                        <span v-if="isMobile()" clanpm run devss="item-price">95,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">110,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                                <p class="item-description">سرو با نیمرو و نان</p>
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/shami3adad.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>شامی پوک</h3>
-                                        <span v-if="isMobile()" class="item-price">115,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">115,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                                <p class="item-description">سه عدد شامی، سرو با خیارشور گوجه و نان</p>
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/koofteberengi.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>کوفته برنجی</h3>
-                                        <span v-if="isMobile()" class="item-price">115,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">115,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                                <p class="item-description">یک عدد کوفته با نان</p>
-                                <!-- section txt end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/chelokare.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>چلو کره زعفرانی</h3>
-                                        <span v-if="isMobile()" class="item-price">60,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">60,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                                <!-- section txt start -->
-                                <p class="item-description">برنج ایرانی و زعفرانی</p>
-                                <!-- section txt end -->
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="starter" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/mastbooranies.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>ماست بورانی اسنفاج</h3>
-                                        <span v-if="isMobile()" class="item-price">38,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">38,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/mast.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>ماست سنتی</h3>
-                                        <span v-if="isMobile()" class="item-price">28,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">28,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>ماست شرکتی</h3>
-                                        <span v-if="isMobile()" class="item-price">8,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">8,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>زیتون پرورده</h3>
-                                        <span v-if="isMobile()" class="item-price">38,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">38,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/zeytoon.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>زیتون ساده</h3>
-                                        <span v-if="isMobile()" class="item-price">30,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">30,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>سبزی خوردن</h3>
-                                        <span v-if="isMobile()" class="item-price">10,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">10,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>شور و ترشی</h3>
-                                        <span v-if="isMobile()" class="item-price">10,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">10,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/saladshirazi.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>سالاد شیرازی</h3>
-                                        <span v-if="isMobile()" class="item-price">18,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">18,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="breakfast" role="tabpanel" aria-labelledby="pills-profile-tab">
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>املت </h3>
-                                        <span v-if="isMobile()" class="item-price">00,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">00,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>نیمرو </h3>
-                                        <span v-if="isMobile()" class="item-price">00,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">؟؟؟,۰۰۰ تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>سوسیس تخم مرغ </h3>
-                                        <span v-if="isMobile()" class="item-price">00,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">؟؟؟,۰۰۰ تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>املت سوسیس </h3>
-                                        <span v-if="isMobile()" class="item-price">00,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">؟؟؟,۰۰۰ تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end --> 
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>کره پنیر با نون تازه </h3>
-                                        <span v-if="isMobile()" class="item-price">00,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">؟؟؟,۰۰۰ تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>چای تازه دم </h3>
-                                        <span v-if="isMobile()" class="item-price">00,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">؟؟؟,۰۰۰ تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="drinks" role="tabpanel" aria-labelledby="pills-contact-tab">
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/sharbatezaferani.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>شربت زعفرانی</h3>
-                                        <span v-if="isMobile()" class="item-price">38,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">38,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/sharbatlimo.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>شربت لیمو</h3>
-                                        <span v-if="isMobile()" class="item-price">33,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">33,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/dooghsonati.webp" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>دوغ سنتی</h3>
-                                        <span v-if="isMobile()" class="item-price">20,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">20,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>نوشابه قوطی</h3>
-                                        <span v-if="isMobile()" class="item-price">12,000 تومان</span>  
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">12,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>نوشابه زیرو</h3>
-                                        <span v-if="isMobile()" class="item-price">11,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">11,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>دلستر</h3>
-                                        <span v-if="isMobile()" class="item-price">12,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">12,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
-                            </div>
-                            <div class="menu-item">
-                                <div class="item-wrapper">
-                                    <!-- items img start -->
-                                    <div class="menu-img">
-                                        <div class="menu-img-inner">
-                                            <img src="/src/images/foods/default.png" alt="Img">
-                                        </div>
-                                    </div>
-                                    <!-- items img end -->
-                                    <!-- section title start -->
-                                    <div>
-                                        <h3>آب معدنی</h3>
-                                        <span v-if="isMobile()" class="item-price">5,000 تومان</span>
-                                    </div>
-                                    <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">5,000 تومان</span>
-                                    <!-- section title end -->
-                                </div>
-                                <!-- divider start -->
-                                <div class="divider-m"></div>
-                                <!-- divider end -->
                             </div>
                         </div>
                     </div>
@@ -1059,16 +40,88 @@
     </div>
 </template>
 <script>
+import axios from 'axios';
 export default {
     methods: {
-    isMobile() {
-   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-     return true
-   } else {
-     return false
-   }
- }
-  },
+        isMobile() {
+            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                return true
+            } else {
+                return false
+            }
+        },
+        getAllFoods(){
+            axios.get(this.foodApiAddress)
+                .then(function (response) {
+                    // handle success
+                    this.foods = response.data.collection.filter(d => d.isAvailable === true)
+                }.bind(this));
+/*                 .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+                .finally(function () {
+                    // always executed
+                }); */
+        },
+        getAllFoodCategory(){
+            axios.get(this.foodCategoryApiAddress)
+                .then(function (response) {
+                    // handle success
+                    this.foodCategories = response.data.collection
+                }.bind(this));
+        },
+        getFullImageAddress(relativeAddress){
+            return this.imageBaseAddress + relativeAddress;
+        },
+        foodsOfCategory(id) {
+            return this.foods.filter(d => d.foodCategoryID === id)
+        },
+        isTabActive(id) {
+            return 3 === id;
+        },
+        getPriceString(priceInt){
+            var length = priceInt.toString().length;
+            if(length <= 3){
+                return priceInt;
+            }else{
+                var priceStr = priceInt.toString();
+                var numberOfSeparators = Math.floor(length/3);
+                if(numberOfSeparators * 3 == length){
+                    numberOfSeparators--;
+                }
+                for(let i=0; i < numberOfSeparators; i++){
+                    priceStr = this.insertAtIndex(priceStr, ",", priceStr.length - (3 * (i + 1 ) + i))
+                }
+
+                return priceStr;
+            }
+        },
+        insertAtIndex(str, substring, index) {
+            return str.toString().slice(0, index) + substring + str.slice(index);
+        }
+
+    },
+    data () {
+        return {
+            foods: [],
+            foodCategories: [],
+            apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
+            imageBaseAddress : 'https://admin.mehrbanoo.restaurant'
+        }
+    },
+    computed: {
+        foodApiAddress() {
+            return this.apiBaseAddress + '/Foods'
+        },
+        foodCategoryApiAddress() {
+            return this.apiBaseAddress + '/FoodCategories'
+        }
+    },
+    mounted(){
+        this.getAllFoods()
+        this.getAllFoodCategory()
+    }
 }
 </script>
 <style scoped lang="scss">
