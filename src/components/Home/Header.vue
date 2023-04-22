@@ -68,7 +68,8 @@
                             <div class="search-btn" data-bs-toggle="modal" data-bs-target="#search-modal"> جستجو ..<i class="fas fa-search"></i></div>
                         </div>
                         <div class="menu-button d-xl-block d-none">
-                            <a href="contact.html" class="main-btn"><span>شماره تماس : 02126850157<font-awesome-icon :icon="['fas', 'LongArrowAltRight']" /></span></a>
+                            <router-link to="/Login" class="login-signup">ورود / ثبت نام</router-link>
+                            <a href="tel:02126850157" class="main-btn"><span>شماره تماس : 02126850157<font-awesome-icon :icon="['fas', 'LongArrowAltRight']" /></span></a>
 
                         </div>
                     </div>

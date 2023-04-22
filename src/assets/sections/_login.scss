@@ -1,0 +1,96 @@
+.login {
+    padding: 120px 40px;
+    background-image: url("/src/images/bg/lbackground87.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    &--wrap {
+
+        position: relative;
+        max-width: 900px;
+        min-width: 200px;
+        margin: 50px auto;
+    }
+
+    &--l,
+    &--s {
+        height: 630px;
+        position: relative;
+        padding: 22px 33px;
+    }
+
+    &--s {
+        background-color: rgba(255, 230, 105, 0.5);
+        z-index: 0;
+
+        border-radius: 29px 0 0 29px;
+
+
+
+        .title {
+            margin: 30px 0;
+            text-align: center;
+            span{
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &--alt {
+        background-color: $red;
+
+        .title {
+            margin: 30px 0;
+            text-align: center;
+            span{
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &--l {
+        background-color: rgba(78, 99, 44, 0.5);
+        border-radius: 0 29px 29px 0;
+
+        .title {
+            margin: 30px 0;
+            text-align: center;
+            span{
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+    }
+
+    &--body {
+        padding: 0 20px;
+    }
+    * {
+        color: #fff;
+    }
+    label{
+        margin-top: 16px;
+        margin-bottom: 5px;
+        font-size: 16px;
+        margin-right: 8px;
+    }
+    input{
+        width: 100%;
+        background-color: #fff;
+        -webkit-box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        text-align: center;
+        height: 56px;
+        font-size: 16px;
+    }
+    .sbmt {
+        text-align: center;
+        margin: 26px;
+        .main-btn{
+            background-color: transparent;
+        }
+    }
+}

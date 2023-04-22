@@ -382,6 +382,7 @@
                 @media #{$xs} {
                     display: block;
                 }
+          
             }
         }
 
@@ -389,7 +390,9 @@
             display: block;
         }
     }
-
+    .login-signup{
+        margin-left: 15px;
+    }
     & .navbar-toggler {
         padding: 10px 7px;
         border: 1px solid rgba(0, 0, 0, .1);

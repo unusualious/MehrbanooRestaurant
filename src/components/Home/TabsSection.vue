@@ -8,21 +8,28 @@
                             <button class="nav-link" :class="{'active': isTabActive(category.foodCategoryID)}" id="pills-home-tab" data-bs-toggle="pill" :data-bs-target="'#category_' + category.foodCategoryID" type="button" role="tab" aria-controls="pills-home" :aria-selected="isTabActive(category.foodCategoryID)">{{category.title}}</button>
                         </li>
                     </ul>
-                    <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-content" id="pills-tabContent" >
                         <div v-for="category in foodCategories" class="tab-pane fade" :class="{'show active': isTabActive(category.foodCategoryID)}" :id="'category_' + category.foodCategoryID"  role="tabpanel" aria-labelledby="pills-home-tab">
                             <div v-for="food in foodsOfCategory(category.foodCategoryID)" class="menu-item">
+                                <!-- <div class="item-wrapper" @click="goToFood(food.foodID)"> -->
                                 <div class="item-wrapper">
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
+                                            <router-link :to="'/foods/' + (food.foodID)">
                                             <img v-if="food.picAddress" :src="getFullImageAddress(food.picAddress)" alt="Img">
                                             <img v-else src="/src/images/foods/default.png" alt="Img">
+                                        </router-link>
                                         </div>
                                     </div>
                                     <!-- items img end -->
                                     <!-- section title start -->
                                     <div>
-                                        <h3>{{food.title}}</h3>
+                               
+                                        <router-link :to="'/foods/' + (food.foodID)">
+                                            <h3>{{food.title}}</h3>
+                                        </router-link>
+                                        <!-- <h3>{{food.foodID}}</h3> -->
                                         <p class="item-description">{{food.description}}</p>
                                         <span v-if="isMobile()" class="item-price">{{getPriceString(food.price)}} تومان</span>
                                     </div>
@@ -41,6 +48,7 @@
 </template>
 <script>
 import axios from 'axios';
+import { useRouter } from 'vue-router';
 export default {
     methods: {
         isMobile() {
@@ -56,25 +64,32 @@ export default {
                     // handle success
                     this.foods = response.data.collection.filter(d => d.isAvailable === true)
                 }.bind(this));
-/*                 .catch(function (error) {
+
+  
+                /*                 .catch(function (error) {
                     // handle error
                     console.log(error);
                 })
                 .finally(function () {
                     // always executed
                 }); */
-        },
+            },
+        
         getAllFoodCategory(){
-            axios.get(this.foodCategoryApiAddress)
+                        axios.get(this.foodCategoryApiAddress)
                 .then(function (response) {
                     // handle success
                     this.foodCategories = response.data.collection
                 }.bind(this));
+               
         },
         getFullImageAddress(relativeAddress){
             return this.imageBaseAddress + relativeAddress;
         },
         foodsOfCategory(id) {
+            var fooo = []; 
+            fooo = this.foods.filter(d => d.foodCategoryID === id)
+            console.log(fooo);
             return this.foods.filter(d => d.foodCategoryID === id)
         },
         isTabActive(id) {
@@ -100,6 +115,12 @@ export default {
         insertAtIndex(str, substring, index) {
             return str.toString().slice(0, index) + substring + str.slice(index);
         }
+        
+        // ,
+        // goToFood(id){
+        //   const router = useRouter;
+        //   router.push("/foods/"+id);
+        // }
 
     },
     data () {
