@@ -1526,6 +1526,10 @@ button {
   display: block;
 }
 
+.header-navigation .login-signup {
+  margin-left: 15px;
+}
+
 .header-navigation .navbar-toggler {
   padding: 10px 7px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -2119,6 +2123,106 @@ button {
   font-family: 'Font Awesome 5 Pro';
   margin-left: 20px;
   margin-right: 20px;
+}
+
+.login {
+  padding: 120px 40px;
+  background-image: url("/src/images/bg/lbackground87.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.login--wrap {
+  position: relative;
+  max-width: 900px;
+  min-width: 200px;
+  margin: 50px auto;
+}
+
+.login--l, .login--s {
+  height: 630px;
+  position: relative;
+  padding: 22px 33px;
+}
+
+.login--s {
+  background-color: rgba(255, 230, 105, 0.5);
+  z-index: 0;
+  border-radius: 29px 0 0 29px;
+}
+
+.login--s .title {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.login--s .title span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.login--alt {
+  background-color: #e97451;
+}
+
+.login--alt .title {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.login--alt .title span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.login--l {
+  background-color: rgba(78, 99, 44, 0.5);
+  border-radius: 0 29px 29px 0;
+}
+
+.login--l .title {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.login--l .title span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.login--body {
+  padding: 0 20px;
+}
+
+.login * {
+  color: #fff;
+}
+
+.login label {
+  margin-top: 16px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  margin-right: 8px;
+}
+
+.login input {
+  width: 100%;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+  height: 56px;
+  font-size: 16px;
+}
+
+.login .sbmt {
+  text-align: center;
+  margin: 26px;
+}
+
+.login .sbmt .main-btn {
+  background-color: transparent;
 }
 
 /*---==================
@@ -4592,8 +4696,7 @@ form.reservation-form .nice-select ul.list {
 }
 
 .product-details-wrapper {
-  padding-inline-start: 60px;
-  padding-inline-end: 45px;
+  padding: 55px 40px;
 }
 
 @media (max-width: 767px) {
@@ -4604,14 +4707,19 @@ form.reservation-form .nice-select ul.list {
 }
 
 .product-details-wrapper .product-info h3.title {
-  font-size: 48px;
+  font-size: 40px;
   line-height: 53px;
+  font-weight: 200;
+  font-family: 'yekan';
+  margin: 25px 0;
 }
 
 .product-details-wrapper .product-info span.price {
-  font-size: 20px;
-  line-height: 27px;
-  color: #e9c46a;
+  font-size: 25px;
+  font-family: 'marr';
+  line-height: 30px;
+  letter-spacing: 0.8px;
+  color: #e97451;
   margin-bottom: 10px;
 }
 
@@ -4687,6 +4795,10 @@ form.reservation-form .nice-select ul.list {
 .product-details-wrapper .product-info ul.social-link li a:hover {
   background-color: #e9c46a;
   color: #fff;
+}
+
+.description-tabs {
+  margin-top: 35px;
 }
 
 .description-tabs .nav {

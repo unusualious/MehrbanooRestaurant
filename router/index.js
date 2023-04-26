@@ -4,6 +4,8 @@ import AboutUs from '@/views/AboutUs.vue'
 import Blog from '@/views/Blog.vue'
 import Gallery from '@/views/Gallery.vue'
 import Contact from '@/views/Contact.vue'
+import Login from '@/views/Login.vue'
+import Foodsingle from '@/views/Foodsingle.vue'
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel';
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -23,6 +25,8 @@ const routes = [
     { path: '/blog', component: Blog },
     { path: '/gallery', component: Gallery },
     { path: '/contact', component: Contact },
+    { path: '/login', component: Login },
+    { path: '/foods/:id', component: Foodsingle },
 ]
 
 const router = createRouter({ history: createWebHistory(), routes })
