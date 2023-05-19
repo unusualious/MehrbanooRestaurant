@@ -64,15 +64,6 @@ export default {
                     // handle success
                     this.foods = response.data.collection.filter(d => d.isAvailable === true)
                 }.bind(this));
-
-  
-                /*                 .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                })
-                .finally(function () {
-                    // always executed
-                }); */
             },
         
         getAllFoodCategory(){
@@ -87,9 +78,6 @@ export default {
             return this.imageBaseAddress + relativeAddress;
         },
         foodsOfCategory(id) {
-            var fooo = []; 
-            fooo = this.foods.filter(d => d.foodCategoryID === id)
-            console.log(fooo);
             return this.foods.filter(d => d.foodCategoryID === id)
         },
         getPriceString(priceInt){
@@ -112,13 +100,6 @@ export default {
         insertAtIndex(str, substring, index) {
             return str.toString().slice(0, index) + substring + str.slice(index);
         }
-        
-        // ,
-        // goToFood(id){
-        //   const router = useRouter;
-        //   router.push("/foods/"+id);
-        // }
-
     },
     data () {
         return {

@@ -68,9 +68,9 @@
                             <div class="search-btn" data-bs-toggle="modal" data-bs-target="#search-modal"> جستجو ..<i class="fas fa-search"></i></div>
                         </div>
                         <div class="menu-button d-xl-block d-none">
-                            <router-link to="/Login" class="login-signup">ورود / ثبت نام</router-link>
+                            <router-link v-if="isLogin()" to="/UserPanel" class="login-signup">ناحیه کاربری</router-link>
+                            <router-link v-else to="/Login" class="login-signup">ورود / ثبت نام</router-link>
                             <a href="tel:02126850157" class="main-btn"><span>شماره تماس : 02126850157<font-awesome-icon :icon="['fas', 'LongArrowAltRight']" /></span></a>
-
                         </div>
                     </div>
                 </div>
@@ -83,16 +83,24 @@
 export default {
     name:"Header",
     data(){
-        fh:""
     },
     methods:{
-    isMobile() {
-   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-     return true
-   } else {
-     return false
-   }
- }
+        isMobile() {
+            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                return true
+            } else {
+                return false
+            }
+        },
+        isLogin(){
+            var token = document.cookie.split("; ").find((row) => row.startsWith("access_token="))?.split("=")[1];
+            if(token) {
+                return true
+            }
+            else {
+                return false
+            }
+        }
     },
 }
 </script>
