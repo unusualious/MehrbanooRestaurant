@@ -39,7 +39,7 @@
                                                 <li><i class="fas fa-star"></i></li>
                                                 <li><i class="fas fa-star"></i></li>
                                                 <li><i class="fas fa-star"></i></li>
-                                                <li><span><a href="#">امتیاز کاربران   9 .3</a></span></li>
+                                                <li><span><a href="#">امتیاز کاربران   {{getRating(foods.FoodRatings)}}</a></span></li>
                                             </ul>
                                             <p>{{foods.Description}}</p>
                                         </div>
@@ -185,6 +185,16 @@ export default {
             else {
                 return false
             }
+        },
+        getRating(collection){
+            if(collection == null){
+                return 0;
+            }
+            var sum = 0;
+            for (let i = 0; i < collection.length; i++) {
+                sum += collection[i].Rating
+            }
+            return sum/collection.length
         }
     },
     async mounted(){
