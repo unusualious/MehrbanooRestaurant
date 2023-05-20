@@ -42,6 +42,7 @@
                                                 <li><span><a href="#">امتیاز کاربران 
                                                     <star-rating v-model:rating="totalRating" 
                                                         v-bind:read-only="true"
+                                                        v-bind:rtl="true"
                                                         v-bind:round-start-rating="false">
                                             </star-rating></a></span></li>
                                             </ul>
@@ -77,6 +78,7 @@
                                 <star-rating v-model:rating="userRating" 
                                             v-bind:increment="0.5" 
                                             v-bind:animate="true"
+                                            v-bind:rtl="true"
                                             @update:rating ="submitRating" >
                                 </star-rating>
                                 <h3 class="title">لطفا نطر خود را در مورد این غذا بنویسید</h3>
@@ -259,11 +261,13 @@ export default {
         return {
             food: [],
             foodId: "",
-            apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
+            apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',      
+            //apiBaseAddress: 'https://localhost:44324/api',
             imageBaseAddress : 'https://admin.mehrbanoo.restaurant',
+            
             comment: "",
             totalRating: 5,
-            userRating: 5
+            userRating: 1
         }
     }
 }

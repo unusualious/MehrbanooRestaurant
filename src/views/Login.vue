@@ -148,6 +148,10 @@ export default {
         apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
         baseAddress : 'https://services.mehrbanoo.restaurant/',
 
+        //apiBaseAddress: 'https://localhost:44324/api',
+        //baseAddress : 'https://localhost:44324/',
+
+
         siteKey: "6LdOU_QlAAAAADdv6_gT1QLKuphLbRakmzE0L3fP",
         lang: "fa",
         token: ""
