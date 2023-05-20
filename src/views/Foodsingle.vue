@@ -259,7 +259,7 @@ export default {
         return {
             food: [],
             foodId: "",
-            apiBaseAddress: 'https://localhost:44324/api',
+            apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
             imageBaseAddress : 'https://admin.mehrbanoo.restaurant',
             comment: "",
             totalRating: 5,

@@ -42,7 +42,7 @@ export default {
     data () {
         return {
             foodComments: [],
-            apiBaseAddress: 'https://localhost:44324/api'
+            apiBaseAddress: 'https://services.mehrbanoo.restaurant/api'
         }
     },
     computed: {
