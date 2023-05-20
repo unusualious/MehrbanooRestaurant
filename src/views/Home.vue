@@ -29,54 +29,9 @@
                         <img src="/src/images/testimonial/tomoto-draw.png" class="testimonial-img-three" alt="Testimonial Image">
                     </div>
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-8">                    
                     <!--=== Testimonial Wrapper ===-->
-                    <div class="testimonial-wrapper-one wow fadeInRight mr-lg-100">
-                        <!--=== Testimonial Slider ===-->
-                        <div class="testimonial-slider-one">
-                            <!--=== Single Testimonial ===-->
-                            <div class="single-testimonial-one">
-                                <div class="testimonial-inner-content">
-                                    <p>سلام و خسته نباشید به همه کارکنان خوب رستوران مهربانو
-من امشب مهمونی داشتم و بخاطر اینکه شاغلم وقت نداشتم خودم غذاهامو آماده کنم برای همین از شما که تعریفشو از یکی از دوستام شنیده بودم غذا سفارش دادم و واقعا سربلندم کرد. تمام غذاها یکدست و شبیه به هم و باکیفیت عالی طبخ و دیزاین شده بودن.</p>
-                                    <div class="author-quote-box d-flex justify-content-between">
-                                        <div class="author-title-thumb d-flex">
-                                            <div class="author-thumb">
-                                                <img src="/src/images/testimonial/author-thumb-1.png" alt="Author Thumb">
-                                            </div>
-                                            <div class="author-title">
-
-                                                <p class="position">مشتری جدید</p>
-                                            </div>
-                                        </div>
-                                        <div class="quote">
-                                            <i class="flaticon-right-quote"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--=== Single Testimonial ===-->
-                            <div class="single-testimonial-one">
-                                <div class="testimonial-inner-content">
-                                    <p>سلام و خسته نباشید به همه کارکنان خوب رستوران مهربانو
-من امشب مهمونی داشتم و بخاطر اینکه شاغلم وقت نداشتم خودم غذاهامو آماده کنم برای همین از شما که تعریفشو از یکی از دوستام شنیده بودم غذا سفارش دادم و واقعا سربلندم کرد. تمام غذاها یکدست و شبیه به هم و باکیفیت عالی طبخ و دیزاین شده بودن.</p>
-                                    <div class="author-quote-box d-flex justify-content-between">
-                                        <div class="author-title-thumb d-flex">
-                                            <div class="author-thumb">
-                                                <img src="/src/images/testimonial/author-thumb-1.png" alt="Author Thumb">
-                                            </div>
-                                            <div class="author-title">
-                                                <p class="position">مشتری جدید</p>
-                                            </div>
-                                        </div>
-                                        <div class="quote">
-                                            <i class="flaticon-right-quote"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <RecentComments />
                 </div>
             </div>
         </div>
@@ -96,12 +51,13 @@
     import About from '../components/Home/About.vue'
     import Services from '../components/Home/Services.vue'
     import Blog from '../components//Home/Blog.vue'
+    import RecentComments from '../components/Home/RecentComments.vue'
     // import MenuSecond from '../components/Home/MenuSecond.vue';
     
 export default {
     name:"home",
     components: {
-        HomeCarouselSection,TabsSection,About,Services, Blog
+        HomeCarouselSection,TabsSection,About,Services, Blog, RecentComments
   },
   data() {
     return {
