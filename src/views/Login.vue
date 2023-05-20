@@ -4,37 +4,39 @@
       <div class="row clearfix">
         <div class="col col-6 login--l">
           <div class="title"><span class='text'>ورود به حساب</span></div>
-          <div class='login--body'>
+          <Form id="login_form" v-slot="{ meta }" class='login--body' @submit="" >
               <label class='label'>آدرس ایمیل</label>
-              <input  type='text' v-model="emailToLogin" placeholder='آدرس ایمیل' required />
+              <Field :rules="validateEmail" type='email' name="emailToLogin" v-model="emailToLogin" placeholder='آدرس ایمیل'/>
+              <ErrorMessage name="emailToLogin" />
 
               <label class='label'>کلمه عبور</label>
-              <input type='password' v-model="pass" placeholder='*********' required />
-              
-            <div class='sbmt'>
-              <vue-recaptcha :sitekey="siteKey"
-              :language ="lang"
-              @verify="verifyForLogin"
-              @expired="expiredMethod">
-              <button class='main-btn'> <span> ورود </span></button>
-            </vue-recaptcha>
-            </div>
-          </div>
+              <Field :rules="validatePass" name="pass" type='password' v-model="pass" placeholder='*********' />
+              <ErrorMessage name="pass" />
+
+              <div class='sbmt'>
+                <vue-recaptcha :sitekey="siteKey"
+                  :language ="lang"
+                  @verify="verifyForLogin">
+                  <button :disabled="!meta.valid" class='main-btn'> <span> ورود </span></button>
+                </vue-recaptcha>
+              </div>
+          </Form>
         </div>
         <div class="col col-6 login--s">
           <div class="title"><span class='text'>ثبت نام</span></div>
-          <div class='login--body'>
+          <Form id="submit_form" v-slot="{ meta }" class='login--body' @submit="" >
               <label class='label'>آدرس ایمیل</label>
-              <input type='email' v-model="emailToSubmit" placeholder='john@doe.com' required />
+              <Field :rules="validateEmail" type='email' name="emailToSubmit" v-model="emailToSubmit" placeholder='john@doe.com' />
+              <ErrorMessage name="emailToSubmit" />
+
             <div class='sbmt'>
               <vue-recaptcha :sitekey="siteKey"
                 :language ="lang"
-                @verify="verifyForSubmit"
-                @expired="expiredMethod">
-                <button class='main-btn'><span> ثبت نام </span></button>
+                @verify="verifyForSubmit">
+                <button :disabled="!meta.valid" class='main-btn'><span> ثبت نام </span></button>
               </vue-recaptcha>
             </div>
-          </div>
+          </Form>
         </div>
       </div>
       <div>
@@ -46,12 +48,13 @@
 <script >
 import axios from 'axios';
 import { Alert } from 'bootstrap';
-import { useRouter } from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
 import { VueRecaptcha } from 'vue-recaptcha';
+import { Form, Field, ErrorMessage, useIsFormValid, useForm } from 'vee-validate';
 
 export default {
   components: {
-    VueRecaptcha
+    VueRecaptcha, Form, Field, ErrorMessage
   },
    methods: {
     SendEmailActivationRequest(token){
@@ -64,20 +67,21 @@ export default {
         email: this.emailToSubmit,
         token: token
       }).then(function (response) {                  
-        alert("ایمیل فعال سازی برای شما ارسال شد لطفا صندوق ورودی ایمیل خود و یا فولدر اسپن را چک کنید.")}
-        .bind(this))
+        alert("ایمیل فعال سازی برای شما ارسال شد لطفا صندوق ورودی ایمیل خود و یا فولدر اسپن را چک کنید.")
+        location.replace('/')
+      }.bind(this))
         .catch(function (error) {
           if(error.response.status == 409){ //User already exists
             alert("ایمیل وارد شده قبلا ثبت شده است")
-          }else if(response.status == 503){ //Activation link already has been sent and not yet expired
+          }else if(error.response.status == 503){ //Activation link already has been sent and not yet expired
             alert(".ایمیل فعالسازی قبلا ارسال شده است. برای دریافت مجدد باید 5 دقیقه از زمان ارسال ایمیل آخر گذشته باشد")
           }else{ // Exception
             alert("خطای سرور لطفا ساعاتی دیگر مجددا اقدام فرمایید.")
           }
         });
     },
-    SendLogingRequest(token){
-      if(!token){
+    SendLogingRequest(){
+      if(!this.token){
         alert("خطا در برقراری ارتباط")
         location.reload()
       }
@@ -85,16 +89,22 @@ export default {
       axios.post(this.LoginAddress, {
         username: this.emailToLogin,
         password: this.pass,
-        token: token
+        token: this.token
       }).then(function (response) {                  
         alert("با موفقیت وارد سیستم شدید")
 
-        let d = new Date();
-        d.setTime(response.data.expire_in);
-        let expires = "expires=" + d.toUTCString();
-        document.cookie = "access_token=" + response.data.access_token + ";" + expires + ";path=/";
-        location.replace("/")}
-        .bind(this)).catch(function (error) {
+        let d = new Date()
+        d.setTime(response.data.expire_in)
+        let expires = "expires=" + d.toUTCString()
+        document.cookie = "access_token=" + response.data.access_token + ";" + expires + ";path=/"
+
+        if(this.$route.params.action){
+          var redirectURL = "/" + this.$route.params.action + "/" + this.$route.params.id
+          location.replace(redirectURL)
+        }else{
+          location.replace("/")
+        }
+      }.bind(this)).catch(function (error) {
           if(error.response.status == 404){ //user not found
             alert("ایمیل و یا کلمه عبور اشتباه است")
           }else{ // Exception
@@ -106,11 +116,32 @@ export default {
       this.SendEmailActivationRequest(response)
     },
     verifyForLogin(response){
-      this.SendLogingRequest(response)
+      this.token = response
+      this.SendLogingRequest()    
     },
     expiredMethod(){
-      console.log(response)
-    }
+      console.log(response)      
+    },
+
+    validateEmail(value) {
+      if (!value) {
+        return 'این فیلد نمی تواند خالی باشد';
+      }
+
+      const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+      if (!regex.test(value)) {
+        return 'لطفا آدرس ایمیل معتبر وارد کنید';
+      }
+
+      return true;
+    },
+    validatePass(value) {
+        if (!value) {
+            return 'این فیلد نمی تواند خالی باشد';
+        }
+
+        return true;
+    },
   },
     data () {
       return {
@@ -118,6 +149,7 @@ export default {
         apiBaseAddress: 'https://localhost:44324/api/',
         siteKey: "6LdOU_QlAAAAADdv6_gT1QLKuphLbRakmzE0L3fP",
         lang: "fa",
+        token: ""
       }
     },
     computed: {

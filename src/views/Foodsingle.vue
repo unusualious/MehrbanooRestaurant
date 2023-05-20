@@ -21,7 +21,7 @@
                                         <div class="product-gallery-area mb-50 wow fadeInLeft">
                                             <div class="product-big-slider mb-30">
                                                 <div class="product-img">
-                                                    <img v-if="foods.PicAddress" :src="getFullImageAddress(foods.PicAddress)" alt="Img">
+                                                    <img v-if="food.PicAddress" :src="getFullImageAddress(food.PicAddress)" alt="Img">
                                                     <img v-else src="/src/images/foods/default.png" alt="Img">
                                                 </div>
                                             </div>
@@ -30,18 +30,22 @@
                                     <div class="col-xl-7">
                                         <!--=== Product Info ===-->
                                         <div class="product-info pl-lg-70 mb-50 wow fadeInRight">
-                                            <h3 class="title">{{foods.Title}}</h3>
+                                            <h3 class="title">{{food.Title}}</h3>
 
-                                            <span class="price"><span class="curreny"></span>{{foods.Price}} تومان</span>
+                                            <span class="price"><span class="curreny"></span>{{food.Price}} تومان</span>
                                             <ul class="ratings">
                                                 <li><i class="fas fa-star"></i></li>
                                                 <li><i class="fas fa-star"></i></li>
                                                 <li><i class="fas fa-star"></i></li>
                                                 <li><i class="fas fa-star"></i></li>
                                                 <li><i class="fas fa-star"></i></li>
-                                                <li><span><a href="#">امتیاز کاربران   {{getRating(foods.FoodRatings)}}</a></span></li>
+                                                <li><span><a href="#">امتیاز کاربران 
+                                                    <star-rating v-model:rating="totalRating" 
+                                                        v-bind:read-only="true"
+                                                        v-bind:round-start-rating="false">
+                                            </star-rating></a></span></li>
                                             </ul>
-                                            <p>{{foods.Description}}</p>
+                                            <p>{{food.Description}}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +65,7 @@
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="descrptions">
                                         <div class="content-box-gap">
-                                            {{ foods.HtmlContent }}
+                                            {{ food.HtmlContent }}
                                         </div>
                                     </div>
                                 </div>
@@ -70,20 +74,26 @@
                             <!--=== Review Form ===-->
 
                             <div v-if="isLogin()" class="review-form-area wow fadeInUp">
+                                <star-rating v-model:rating="userRating" 
+                                            v-bind:increment="0.5" 
+                                            v-bind:animate="true"
+                                            @update:rating ="submitRating" >
+                                </star-rating>
                                 <h3 class="title">لطفا نطر خود را در مورد این غذا بنویسید</h3>
-                                <div class="review-form">
+                                <Form class="review-form" @submit="SubmitFeedback">
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form_group">
-                                                <textarea name="comment" v-model="comment" class="form_control" placeholder="متن نظر"></textarea>
+                                                <Field :rules="validateComment" name="comment" as="textarea" type="text" v-model="comment" class="form_control" placeholder="متن نظر" />
+                                                <ErrorMessage name="comment" />
                                             </div>
                                         </div>
-                                        <button class="main-btn" @click="SubmitFeedback()">ثبت نظر</button>
+                                        <button class="main-btn">ثبت نظر</button>
                                     </div>
-                                </div>
+                                </Form>
                             </div>
                             <div v-else>
-                                <router-link to="/Login?RedirectTo=/Foods/{{this.$route.params.id}}" class="login-signup">برای ثبت نظر ابتدا باید وارد حساب کاربری خود شوید</router-link>
+                                <router-link to="/Login/Foods/{{this.$route.params.id}}" class="login-signup">برای ثبت نظر ابتدا باید وارد حساب کاربری خود شوید</router-link>
                             </div>
                         </div>
         
@@ -97,19 +107,16 @@
 import axios from 'axios';
 import FoodsComments from '../components/Home/FoodsComments.vue';
 import {useRouter, useRoute} from "vue-router";
+import { Form, Field, ErrorMessage } from 'vee-validate';
+import StarRating from 'vue-star-rating'
 
 export default {
-    data () {
-        return {
-            foods: [],
-            foodId: "",
-            apiBaseAddress: 'https://localhost:44324/api',
-            imageBaseAddress : 'https://admin.mehrbanoo.restaurant',
-            comment: ""
-        }
-    },
     components:{
-        FoodsComments
+        StarRating,
+        FoodsComments,
+        Form,
+        Field,
+        ErrorMessage
     },
     computed:{
         foodApiAddress() {
@@ -120,14 +127,31 @@ export default {
         },
         tokenCookieValue(){
             return document.cookie.split("; ").find((row) => row.startsWith("access_token="))?.split("=")[1];
+        },
+        submitFoodRatingAddress(){
+            return this.apiBaseAddress + '/FoodRatings'
+        },
+        userFoodsRatingAddress(){
+            return this.apiBaseAddress + '/FoodRatings/GetUserFoodsRating/' + this.$route.params.id
         }
     },
     methods:{
         async getFoodInfo(){
             const foodsResponse = await axios.get(this.foodApiAddress)
-            this.foods = foodsResponse.data
+            this.food = foodsResponse.data
+            this.totalRating = this.getRating(foodsResponse.data.FoodRatings)
+            this.userRating = await this.getUserRating()
         },
-        
+       async getUserRating(){
+            if(this.isLogin()) {
+                const config = {
+                    headers: { Authorization: `Bearer ${this.tokenCookieValue}` }
+                };
+
+                const ratingResponse = await axios.get(this.userFoodsRatingAddress, config)
+                return ratingResponse.data.Rating
+            }
+        },
         getFullImageAddress(relativeAddress){
             return this.imageBaseAddress + relativeAddress;
         },
@@ -149,10 +173,34 @@ export default {
                 return priceStr;
             }
         },
-
-        SubmitFeedback(){
+        submitRating(rating){
             if(!this.isLogin()){
                 alert("ابتدا باید وارد حساب کاربری خود شوید.")
+                return;
+            }
+
+            const config = {
+                headers: { Authorization: `Bearer ${this.tokenCookieValue}` }
+            };
+
+            axios.post(this.submitFoodRatingAddress, {
+                FoodID: this.$route.params.id,
+                Rating: rating,
+            }, config).then(function (response) {                  
+                alert("از شما برای امتیاز دهی به این غذا سپاسگزاریم")
+            }
+            .bind(this)).catch(function (error) {
+                alert("خطای سرور لطفا ساعاتی دیگر مجددا اقدام فرمایید.")
+            });
+        },
+        SubmitFeedback(values){
+            if(!this.isLogin()){
+                alert("ابتدا باید وارد حساب کاربری خود شوید.")
+                return;
+            }
+
+            if(this.comment == null || this.comment.length==0){
+                alert("متن نظر نمی تواند خالی باشد")
                 return;
             }
 
@@ -165,15 +213,22 @@ export default {
                 Comment: this.comment,
             }, config).then(function (response) {                  
                 alert("نظر شما با موفقیت ثبت و به زودی در سایت نمایش داده خواهد شد.")
+                location.reload();
             }
             .bind(this)).catch(function (error) {
-                if(error.response.status == 404){ //user not found
-                    alert("ایمیل و یا کلمه عبور اشتباه است")
-                }else{ // Exception
-                    alert("خطای سرور لطفا ساعاتی دیگر مجددا اقدام فرمایید.")
-                }
+                alert("خطای سرور لطفا ساعاتی دیگر مجددا اقدام فرمایید.")
             });
         }, 
+
+        validateComment(value) {
+            // if the field is empty
+            if (!value) {
+                return 'متن نظر نمی تواند خالی باشد';
+            }
+
+            // All is good
+            return true;
+        },
         insertAtIndex(str, substring, index) {
             return str.toString().slice(0, index) + substring + str.slice(index);
         },
@@ -199,6 +254,17 @@ export default {
     },
     async mounted(){
         await this.getFoodInfo()
+     },
+    data () {
+        return {
+            food: [],
+            foodId: "",
+            apiBaseAddress: 'https://localhost:44324/api',
+            imageBaseAddress : 'https://admin.mehrbanoo.restaurant',
+            comment: "",
+            totalRating: 5,
+            userRating: 5
+        }
     }
 }
 </script>

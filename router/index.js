@@ -26,7 +26,7 @@ const routes = [
     { path: '/blog', component: Blog },
     { path: '/gallery', component: Gallery },
     { path: '/contact', component: Contact },
-    { path: '/login', component: Login },
+    { path: '/login/:action?/:id?', component: Login },
     { path: '/foods/:id', component: Foodsingle },
     { path: '/ActiveUserAccount/:code/:email', component: ActivatingEmail },
 ]
