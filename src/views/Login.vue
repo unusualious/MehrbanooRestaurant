@@ -159,10 +159,10 @@ export default {
     },
     computed: {
         EmailActivationAddress() {
-            return this.apiBaseAddress + 'Account/SendActivationEmail'
+            return this.apiBaseAddress + '/Account/SendActivationEmail'
         },
         LoginAddress() {
-          return this.apiBaseAddress + 'Account/UserLogin'
+          return this.apiBaseAddress + '/Account/UserLogin'
         }
     },
     mounted(){
