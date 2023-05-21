@@ -223,12 +223,13 @@ export default {
         }, 
 
         validateComment(value) {
-            // if the field is empty
             if (!value) {
                 return 'متن نظر نمی تواند خالی باشد';
             }
+            if(value.lenght > 800){
+                return 'نظر نمی تواند بیشتر از 800 کاراکتر باشد';          
+            }
 
-            // All is good
             return true;
         },
         insertAtIndex(str, substring, index) {

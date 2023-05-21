@@ -127,6 +127,9 @@ export default {
       if (!value) {
         return 'این فیلد نمی تواند خالی باشد';
       }
+      if(value.lenght > 100){
+        return 'ایمیل نباید بیشتر از 100 کاراکتر باشد';          
+      }
 
       const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
       if (!regex.test(value)) {
@@ -137,9 +140,12 @@ export default {
     },
     validatePass(value) {
         if (!value) {
-            return 'این فیلد نمی تواند خالی باشد';
+          return 'این فیلد نمی تواند خالی باشد';
         }
 
+        if(value.lenght > 100){
+        return 'پسورد نباید بیشتر از 100 کاراکتر باشد';          
+      }
         return true;
     },
   },

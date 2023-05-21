@@ -109,7 +109,9 @@ export default {
           if (!value) {
             return 'این فیلد نمی تواند خالی باشد';
           }
-
+          if(value.lenght > 100){
+            return 'ایمیل نباید بیشتر از 100 کاراکتر باشد';          
+          }
           const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
           if (!regex.test(value)) {
             return 'لطفا آدرس ایمیل معتبر وارد کنید';
@@ -121,7 +123,13 @@ export default {
             if (!value) {
                 return 'این فیلد نمی تواند خالی باشد';
             }
-
+            if(value.lenght > 100){
+              return 'پسورد نباید بیشتر از 100 کاراکتر باشد';          
+            }
+            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
+            if(!passwordRegex.test(value)){
+              return 'طول پسورد باید 8 کاراکتر شامل حرف کوچک، حرف بزرگ و عدد باشد';          
+            }
             return true;
         },
         validateConfPass(value){
@@ -138,6 +146,10 @@ export default {
           if (!value) {
                 return 'این فیلد نمی تواند خالی باشد';
             }
+
+          if(value.lenght > 100){
+            return 'این فیلد نمی تواند بیشتر از 100 کاراکتر باشد';          
+          }
 
             return true;
         },
