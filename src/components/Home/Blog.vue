@@ -40,7 +40,7 @@ export default {
             axios.get(this.blogApiAddress)
                 .then(function (response) {
                     // handle success
-                    this.blogs = response.data.collection
+                    this.blogs = response.data.Collection
                 }.bind(this));
         },        
         getFullImageAddress(relativeAddress){
@@ -51,6 +51,7 @@ export default {
         return {
             blogs: [],
             apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
+            //apiBaseAddress: 'https://localhost:44324/api',
             imageBaseAddress : 'https://admin.mehrbanoo.restaurant'
         }
     },

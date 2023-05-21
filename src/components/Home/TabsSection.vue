@@ -5,19 +5,19 @@
                 <div class="tabs-menu col-12">
                     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                         <li v-for="category in foodCategories" class="nav-item" role="presentation">
-                            <button class="nav-link" :class="{'active': category.isActive}" id="pills-home-tab" data-bs-toggle="pill" :data-bs-target="'#category_' + category.foodCategoryID" type="button" role="tab" aria-controls="pills-home" :aria-selected="category.isActive">{{category.title}}</button>
+                            <button class="nav-link" :class="{'active': category.IsActive}" id="pills-home-tab" data-bs-toggle="pill" :data-bs-target="'#category_' + category.FoodCategoryID" type="button" role="tab" aria-controls="pills-home" :aria-selected="category.IsActive">{{category.Title}}</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent" >
-                        <div v-for="category in foodCategories" class="tab-pane fade" :class="{'show active': category.isActive}" :id="'category_' + category.foodCategoryID"  role="tabpanel" aria-labelledby="pills-home-tab">
-                            <div v-for="food in foodsOfCategory(category.foodCategoryID)" class="menu-item">
+                        <div v-for="category in foodCategories" class="tab-pane fade" :class="{'show active': category.IsActive}" :id="'category_' + category.FoodCategoryID"  role="tabpanel" aria-labelledby="pills-home-tab">
+                            <div v-for="food in foodsOfCategory(category.FoodCategoryID)" class="menu-item">
                                 <!-- <div class="item-wrapper" @click="goToFood(food.foodID)"> -->
                                 <div class="item-wrapper">
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
-                                            <router-link :to="'/foods/' + (food.foodID)">
-                                            <img v-if="food.picAddress" :src="getFullImageAddress(food.picAddress)" alt="Img">
+                                            <router-link :to="'/foods/' + (food.FoodID)">
+                                            <img v-if="food.PicAddress" :src="getFullImageAddress(food.PicAddress)" alt="Img">
                                             <img v-else src="/src/images/foods/default.png" alt="Img">
                                         </router-link>
                                         </div>
@@ -26,16 +26,16 @@
                                     <!-- section title start -->
                                     <div>
                                
-                                        <router-link :to="'/foods/' + (food.foodID)">
-                                            <h3>{{food.title}}</h3>
+                                        <router-link :to="'/foods/' + (food.FoodID)">
+                                            <h3>{{food.Title}}</h3>
                                         </router-link>
                                         <!-- <h3>{{food.foodID}}</h3> -->
-                                        <p class="item-description">{{food.description}}</p>
-                                        <span v-if="isMobile()" class="item-price">{{getPriceString(food.price)}} تومان</span>
+                                        <p class="item-description">{{food.Description}}</p>
+                                        <span v-if="isMobile()" class="item-price">{{getPriceString(food.Price)}} تومان</span>
                                     </div>
                               
                                     <span v-if="!isMobile()"  class="item-divider"></span>
-                                    <span v-if="!isMobile()" class="item-price">{{getPriceString(food.price)}} تومان</span>
+                                    <span v-if="!isMobile()" class="item-price">{{getPriceString(food.Price)}} تومان</span>
                                     <!-- section title end -->
                                 </div>
                             </div>
@@ -62,7 +62,7 @@ export default {
             axios.get(this.foodApiAddress)
                 .then(function (response) {
                     // handle success
-                    this.foods = response.data.collection.filter(d => d.isAvailable === true)
+                    this.foods = response.data.Collection.filter(d => d.IsAvailable === true)
                 }.bind(this));
             },
         
@@ -70,7 +70,7 @@ export default {
                         axios.get(this.foodCategoryApiAddress)
                 .then(function (response) {
                     // handle success
-                    this.foodCategories = response.data.collection
+                    this.foodCategories = response.data.Collection
                 }.bind(this));
                
         },
@@ -78,7 +78,7 @@ export default {
             return this.imageBaseAddress + relativeAddress;
         },
         foodsOfCategory(id) {
-            return this.foods.filter(d => d.foodCategoryID === id)
+            return this.foods.filter(d => d.FoodCategoryID === id)
         },
         getPriceString(priceInt){
             var length = priceInt.toString().length;
@@ -106,6 +106,7 @@ export default {
             foods: [],
             foodCategories: [],
             apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
+            //apiBaseAddress: 'https://localhost:44324/api',
             imageBaseAddress : 'https://admin.mehrbanoo.restaurant'
         }
     },

@@ -85,7 +85,7 @@ export default {
             confirmPassword: this.confirmPassword,
             name: this.name,
             sirname: this.sirname,
-            phonenumber: this.phonenumber,
+            phonenumber: this.mobile,
             RecapToken: token
         }).then(function (response) {                  
               alert("باموفقیت ثبت نام شدید.")
@@ -162,17 +162,17 @@ export default {
             confirmPassword: '',
             name: '',
             sirname: '',
-            phonenumber: null,
+            mobile: null,
             siteKey: "6LdOU_QlAAAAADdv6_gT1QLKuphLbRakmzE0L3fP",
             lang: "fa"
         }
     },
     computed: {
         EmailActivationAddress() {
-            return this.apiBaseAddress + 'Account/ValidateActivationCode'
+            return this.apiBaseAddress + '/Account/ValidateActivationCode'
         },
         RegisterationAddress() {
-            return this.apiBaseAddress + 'Account/Register'
+            return this.apiBaseAddress + '/Account/Register'
         }
     },
     mounted(){

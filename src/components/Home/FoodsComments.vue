@@ -45,6 +45,7 @@ export default {
         return {
             foodComments: [],
             apiBaseAddress: 'https://services.mehrbanoo.restaurant/api'
+            //apiBaseAddress: 'https://localhost:44324/api'
         }
     },
     computed: {
