@@ -24,7 +24,7 @@
                         </div>
                     </div>
                     <div class="blog-more">
-                        <router-link class="main-btn" to="/blog"><span>نمایش همه</span></router-link>
+                        <router-link class="main-btn green" to="/blog"><span>نمایش همه</span></router-link>
                     </div>
                 </div>
             </div>

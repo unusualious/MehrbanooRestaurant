@@ -52,46 +52,46 @@ import { useRouter } from 'vue-router';
 export default {
     methods: {
         isMobile() {
-            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
                 return true
             } else {
                 return false
             }
         },
-        getAllFoods(){
+        getAllFoods() {
             axios.get(this.foodApiAddress)
                 .then(function (response) {
                     // handle success
                     this.foods = response.data.Collection.filter(d => d.IsAvailable === true)
                 }.bind(this));
-            },
-        
-        getAllFoodCategory(){
-                        axios.get(this.foodCategoryApiAddress)
+        },
+
+        getAllFoodCategory() {
+            axios.get(this.foodCategoryApiAddress)
                 .then(function (response) {
                     // handle success
                     this.foodCategories = response.data.Collection
                 }.bind(this));
-               
+
         },
-        getFullImageAddress(relativeAddress){
+        getFullImageAddress(relativeAddress) {
             return this.imageBaseAddress + relativeAddress;
         },
         foodsOfCategory(id) {
             return this.foods.filter(d => d.FoodCategoryID === id)
         },
-        getPriceString(priceInt){
+        getPriceString(priceInt) {
             var length = priceInt.toString().length;
-            if(length <= 3){
+            if (length <= 3) {
                 return priceInt;
-            }else{
+            } else {
                 var priceStr = priceInt.toString();
-                var numberOfSeparators = Math.floor(length/3);
-                if(numberOfSeparators * 3 == length){
+                var numberOfSeparators = Math.floor(length / 3);
+                if (numberOfSeparators * 3 == length) {
                     numberOfSeparators--;
                 }
-                for(let i=0; i < numberOfSeparators; i++){
-                    priceStr = this.insertAtIndex(priceStr, ",", priceStr.length - (3 * (i + 1 ) + i))
+                for (let i = 0; i < numberOfSeparators; i++) {
+                    priceStr = this.insertAtIndex(priceStr, ",", priceStr.length - (3 * (i + 1) + i))
                 }
 
                 return priceStr;
@@ -101,13 +101,13 @@ export default {
             return str.toString().slice(0, index) + substring + str.slice(index);
         }
     },
-    data () {
+    data() {
         return {
             foods: [],
             foodCategories: [],
             apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
             //apiBaseAddress: 'https://localhost:44324/api',
-            imageBaseAddress : 'https://admin.mehrbanoo.restaurant'
+            imageBaseAddress: 'https://admin.mehrbanoo.restaurant'
         }
     },
     computed: {
@@ -118,7 +118,7 @@ export default {
             return this.apiBaseAddress + '/FoodCategories'
         }
     },
-    mounted(){
+    mounted() {
         this.getAllFoods()
         this.getAllFoodCategory()
     }
@@ -155,22 +155,22 @@ export default {
                 text-align: center;
 
                 button {
-                    color: #000;
+                    color: #fff;
                     font-weight: 200;
-                    font-family: 'mehrit';
+                    font-family: "mehrit";
                     border-radius: 0;
                     font-size: 18px;
-                    border-bottom: 3px solid #556b2f;
-                    letter-spacing: -0.5px;
+                    border-bottom: 3px solid #6a853c;
+                    letter-spacing: -0.6px;
 
                     &.active {
                         border-bottom: none !important;
                         background-color: transparent;
                         color: #e97451;
                         border-radius: 6px 6px 0 0;
-                        border: 2px solid #556b2f;
+                        border: 2px solid #6a853c;
                         position: relative;
-                        font-weight: 600;
+                        font-size: 19px;
 
                         &::after {
                             content: " ";
@@ -244,11 +244,12 @@ export default {
                                 h3 {
                                     font-size: 21px !important;
                                     letter-spacing: -0.5px;
-                                    margin-top: -10px!important;
+                                    margin-top: -10px !important;
                                 }
+
                                 .item-description {
-                            font-size: 15px;
-                        }
+                                    font-size: 15px;
+                                }
                             }
 
                             .menu-img {
@@ -321,4 +322,5 @@ export default {
 
 
 
-}</style>
+}
+</style>

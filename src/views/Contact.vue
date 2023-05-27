@@ -1,9 +1,9 @@
 <template lang="">
     <div>
-        <section class="page-banner light-red-bg p-r z-1 bg_cover" style="background-image: url(/src/images/hero/banner-1-ripoo.webp);">
+        <section class="page-banner light-red-bg p-r z-1 bg_cover" style="background-image: url(/src/images/hero/banner-1-ripose-darken.webp);">
             <div class="container ">
                 <div class="row">
-                    <div class="col-lg-10">
+                    <div class="col-lg-12">
                         <div class="page-banner-content text-center wow fadeInDown">
                             <h1 class="page-title">تماس با ما</h1>
                             <ul class="breadcrumb-link text-white">
@@ -17,7 +17,7 @@
         </section><!--====== End Breadcrumb Section ======-->
         <!-- <img src="../images/hero/banner-1-ripoo.webp" alt=""> -->
         <div class="container-fluid about-shape-section main-sections">
-            <h1>اطلاعات تماس</h1>
+            <h1 class="pages-title">اطلاعات تماس</h1>
             <p>
                 
                 آدرس رستوران : 

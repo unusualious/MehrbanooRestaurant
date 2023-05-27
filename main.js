@@ -8,5 +8,12 @@ import "bootstrap"
 import 'animate.css';
 import router from './router'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import CoolLightBox from 'vue-cool-lightbox'
+import 'vue-cool-lightbox/dist/vue-cool-lightbox.min.css'
+import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css';
 
-createApp(App).use(router).component("font-awesome-icon", FontAwesomeIcon).mount('#app')
+
+createApp(App)
+.use(router)
+.use(CoolLightBox)
+.component("font-awesome-icon", FontAwesomeIcon).mount('#app')
