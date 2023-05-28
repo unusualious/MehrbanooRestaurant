@@ -65,8 +65,7 @@
                                 </div>
                                 <div class="tab-content">
                                     <div class="tab-pane fade show active" id="descrptions">
-                                        <div class="content-box-gap">
-                                            {{ food.HtmlContent }}
+                                        <div id="htmlContentDiv" class="content-box-gap" :innerHTML="food.HtmlContent">                                            
                                         </div>
                                     </div>
                                 </div>
