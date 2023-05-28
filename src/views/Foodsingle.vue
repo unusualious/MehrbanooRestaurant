@@ -81,20 +81,7 @@
                                 <div class="section-title section-title-left">
                                     <span class="sub-title">مهربانو چه می گوید ؟ </span>
                                 </div>
-                                <div class="mehrbanoo-desc">
-                                        مهربانو با تمام تلاش برای یک تجربه شادی آور برای شما مشتریان عزیز تمام تلاشش را می کند تا بتواند کیفیت مناسب را با تنوع بالا ترکیب کرده و شما را از یک تصمیم خوب، راضی نگه دارد. 
-                                        در ادامه توضیحات بیشتری درباره 
-                                        <b>
-                                            {{food.Title}}
-                                        </b>
-                                         خدمتتان ارائه خواهیم داد 
-
-                                </div>                                
-                            </section>
-                            <div class="parallax-sight mehrbanoo-desc-parallax" style="background-image: url(/src/images/sprinkling-of-spices.webp);">
-                                    
-                                    {{ food.HtmlContent }}
-                                    </div>  
+                                        <div id="htmlContentDiv" class="content-box-gap" :innerHTML="food.HtmlContent">                                            
                             <FoodsComments :foodId="this.$route.params.id"/>
                             <!--=== Review Form ===-->
 
