@@ -12,25 +12,43 @@
                         <div v-for="category in foodCategories" class="tab-pane fade" :class="{'show active': category.IsActive}" :id="'category_' + category.FoodCategoryID"  role="tabpanel" aria-labelledby="pills-home-tab">
                             <div v-for="food in foodsOfCategory(category.FoodCategoryID)" class="menu-item">
                                 <!-- <div class="item-wrapper" @click="goToFood(food.foodID)"> -->
-                                <div class="item-wrapper">
+                                <div v-if="food.HasSinglePage" class="item-wrapper">
                                     <!-- items img start -->
                                     <div class="menu-img">
                                         <div class="menu-img-inner">
                                             <router-link :to="'/foods/' + (food.FoodID)">
-                                            <img v-if="food.PicAddress" :src="getFullImageAddress(food.PicAddress)" alt="Img">
-                                            <img v-else src="/src/images/foods/default.png" alt="Img">
-                                        </router-link>
+                                                <img v-if="food.FoodImages[0]" :src="getFullImageAddress(food.FoodImages[0].Address)" alt="Img">
+                                                <img v-else src="/src/images/foods/default.png" alt="Img">
+                                            </router-link>
                                         </div>
                                     </div>
                                     <!-- items img end -->
                                     <!-- section title start -->
-                                    <div>
-                               
+                                    <div>                               
                                         <router-link :to="'/foods/' + (food.FoodID)">
                                             <h3>{{food.Title}}</h3>
                                         </router-link>
-                                        <!-- <h3>{{food.foodID}}</h3> -->
-                                        <p class="item-description">{{food.Description}}</p>
+                                        <p class="item-description">{{food.MenuDescription}}</p>
+                                        <span v-if="isMobile()" class="item-price">{{getPriceString(food.Price)}} تومان</span>
+                                    </div>
+                              
+                                    <span v-if="!isMobile()"  class="item-divider"></span>
+                                    <span v-if="!isMobile()" class="item-price">{{getPriceString(food.Price)}} تومان</span>
+                                    <!-- section title end --> 
+                                </div>
+                                <div v-else class="item-wrapper">
+                                    <!-- items img start -->
+                                    <div class="menu-img">
+                                        <div class="menu-img-inner">
+                                            <img v-if="food.FoodImages[0]" :src="getFullImageAddress(food.FoodImages[0].Address)" alt="Img">
+                                            <img v-else src="/src/images/foods/default.png" alt="Img">
+                                        </div>
+                                    </div>
+                                    <!-- items img end -->
+                                    <!-- section title start -->
+                                    <div>                               
+                                        <h3>{{food.Title}}</h3>
+                                        <p class="item-description">{{food.MenuDescription}}</p>
                                         <span v-if="isMobile()" class="item-price">{{getPriceString(food.Price)}} تومان</span>
                                     </div>
                               
@@ -62,7 +80,7 @@ export default {
             axios.get(this.foodApiAddress)
                 .then(function (response) {
                     // handle success
-                    this.foods = response.data.Collection.filter(d => d.IsAvailable === true)
+                    this.foods = response.data.Collection
                 }.bind(this));
             },
         
@@ -112,7 +130,7 @@ export default {
     },
     computed: {
         foodApiAddress() {
-            return this.apiBaseAddress + '/Foods'
+            return this.apiBaseAddress + '/Foods/Menu'
         },
         foodCategoryApiAddress() {
             return this.apiBaseAddress + '/FoodCategories'
