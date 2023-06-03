@@ -4,6 +4,39 @@
     background-size: cover;
     background-repeat: no-repeat;
 
+    @media #{$xs} {
+        padding: 120px 15px;
+
+        .login--l,
+        .login--s {
+            background-color: rgba(78, 99, 44, 0.5);
+            border-radius: 25px;
+            padding: 10px 20px;
+        }
+        .description-tabs {
+            margin: 0;
+
+            .nav {
+                justify-content: space-around;
+                border-bottom: none;
+
+                .nav-link {
+                    color: #fff;
+
+                    &::after {
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    span:not(.main-btn-span) {
+        font-size: 14px;
+        color: $red;
+        display: block;
+    }
+
     &--wrap {
 
         position: relative;
@@ -20,7 +53,7 @@
     }
 
     &--s {
-        background-color: rgba(255, 230, 105, 0.5);
+        background-color: rgba(207, 207, 207, 0.8);
         z-index: 0;
 
         border-radius: 29px 0 0 29px;
@@ -30,7 +63,8 @@
         .title {
             margin: 30px 0;
             text-align: center;
-            span{
+
+            span {
                 font-size: 18px;
                 font-weight: bold;
             }
@@ -43,7 +77,8 @@
         .title {
             margin: 30px 0;
             text-align: center;
-            span{
+
+            span {
                 font-size: 18px;
                 font-weight: bold;
             }
@@ -57,7 +92,8 @@
         .title {
             margin: 30px 0;
             text-align: center;
-            span{
+
+            span {
                 font-size: 18px;
                 font-weight: bold;
             }
@@ -66,30 +102,42 @@
 
     &--body {
         padding: 0 20px;
+
+        .form-item {
+            padding: 8px;
+
+            span {
+                color: $red;
+                font-size: 13px;
+            }
+        }
     }
-    * {
-        color: #fff;
-    }
-    label{
+
+    label {
         margin-top: 16px;
         margin-bottom: 5px;
         font-size: 16px;
         margin-right: 8px;
+        color: white;
     }
-    input{
+
+    input {
         width: 100%;
         background-color: #fff;
         -webkit-box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
         box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+        color: black;
         border-radius: 8px;
         text-align: center;
         height: 56px;
         font-size: 16px;
     }
+
     .sbmt {
         text-align: center;
         margin: 26px;
-        .main-btn{
+
+        .main-btn {
             background-color: transparent;
         }
     }

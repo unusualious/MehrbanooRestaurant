@@ -1,9 +1,9 @@
 <template lang="">
     <div>
-        <section class="page-banner light-red-bg p-r z-1 bg_cover" style="background-image: url(/src/images/hero/banner-1-ripoo.webp);">
+        <section class="page-banner light-red-bg p-r z-1 bg_cover" style="background-image: url(/src/images/hero/banner-1-ripose-darken.webp);">
             <div class="container ">
                 <div class="row">
-                    <div class="col-lg-10">
+                    <div class="col-lg-12">
                         <div class="page-banner-content text-center wow fadeInDown">
                             <h1 class="page-title">بلاگ </h1>
                             <ul class="breadcrumb-link text-white">

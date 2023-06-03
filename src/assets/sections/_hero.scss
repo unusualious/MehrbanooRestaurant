@@ -1,14 +1,14 @@
-
 /*---==================
     04. Hero css 
 =================----*/
 
 
-/*====== Banner One ======*/ 
+/*====== Banner One ======*/
 .main-banner {
     text-align: center;
 }
-.bannereo{
+
+.bannereo {
     // background-color: rgba(223, 63, 0, 0.07);
     padding: 180px 0 60px;
     position: absolute;
@@ -16,81 +16,97 @@
     right: 0;
     width: 100%;
     z-index: 99;
-    @media #{$xs}{
+
+    @media #{$xs} {
         padding: 90px 0 20px;
     }
-  .bannereo-img{
-    margin: 50px;
-  }
-  .bannereo-contents{
-    padding: 30px;
-    border-radius: 15px;
-    margin: 20px;
-    border: 10px solid rgba(229,194,96,0.35);
-    @media #{$xs} {
+
+    .bannereo-img {
+        margin: 50px;
+    }
+
+    .bannereo-contents {
+        padding: 30px;
+        border-radius: 15px;
+        margin: 20px;
+        border: 10px solid rgba(229, 194, 96, 0.35);
+
+        @media #{$xs} {
             margin: 10px;
-            border: 4px solid rgba(229,194,96,0.35);
+            border: 4px solid rgba(229, 194, 96, 0.35);
             padding: 0 15px;
 
-          }
+        }
     }
+
     // background: rgba(69,25,16,0.5);
-    h3{
-        margin : 15px 4px;
+    h3 {
+        margin: 15px 4px;
         color: #fff;
         font-family: 'marr';
     }
-    h2{
-        margin : 15px 4px;
+
+    h2 {
+        margin: 15px 4px;
         color: $red;
     }
-    p{
+
+    p {
         color: #fff;
         line-height: 2.2;
         font-size: 17px;
         margin: 20px 0;
+
         @media #{$xs} {
             line-height: 1.8;
             font-size: 18px;
             text-align: justify;
-          }
+        }
     }
 }
 
 
-/*====== Banner Two ======*/ 
+/*====== Banner Two ======*/
 
-.banner-two{
+.banner-two {
     padding: 100px 0 110px;
     overflow: hidden;
-    & .shape{ 
+
+    & .shape {
         position: absolute;
         z-index: -1;
-        &.shape-one{
+
+        &.shape-one {
             left: 100px;
             top: 125px;
-            & img{
+
+            & img {
                 opacity: .04;
             }
         }
-        &.shape-two{
+
+        &.shape-two {
             top: 100px;
             right: 40%;
             z-index: 1;
-            @media #{$xm}{
+
+            @media #{$xm} {
                 right: 70%;
             }
         }
-        &.svg-shape{
+
+        &.svg-shape {
             bottom: 0;
             left: 0;
-            & path{
+
+            & path {
                 fill: #fbf8f5;
             }
         }
     }
-    & .hero-content{
-        & span.tag-line{
+
+    & .hero-content {
+        & span.tag-line {
             padding: 10px 53px 10px 22px;
             background: url(../images/hero/tag-bg.png) no-repeat;
             background-size: cover;
@@ -98,63 +114,76 @@
             font: 400 27px $forum;
             margin-bottom: 40px;
         }
-        & h1{
+
+        & h1 {
             font-size: 180px;
             line-height: 1;
             margin-bottom: 60px;
-            @media #{$lm}{
+
+            @media #{$lm} {
                 font-size: 120px;
             }
-            @media #{$xs}{
+
+            @media #{$xs} {
                 font-size: 60px;
                 margin-bottom: 40px;
             }
         }
     }
-    & .hero-img-box{
-        @media #{$xm}{
+
+    & .hero-img-box {
+        @media #{$xm} {
             margin-bottom: 50px;
         }
-        & img{
+
+        & img {
             filter: drop-shadow(0px 10px 60px rgba(223, 63, 0, 0.3));
         }
     }
 }
 
-/*====== Banner Three ======*/ 
+/*====== Banner Three ======*/
 
-.banner-three{
+.banner-three {
     background-color: $heading;
-    & .single-slider{
+
+    & .single-slider {
         padding: 225px 0 120px;
         padding-left: 110px;
-        @media #{$xm}{
+
+        @media #{$xm} {
             padding-left: 0;
         }
     }
-    & .hero-content{
+
+    & .hero-content {
         position: relative;
         max-width: 615px;
         z-index: 1;
-        & h1{
+
+        & h1 {
             font-size: 200px;
             line-height: 1;
             margin-bottom: 30px;
-            @media #{$xs}{
+
+            @media #{$xs} {
                 font-size: 100px;
             }
         }
     }
-    & .hero-image{
+
+    & .hero-image {
         position: relative;
         margin-top: -330px;
         max-width: 1425px;
         z-index: -1;
         margin-left: auto;
-        @media #{$xm}{
+
+        @media #{$xm} {
             margin-top: 60px;
         }
-        & .image-overlay{
+
+        & .image-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -162,69 +191,82 @@
             height: 100%;
             background: linear-gradient(140.32deg, rgba(14, 19, 23, 0.92) 10.48%, rgba(14, 19, 23, 0) 77.33%);
         }
-        & img{
+
+        & img {
             display: inline-block;
         }
     }
 }
-.hero-arrows{
+
+.hero-arrows {
     position: absolute;
     bottom: 85px;
     right: 10%;
     display: flex;
-    & .slick-arrow{
+
+    & .slick-arrow {
         width: 65px;
         height: 65px;
         @extend %flex-center;
         background-color: #fff;
         cursor: pointer;
         @include transition(.3s);
+
         &.next,
-        &:hover{
+        &:hover {
             background-color: $primary;
             color: #fff;
         }
     }
 }
 
-/*====== Page Banner ======*/ 
+/*====== Page Banner ======*/
 
-.page-banner{
+.page-banner {
     padding: 160px 0 120px;
     position: relative;
     z-index: 1;
-    @media #{$lm}{
+
+    @media #{$lm} {
         padding: 180px 0 150px;
     }
 
-    & .page-banner-content{
-        & h1{
-            font-size: 90px;
-            line-height: 1.3em;
+    & .page-banner-content {
+        & h1 {
+            font-size: 60px;
+            line-height: 2em;
             margin-bottom: 18px;
+            letter-spacing: 1.2px;
             color: #fff;
-            @media #{$lm}{
+            text-shadow: -1px 2px 2px rgba(0, 0, 0, 0.6);
+
+            @media #{$lm} {
                 font-size: 80px;
             }
-            @media #{$xs}{
+
+            @media #{$xs} {
                 font-size: 40px;
             }
         }
-        & ul.breadcrumb-link{
+
+        & ul.breadcrumb-link {
             background-color: $primary;
             display: inline-flex;
             border-radius: 7px;
             padding: 15px 40px;
-            & li{
+
+            & li {
                 font-weight: 600;
                 font-size: 17px;
-                &:hover{
-                    & a{
+
+                &:hover {
+                    & a {
                         color: $heading;
                     }
                 }
-                &:not(:last-child){
-                    &:after{
+
+                &:not(:last-child) {
+                    &:after {
                         display: inline-block;
                         content: '\f061';
                         font-family: 'Font Awesome 5 Pro';

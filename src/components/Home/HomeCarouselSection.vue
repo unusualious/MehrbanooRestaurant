@@ -36,7 +36,7 @@
                     </p>
                     <div  v-if="!isMobile()" class="hero-button wow animate__animated animate__fadeInUp" data-wow-delay=".9s">
          
-                        <a href="menu-seafood.html" class="main-btn "><span>ثبت سفارش<i class="far fa-arrow-right"></i></span></a>
+                        <a href="menu-seafood.html" class="main-btn green"><span>ثبت سفارش<i class="far fa-arrow-right"></i></span></a>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                     </p>
                     <div  v-if="!isMobile()" class="hero-button wow animate__animated animate__fadeInUp" data-wow-delay=".9s">
                      
-                        <a href="menu-seafood.html" class="main-btn "><span>ثبت سفارش<i class="far fa-arrow-right"></i></span></a>
+                        <a href="menu-seafood.html" class="main-btn green"><span>ثبت سفارش<i class="far fa-arrow-right"></i></span></a>
                     </div>
                 </div>
             </div>

@@ -70,7 +70,7 @@
                         <div class="menu-button d-xl-block d-none">
                             <router-link v-if="isLogin()" to="/UserPanel" class="login-signup">ناحیه کاربری</router-link>
                             <router-link v-else to="/Login" class="login-signup">ورود / ثبت نام</router-link>
-                            <a href="tel:02126850157" class="main-btn"><span>شماره تماس : 02126850157<font-awesome-icon :icon="['fas', 'LongArrowAltRight']" /></span></a>
+                            <a href="tel:02126850157" class="main-btn green"><span>شماره تماس : 02126850157<font-awesome-icon :icon="['fas', 'LongArrowAltRight']" /></span></a>
                         </div>
                     </div>
                 </div>

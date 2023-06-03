@@ -132,6 +132,7 @@
             font-size: 27px;
             line-height: 30px;
             margin-bottom: 15px;
+            position: relative;
 
             @media #{$xs} {
                 font-size: 20px;
@@ -153,6 +154,8 @@
 
 .product-gallery-area {
     & .product-big-slider {
+        padding: 0 30px;
+
         & .product-img {
             cursor: pointer;
 
@@ -164,6 +167,34 @@
                 }
             }
         }
+
+        .shop-single-thumb {
+            display: flex;
+            justify-content: space-between;
+
+            .single-thumb-item {
+                padding: 3px;
+                flex-basis: 30%;
+                &.active{
+                        border: 3px solid $green;
+                }
+                img {
+                    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+                }
+            }
+        }
+    }
+    .galleryview{
+        text-align: left;
+        margin-bottom: 40px;
+        margin-top: -60px;
+    a{
+        background: rgba(255,255,255,0.8);
+            display: inline-block !important;
+            margin-left: 20px;
+            padding: 5px 9px;
+    }
     }
 
     & .product-thumb-slider {
@@ -209,19 +240,46 @@
             font-weight: 200;
             font-family: 'yekan';
             margin: 25px 0;
+
+            &:before {
+                position: absolute;
+                content: " ";
+                background: url(/src/images/shape/divider2.png);
+                width: 120px;
+                height: 100px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                bottom: -90px;
+                right: -50px;
+            }
         }
 
         & span.price {
-            font-size: 25px;
+            font-size: 30px;
             font-family: 'marr';
-            line-height: 30px;
+            line-height: 50px;
             letter-spacing: 0.8px;
             color: $red;
             margin-bottom: 10px;
         }
 
         & ul.ratings {
-            margin-bottom: 20px;
+            margin: 30px 0;
+
+            .vue-star-rating {
+                svg {
+                    width: 25px;
+                    margin: 3px;
+                }
+
+                .vue-star-rating-rating-text {
+                    margin-right: 25px;
+                    font-size: 27px !important;
+                    direction: rtl;
+                    color: #cdcdcd;
+                    margin-top: 12px;
+                }
+            }
 
             & li {
                 & span {
@@ -238,6 +296,8 @@
 
         &>p {
             margin-bottom: 35px;
+            font-size: 18px;
+            line-height: 2.1;
         }
 
         & .product-cart {
@@ -311,6 +371,7 @@
 
 .description-tabs {
     margin-top: 35px;
+
     & .nav {
         border-bottom: 1px solid rgba(14, 19, 23, 0.25);
     }
@@ -349,11 +410,49 @@
     }
 }
 
+.description-area {
+    margin-top: 20px;
+
+}
+
+.mehrbanoo-desc-parallax {
+    margin: 30px 0;
+    box-shadow: inset 0px 3px 23px 8px rgba(0, 0, 0, 0.1);
+
+    .desc-parallax-box {
+    padding: 35px 70px;
+        background-color: rgba(0, 0, 0, 0.65);
+        background: rgb(43, 43, 43);
+        background: radial-gradient(circle, rgba(43, 43, 43, 0.32) 0%, rgba(18, 18, 18, 0.65) 100%);
+        margin: 40px 80px;
+        border: 2px solid #584429;
+        line-height: 2.3;
+        font-size: 18px;
+        color: #e9e9e9;
+        text-align: justify;
+    }
+}
+
+.testimonial-wrapper-one {
+    padding: 30px;
+}
 
 .review-form-area {
     padding: 40px 65px 50px;
     background-color: #fff;
     box-shadow: 0px 10px 60px rgba(223, 63, 0, 0.1);
+
+    .vue-star-rating {
+        svg {
+            width: 30px;
+            margin: 4px;
+        }
+    }
+
+    h3 {
+        font-family: $forum;
+        margin: 20px;
+    }
 
     @media #{$xm} {
         padding: 40px 35px 50px;
@@ -373,7 +472,7 @@
 
     & .review-form {
         & .form_control {
-            background-color: #FDF5F2;
+            background-color: #dedede;
             border: 1px solid rgba(14, 19, 23, 0.1);
             height: 60px;
             margin-bottom: 20px;
@@ -381,6 +480,14 @@
 
         & textarea.form_control {
             min-height: 150px;
+        }
+
+        .main-btn {
+            width: auto;
+
+            span {
+                color: $text-color;
+            }
         }
     }
 }

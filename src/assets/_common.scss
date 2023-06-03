@@ -373,7 +373,14 @@ textarea.form_control {
     align-items: center;
     font-weight: 500;
     color: #556b2f;
-
+@media #{$xs}{
+        &:before,
+            &:after {
+                content: '';
+                width: 80px;      
+        
+            }
+}
     &:before,
     &:after {
         content: '';
@@ -419,7 +426,6 @@ textarea.form_control {
         & .sub-title {
             @media #{$xs} {
                 font-size: 16px;
-                margin: 0 20px;
             }
 
             &:after {
@@ -515,7 +521,6 @@ button {
     font-weight: 600;
     font-size: 16px;
     border-radius: none;
-    border-left: 2px solid $green;
     position: relative;
     color: #fff;
     line-height: 24px;
@@ -549,8 +554,6 @@ button {
         height: 110%;
         top: -7%;
         box-sizing: border-box;
-        border: 2px solid #45581c;
-        box-shadow: 0 0 40px 40px $green inset;
         color: #ededed;
         border-radius: 6px;
         font-weight: 600;
@@ -560,18 +563,61 @@ button {
         padding: 13px 40px;
         transform: translateX(calc(-0.15em * 3 - 0.08em * 2));
         transition: 0.3s;
-        &:hover{
-            border: 2px solid $green;
-            box-shadow: none;
-            transition: 0.3s;
-        }
+
         &.white{
             &:hover{
                 color: $green;
             }
         }
     }
-
+    &.green{
+        border-left: 2px solid $green;
+        span{
+            border: 2px solid #45581c;
+            box-shadow: 0 0 40px 40px $green inset;
+            &:hover{
+                border: 2px solid $green;
+                box-shadow: none;
+                transition: 0.3s;
+            }
+        }
+    }
+    &.red{
+        border-left: 2px solid $red;
+        span{
+            border: 2px solid $red;
+            box-shadow: 0 0 40px 40px $red inset;
+            &:hover{
+                border: 2px solid $red;
+                box-shadow: none;
+                transition: 0.3s;
+            }
+        }
+    }
+    &.black{
+        border-left: 2px solid $heading;
+        span{
+            border: 2px solid $heading;
+            box-shadow: 0 0 40px 40px $heading inset;
+            &:hover{
+                border: 2px solid $heading;
+                box-shadow: none;
+                transition: 0.3s;
+            }
+        }
+    }
+    &.yellow{
+        border-left: 2px solid $primary;
+        span{
+            box-shadow: 0 0 40px 40px $primary inset;
+            border: 2px solid $primary;
+            &:hover{
+                border: 2px solid $primary;
+                box-shadow: none;
+                transition: 0.3s;
+            }
+        }
+    }
     &:hover {
         span {
             transform: translateX(0.15em);
@@ -961,3 +1007,23 @@ button {
 /*====================
     End COMMON css 
 ======================*/
+
+.pages-title{
+    margin: 32px 20px 55px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    color: $green;
+    font-family: 'yekan';
+    font-size: 25px;
+    &::before{
+        content: " ";
+        background: url(/src/images/shape/divider2.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        bottom: -40px;
+        right: -25px;
+
+    }
+}

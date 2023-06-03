@@ -13,7 +13,7 @@
                         </div>
                     </div>
                 </div>
-                <div class=" col-md-4 .d-none .d-sm-block ">
+                <div class=" col-md-4 d-none d-sm-block ">
                     <!--=== Footer Widget ===-->
                     <div class="footer-widget footer-nav-widget  wow fadeInDown">
                         <h4 class="widget-title">دسترسی سریع</h4>
