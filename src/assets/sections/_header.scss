@@ -660,7 +660,7 @@
         height: 89vh;
         top: 11vh;
         left: 0;
-        padding: 100px 25px;
+        padding: 50px 25px 100px;
         text-align: center;
         border-top: 2px solid #576b2b;
         background: rgba(38, 42, 27, 0.95);
@@ -669,7 +669,12 @@
         -ms-transition: all 400ms ease-out;
         -o-transition: all 400ms ease-out;
         transition: all 400ms ease-out;
-
+            .login-signup{
+                margin-bottom: 80px;
+                    padding: 9px 25px;
+                    background: #dee;
+                    border-radius: 7px;
+            }
         ul {
             li {
                 padding: 11px 15px;

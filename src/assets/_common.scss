@@ -373,7 +373,14 @@ textarea.form_control {
     align-items: center;
     font-weight: 500;
     color: #556b2f;
-
+@media #{$xs}{
+        &:before,
+            &:after {
+                content: '';
+                width: 80px;      
+        
+            }
+}
     &:before,
     &:after {
         content: '';
@@ -419,7 +426,6 @@ textarea.form_control {
         & .sub-title {
             @media #{$xs} {
                 font-size: 16px;
-                margin: 0 20px;
             }
 
             &:after {
