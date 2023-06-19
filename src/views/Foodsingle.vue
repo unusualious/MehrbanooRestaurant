@@ -1,6 +1,10 @@
 <template lang="">
     <div>
-        <section class="page-banner light-red-bg p-r z-1 bg_cover" v-bind:style="{ backgroundImage: 'url(' + this.backgroundImageUrl + ')' }">
+        <div class="loading" v-if="!dataLoad">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="inlineLoaderRef" viewBox="0 0 100 100" width="600" height="350" overflow="visible" fill="#138636" stroke="none" class="single-loader" style=""><defs> <circle id="inline" cx="20" cy="50" r="4"/>    </defs> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#inline" x="6"><animate attributeName="opacity" values="0;1;0" dur="1s" begin="0.25s" repeatCount="indefinite"/> <animateTransform attributeName="transform" type="translate" additive="sum" dur="1s" begin="0.25s" repeatCount="indefinite" from="0 0" to="10"/>   </use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#inline" x="22"><animate attributeName="opacity" values="0;1;0" dur="1s" begin="0.5s" repeatCount="indefinite"/> <animateTransform attributeName="transform" type="translate" additive="sum" dur="1s" begin="0.5s" repeatCount="indefinite" from="0 0" to="10"/>   </use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#inline" x="38"><animate attributeName="opacity" values="0;1;0" dur="1s" begin="0.75s" repeatCount="indefinite"/> <animateTransform attributeName="transform" type="translate" additive="sum" dur="1s" begin="0.75s" repeatCount="indefinite" from="0 0" to="10"/>   </use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#inline" x="54"><animate attributeName="opacity" values="0;1;0" dur="1s" begin="1s" repeatCount="indefinite"/> <animateTransform attributeName="transform" type="translate" additive="sum" dur="1s" begin="1s" repeatCount="indefinite" from="0 0" to="10"/>   </use> </svg>
+
+        </div>
+        <section class="page-banner foods-top-banner bg_cover" v-bind:style="{ backgroundImage: 'url(' + this.backgroundImageUrl + ')' }">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
@@ -66,16 +70,7 @@
                                                         v-bind:round-start-rating="false">
                                             </star-rating></a></span></li>
                                             </ul>
-                                            <p>{{food.Description}}
-                                            کیفیت مواد اولیه استفاده شده در مهربانو برای این غذا به شرح ذیل میباشد :
-
-کباب جوجه کباب مخصوص ران  از گوشت ران بدون استخوان  مرغ تازه  تهیه میشود .
-
-این گوشت ازشرکت های معتبر و صاحب نام خریداری میشود .
-
-برنج استفاده شده برنج هاشمی درجه یک میباشد .
-
-برای غذاهای بدون برنج ، حداقل از چهار قلم دورچین مناسب آن غذا استفاده میشود .
+                                            <p>{{food.ShortDescription}}
                                             </p>
                                         </div>
                                     </div>
@@ -106,12 +101,7 @@
                             <div class="parallax-sight mehrbanoo-desc-parallax" v-bind:style="{ backgroundImage: 'url(' + this.backgroundImageUrl + ')' }">
 
                                     <div class="desc-parallax-box">
-              جوجه کباب یکی از انواع کباب های خوشمزه و بسیار محبوب ایرانی است که علاوه بر اینکه دستور پخت آن بسیار آسان است خیلی سریع نیز آماده می شود. جالب است بدانید این کباب خوشمزه در کنار کباب هایی مثل کباب کوبیده از مجلسی ترین کباب ها محسوب می شود.
-
-جوجه کباب از جمله غذاهایی محسوب می شود که دستورهای بسیار متنوعی دارد و تقریبا هر کَس برای طعم دار کردن گوشت مرغ برای خود روشی متفاوت دارد و از مواد متفاوتی استفاده می کند. مواد متداول برای طعم دار کردن جوجه کباب پیاز ، زعفران و آبلیمو هستند.
-
-جوجه کباب انواع پخت مختلفی نیز دارد که از مهم ترین روش های پخت جوجه کباب می توان به جوجه کباب ذغالی و جوجه کباب تابه ای اشاره کرد. جوجه کباب ذغالی بیشتر برای بیرون از منزل و جوجه کباب تابه ای بیشتر در منزل تهیه می شود.
-                              ای اشاره کرد. جوجه کباب ذغالی بیشتر برای بیرون از منزل و جوجه کباب تابه ا
+                                        {{food.Description}}
                                     </div>
                             </div>  
                             <FoodsComments :foodId="this.$route.params.id"/>
@@ -192,6 +182,7 @@ export default {
   },
   methods: {
     async getFoodInfo() {
+      debugger
       const foodsResponse = await axios.get(this.foodApiAddress);
       this.food = foodsResponse.data;
       this.totalRating = this.getRating(foodsResponse.data.FoodRatings);
@@ -201,6 +192,8 @@ export default {
       this.wideImages = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 2).sort(m => m.Order));
       this.backgroundImageUrl = this.getFullImageAddress(this.wideImages[0]);
       console.log(this.food);
+      this.dataLoad = true;
+
     },
     async getUserRating() {
       if (this.isLogin()) {
@@ -215,9 +208,9 @@ export default {
         return ratingResponse.data.Rating;
       }
     },
-    getFoodImageAddressList(images){
+    getFoodImageAddressList(images) {
       var imageList = []
-      for(let i = 0; i < images.length; i ++){
+      for (let i = 0; i < images.length; i++) {
         imageList.push(images[i].Address)
       }
 
@@ -233,22 +226,22 @@ export default {
       if (length <= 3) {
         return priceInt;
       } else {
-        var priceStr = priceInt;
+        var priceStr = priceInt.toString();
         var numberOfSeparators = Math.floor(length / 3);
         if (numberOfSeparators * 3 == length) {
           numberOfSeparators--;
         }
         for (let i = 0; i < numberOfSeparators; i++) {
-          priceStr = this.insertAtIndex(
-            priceStr,
-            ",",
-            priceStr.length - (3 * (i + 1) + i)
-          );
+          priceStr = this.insertAtIndex(priceStr, ",", priceStr.length - (3 * (i + 1) + i))
         }
 
         return priceStr;
       }
     },
+    insertAtIndex(str, substring, index) {
+      return str.toString().slice(0, index) + substring + str.slice(index);
+    },
+
     submitRating(rating) {
       if (!this.isLogin()) {
         alert("ابتدا باید وارد حساب کاربری خود شوید.");
@@ -345,10 +338,10 @@ export default {
       }
       return sum / collection.length;
     },
-    changeImage(e,i){
-        this.mainPic = e;
-        this.picIndex = i;
-    }
+    changeImage(e, i) {
+      this.mainPic = e;
+      this.picIndex = i;
+    },
   },
   async mounted() {
     await this.getFoodInfo();
@@ -362,10 +355,11 @@ export default {
     return {
       food: [],
       picIndex: 0,
-      mainPic:"",
+      mainPic: "",
+      dataLoad: false,
       backgroundImageUrl: "",
-      mainImages:[],
-      wideImages:[],
+      mainImages: [],
+      wideImages: [],
       apiBaseAddress: "https://services.mehrbanoo.restaurant/api",
       //apiBaseAddress: 'https://localhost:44324/api',
       imageBaseAddress: "https://admin.mehrbanoo.restaurant",
@@ -382,5 +376,15 @@ export default {
   },
 };
 </script>
-<style lang="">
+<style lang="scss">
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
 </style>

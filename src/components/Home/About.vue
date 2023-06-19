@@ -20,7 +20,7 @@
                         </h2>
                     </div>
                     <p>ما با کادری مجرب و خدمتگذار اینجا هستیم تا یک تجربه لذیذ را برایتان بیافرینیم. نقش آفرینی ما در سفره شما مایه مباهات است .در مجموعه ما، امکان سفارش بیرون‌بر از کلیه آیتم‌های منو وجود دارد. کلیه نکات بهداشتی در تمامی مراحل آماده‌سازی، بسته بندی و ارسال سفارشات رعایت می‌شود. همچنین با بهره‌گیری از پیک‌های مخصوص حمل غذا، تمامی سفارشات، تازه و در دمای مطلوب تحویل داده می‌شود. .  </p>
-                    <a href="" class="main-btn green" style="margin-bottom:20px"><span class="white">نمایش بیشتر <i class="far fa-arrow-right"></i></span></a>
+                    <a v-if="!isMobile()"  href="" class="main-btn green" style="margin-bottom:20px"><span class="white">نمایش بیشتر <i class="far fa-arrow-right"></i></span></a>
                 </div>
             </div>
             <div v-if="!isMobile()"   class="col-md-6 ">
@@ -37,7 +37,7 @@
                 </div>
             </div>
             <div v-if="isMobile()" class="about-image-gallery ml-lg-40">
-                            <img src="/src/images/foods/gheimenesar-left.jpg" class="mb-40 wow animate__animated animate__fadeInDown" alt="About Image">
+                            <img src="/src/images/welcomemehrbanoo.webp" class="mb-40 wow animate__animated animate__fadeInDown" alt="About Image">
                 </div>
         </div>
     </div>

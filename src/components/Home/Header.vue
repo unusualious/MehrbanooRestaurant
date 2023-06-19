@@ -45,14 +45,16 @@
                             <ul>
                                 <li class="menu-item has-children">    <router-link to="/">خانه</router-link>
                                  </li>
-                                <li class="menu-item has-children"><a href="">خوشمزه ها </a>
+                                <!-- <li class="menu-item has-children"><a href="">خوشمزه ها </a>
                                     <ul class="sub-menu">
                                         <li><a href="">نوشیدنی ها</a></li>
                                         <li><a href="">غذاهای خانگی</a></li>
                                         <li><a href="">دسرها</a></li>
                                         <li><a href="">صبخانه های لذیذ</a></li>
                                     </ul>
-                                </li>
+                                </li> -->
+
+                                <!-- <li class="menu-item">   <a class="mehrbanoo-menu" href="#foodsTab">منو مهربانو</a></li> -->
                                 <li class="menu-item">   <router-link to="/aboutus">درباره ما</router-link></li>
                                 <li class="menu-item has-children"><router-link to="/blog">بلاگ</router-link>
                                 </li>

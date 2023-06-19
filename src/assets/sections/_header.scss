@@ -190,7 +190,7 @@
                 position: relative;
                 margin-left: 20px;
                 margin-right: 20px;
-
+           
                 @media #{$lp} {
                     margin-left: 10px;
                     margin-right: 10px;
@@ -205,7 +205,10 @@
                     letter-spacing: 0.5px;
                     padding: 10px 0;
                     line-height: 1;
-
+                    &.mehrbanoo-menu{
+                        font-size: 30px;
+                        text-shadow: 0px 1px 0 #e1734a;
+                    }
                     & span.dd-trigger {
                         margin-inline-start: 5px;
                     }

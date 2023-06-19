@@ -36,7 +36,7 @@
                     </p>
                     <div  v-if="!isMobile()" class="hero-button wow animate__animated animate__fadeInUp" data-wow-delay=".9s">
          
-                        <a href="menu-seafood.html" class="main-btn green"><span>ثبت سفارش<i class="far fa-arrow-right"></i></span></a>
+                        <a class="mehrbanoo-menu wow animate__animated animate__headShake" href="#foodsTab">نمایش منو مهربانو</a>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@
                     </p>
                     <div  v-if="!isMobile()" class="hero-button wow animate__animated animate__fadeInUp" data-wow-delay=".9s">
                      
-                        <a href="menu-seafood.html" class="main-btn green"><span>ثبت سفارش<i class="far fa-arrow-right"></i></span></a>
+                        <a class="mehrbanoo-menu wow animate__animated animate__headShake" href="#foodsTab">نمایش منو مهربانو</a>
                     </div>
                 </div>
             </div>
@@ -80,6 +80,8 @@
         </div>
     </div>
 </section><!--=== End Banner Section ===-->
+
+
 <img v-if="!isMobile()" src="/src/images/bg/slide2_mehrbanoo.jpg" alt="">
         <img v-else src="/src/images/bg/slide-mobile-2ess.jpg" alt="">
     </swiper-slide>

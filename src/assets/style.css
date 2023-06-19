@@ -1442,6 +1442,11 @@ button {
   line-height: 1;
 }
 
+.header-navigation .main-menu ul > li > a.mehrbanoo-menu {
+  font-size: 30px;
+  text-shadow: 0px 1px 0 #e1734a;
+}
+
 .header-navigation .main-menu ul > li > a span.dd-trigger {
   margin-inline-start: 5px;
 }
@@ -1942,6 +1947,19 @@ button {
   z-index: 99;
 }
 
+.bannereo .mehrbanoo-menu {
+  font-size: 30px;
+  color: #556b2f;
+  text-shadow: 0px 1px 0 #556b2f;
+  font-family: 'marr';
+  border-radius: 8px;
+  background: #ececec;
+  padding: 13px 40px;
+  animation-iteration-count: infinite;
+  animation-duration: 1.7s;
+  animation-delay: 4s;
+}
+
 @media (max-width: 767px) {
   .bannereo {
     padding: 90px 0 20px;
@@ -1968,9 +1986,23 @@ button {
 }
 
 .bannereo h3 {
-  margin: 15px 4px;
+  margin: 10px 4px 22px;
   color: #fff;
   font-family: 'marr';
+}
+
+.bannereo h3:before {
+  content: " ";
+  width: 88px;
+  height: 26px;
+  background: url(/src/images/shape/divider4.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  bottom: -22px;
+  right: -36px;
+  background-size: contain;
+  opacity: 0.8;
 }
 
 .bannereo h2 {
@@ -2162,6 +2194,16 @@ button {
   padding: 160px 0 120px;
   position: relative;
   z-index: 1;
+}
+
+.page-banner.page-banner::after {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: black;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.84) 0%, rgba(28, 29, 30, 0.69) 40%, rgba(28, 30, 32, 0) 100%);
 }
 
 @media (max-width: 1199px) {
@@ -5049,6 +5091,13 @@ form.reservation-form .nice-select ul.list {
   font-size: 18px;
   color: #e9e9e9;
   text-align: justify;
+}
+
+@media (max-width: 767px) {
+  .mehrbanoo-desc-parallax .desc-parallax-box {
+    padding: 35px 10px;
+    margin: 40px 15px;
+  }
 }
 
 .testimonial-wrapper-one {

@@ -7,6 +7,7 @@ import Contact from '@/views/Contact.vue'
 import Login from '@/views/Login.vue'
 import Foodsingle from '@/views/Foodsingle.vue'
 import ActivatingEmail from '@/views/ActivatingEmail.vue'
+import UserPanel from '@/views/UserPanel.vue'
 // import 'owl.carousel/dist/assets/owl.carousel.css';
 // import 'owl.carousel';
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -28,8 +29,13 @@ const routes = [
     { path: '/contact', component: Contact },
     { path: '/login/:action?/:id?', component: Login },
     { path: '/foods/:id', component: Foodsingle },
+    { path: '/UserPanel', component: UserPanel },
     { path: '/ActiveUserAccount/:code/:email', component: ActivatingEmail },
 ]
 
-const router = createRouter({ history: createWebHistory(), routes })
+const router = createRouter({ history: createWebHistory(), routes,  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { top: 0 }
+  },
+ })
 export default router

@@ -1,5 +1,5 @@
 <template lang="">
-    <div class="container-fluid tabs-section main-sections ">
+    <div class="container-fluid tabs-section main-sections " id="foodsTab">
         <div class="row ">
             <div class="parallax-sight one">
                 <div class="tabs-menu col-12">
@@ -9,7 +9,12 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent" >
-                        <div v-for="category in foodCategories" class="tab-pane fade" :class="{'show active': category.IsActive}" :id="'category_' + category.FoodCategoryID"  role="tabpanel" aria-labelledby="pills-home-tab">
+                        
+                        <div v-if="!dataLoad" style="    text-align: center;">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="inlineLoaderRef" viewBox="0 0 100 100" width="600" height="350" overflow="visible" fill="#138636" stroke="none" class="single-loader" style=""><defs> <circle id="inline" cx="20" cy="50" r="4"/>    </defs> <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#inline" x="6"><animate attributeName="opacity" values="0;1;0" dur="1s" begin="0.25s" repeatCount="indefinite"/> <animateTransform attributeName="transform" type="translate" additive="sum" dur="1s" begin="0.25s" repeatCount="indefinite" from="0 0" to="10"/>   </use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#inline" x="22"><animate attributeName="opacity" values="0;1;0" dur="1s" begin="0.5s" repeatCount="indefinite"/> <animateTransform attributeName="transform" type="translate" additive="sum" dur="1s" begin="0.5s" repeatCount="indefinite" from="0 0" to="10"/>   </use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#inline" x="38"><animate attributeName="opacity" values="0;1;0" dur="1s" begin="0.75s" repeatCount="indefinite"/> <animateTransform attributeName="transform" type="translate" additive="sum" dur="1s" begin="0.75s" repeatCount="indefinite" from="0 0" to="10"/>   </use><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#inline" x="54"><animate attributeName="opacity" values="0;1;0" dur="1s" begin="1s" repeatCount="indefinite"/> <animateTransform attributeName="transform" type="translate" additive="sum" dur="1s" begin="1s" repeatCount="indefinite" from="0 0" to="10"/>   </use> </svg>
+                        </div>
+
+                        <div v-else v-for="category in foodCategories" class="tab-pane fade" :class="{'show active': category.IsActive}" :id="'category_' + category.FoodCategoryID"  role="tabpanel" aria-labelledby="pills-home-tab">
                             <div v-for="food in foodsOfCategory(category.FoodCategoryID)" class="menu-item">
                                 <!-- <div class="item-wrapper" @click="goToFood(food.foodID)"> -->
                                 <div v-if="food.HasSinglePage" class="item-wrapper">
@@ -80,7 +85,8 @@ export default {
             axios.get(this.foodApiAddress)
                 .then(function (response) {
                     // handle success
-                    this.foods = response.data.Collection
+                    this.foods = response.data.Collection;
+                    this.dataLoad = true;
                 }.bind(this));
         },
 
@@ -117,7 +123,10 @@ export default {
         },
         insertAtIndex(str, substring, index) {
             return str.toString().slice(0, index) + substring + str.slice(index);
-        }
+        },
+        contentLoaded() {
+            this.dataLoad = true;
+        },
     },
     data() {
         return {
@@ -125,7 +134,8 @@ export default {
             foodCategories: [],
             apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
             //apiBaseAddress: 'https://localhost:44324/api',
-            imageBaseAddress: 'https://admin.mehrbanoo.restaurant'
+            imageBaseAddress: 'https://admin.mehrbanoo.restaurant',
+            dataLoad: false,
         }
     },
     computed: {
@@ -240,7 +250,7 @@ export default {
                         }
 
                         &:hover {
-                            outline: 3px solid #556b2f;
+                            outline: 4px solid #e97451;
                             cursor: pointer;
 
                             img {
