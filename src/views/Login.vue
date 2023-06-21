@@ -161,9 +161,9 @@ export default {
         alert("با موفقیت وارد سیستم شدید")
 
         let d = new Date()
-        d.setTime(response.data.expire_in)
+        d.setMinutes(response.data.Expire_In_Min)
         let expires = "expires=" + d.toUTCString()
-        document.cookie = "access_token=" + response.data.access_token + ";" + expires + ";path=/"
+        document.cookie = "access_token=" + response.data.Token + ";" + expires + ";path=/"
 
         if (this.$route.params.action) {
           var redirectURL = "/" + this.$route.params.action + "/" + this.$route.params.id
@@ -218,11 +218,11 @@ export default {
   },
   data() {
     return {
-      apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
-      baseAddress: 'https://services.mehrbanoo.restaurant/',
+      //apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
+      //baseAddress: 'https://services.mehrbanoo.restaurant/',
 
-      //apiBaseAddress: 'https://localhost:44324/api',
-      //baseAddress : 'https://localhost:44324/',
+      apiBaseAddress: 'https://localhost:7267/api',
+      baseAddress : 'https://localhost:7267/',
 
 
       siteKey: "6LdOU_QlAAAAADdv6_gT1QLKuphLbRakmzE0L3fP",

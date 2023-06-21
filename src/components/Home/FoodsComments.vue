@@ -5,7 +5,10 @@
             <!--=== Single Testimonial ===-->
             <div v-for="foodComment in foodComments" class="single-testimonial-one">
                 <div class="testimonial-inner-content">
-                    <p>{{foodComment.Comment}}</p>
+
+                    <!-- To be used: foodComment.foodTitle  string-->
+                    <!-- To be used: foodComment.createDate  datetime-->
+                    <p>{{foodComment.comment}}</p>
                     <div class="author-quote-box d-flex justify-content-between">
                         <div class="author-title-thumb d-flex">
                             <div class="author-thumb">
@@ -13,7 +16,7 @@
                             </div>
                             <div class="author-title">
 
-                                <p class="position">{{foodComment.User.Name, foodComment.User.Sirname}}</p>
+                                <p class="position">{{foodComment.customerName}} {{foodComment.customerSirName}}</p>
                             </div>
                         </div>
                         <div class="quote">
@@ -33,19 +36,19 @@ export default {
         foodId: Number
     },
     methods: {
-        getLast2FoodComments(){
+        getFoodComments(){
             axios.get(this.foodsCommentApiAddress)
                 .then(function (response) {
                     // handle success
-                    this.foodComments = response.data.Collection
+                    this.foodComments = response.data.collection
                 }.bind(this));
             },
     },
     data () {
         return {
             foodComments: [],
-            apiBaseAddress: 'https://services.mehrbanoo.restaurant/api'
-            //apiBaseAddress: 'https://localhost:44324/api'
+            //apiBaseAddress: 'https://services.mehrbanoo.restaurant/api'
+            apiBaseAddress: 'https://localhost:7267/api'
         }
     },
     computed: {
@@ -54,7 +57,7 @@ export default {
         }
     },
     mounted(){
-        this.getLast2FoodComments()
+        this.getFoodComments()
     }
 }
 </script>

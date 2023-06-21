@@ -14,12 +14,12 @@
                     <div v-for="blog in blogs" class="col-lg-4 col-md-6 col-sm-12">
                         <div class="blog-portion-part fadeInUp">
                             <div class="post-thumbnail">
-                                <img :src="getFullImageAddress(blog.PicAddress)" alt="Post Image">
+                                <img :src="getFullImageAddress(blog.picAddress)" alt="Post Image">
                             </div>
                             <div class="entries">
-                                <span class="tag-btn">{{blog.Tag.text}}</span>
-                                <h3 class="title"><a href="">{{blog.Title}}</a></h3>
-                                <p>{{blog.Description}}</p>
+                                <span class="tag-btn">{{blog.tag.text}}</span>
+                                <h3 class="title"><a href="">{{blog.title}}</a></h3>
+                                <p>{{blog.description}}</p>
                             </div>
                         </div>
                     </div>
@@ -36,11 +36,11 @@ import axios from 'axios';
 
 export default {
     methods: {
-        getAllBlogs(){
-            axios.get(this.blogApiAddress)
+        getLast3Blogs(){
+            axios.get(this.recentBlogsApiAddress)
                 .then(function (response) {
                     // handle success
-                    this.blogs = response.data.Collection
+                    this.blogs = response.data.collection
                 }.bind(this));
         },        
         getFullImageAddress(relativeAddress){
@@ -50,18 +50,19 @@ export default {
     data () {
         return {
             blogs: [],
-            apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
-            //apiBaseAddress: 'https://localhost:44324/api',
-            imageBaseAddress : 'https://admin.mehrbanoo.restaurant'
+            //apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
+            apiBaseAddress: 'https://localhost:7267/api',
+            //imageBaseAddress : 'https://admin.mehrbanoo.restaurant'
+            imageBaseAddress : 'https://localhost:51034'
         }
     },
     computed: {
-        blogApiAddress() {
-            return this.apiBaseAddress + '/Blogs'
+        recentBlogsApiAddress() {
+            return this.apiBaseAddress + '/Blogs/GetRecent'
         }
     },
     mounted(){
-        this.getAllBlogs()
+        this.getLast3Blogs()
     }
 }
 </script>
