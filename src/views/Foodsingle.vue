@@ -25,7 +25,7 @@
                                         <div class="product-gallery-area">
                                             <div class="product-big-slider">
                                                 <div class="product-img gallery__wrapper">
-                                                        <inner-image-zoom  :src="getFullImageAddress(mainPic)" :zoomSrc="mainPic" />
+                                                        <inner-image-zoom  :src="getFullImageAddress(mainPic)" :zoomSrc="getFullImageAddress(mainPic)" />
                                                         <!-- <img v-if="food.PicAddress" :src="getFullImageAddress(food.PicAddress)" alt="Img"> -->
                                                     <!-- <img v-else src="/src/images/foods/default.png" alt="Img">      -->
                                                     <div class="galleryview">
@@ -182,14 +182,13 @@ export default {
   },
   methods: {
     async getFoodInfo() {
-      debugger
       const foodsResponse = await axios.get(this.foodApiAddress);
       this.food = foodsResponse.data;
       this.totalRating = this.getRating(foodsResponse.data.FoodRatings);
       this.userRating = await this.getUserRating();
       this.mainPic = foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 1 && d.Order == 1)[0].Address;
+      this.mainImagesExceptFirst = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.foodImageType == 1 && d.order != 1).sort(m => m.order));
       this.mainImages = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 1).sort(m => m.Order));
-      this.mainImagesExceptFirst = this.getFoodImageAddressList(foodsResponse.data.foodImages.filter(d => d.foodImageType == 1 && d.order != 1).sort(m => m.order));
       this.wideImages = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 2).sort(m => m.Order));
       this.backgroundImageUrl = this.getFullImageAddress(this.wideImages[0]);
       console.log(this.food);

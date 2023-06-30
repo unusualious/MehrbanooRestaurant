@@ -13,7 +13,7 @@
                         تلاش تیم مهربانو رضایت و خوشنودی شماست که امیدواریم بتوانیم تجربه ای لذیذ را برایتان پدید آوریم .
                     </p>
                 </div>
-                <button type="button" :on-click="this.Logout()">خروج از حساب کاربری</button>
+                <input type="button" @click="this.Logout()" value="خروج از حساب کاربری" />
             </div>
         </div>
     </section>
