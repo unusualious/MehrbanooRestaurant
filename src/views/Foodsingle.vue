@@ -46,7 +46,7 @@
                                                 </div>
                                                     
                                                 <div class="hidden-gallery"  >
-                                                         <a v-for="foodUrl,index in this.mainImages"
+                                                         <a v-for="foodUrl,index in this.mainImagesExceptFirst"
                                                          :href="getFullImageAddress(foodUrl)"  class="glightbox" style="display:none">
                                                           <img :src="getFullImageAddress(foodUrl)" alt="" />
                                                         </a>
@@ -189,6 +189,7 @@ export default {
       this.userRating = await this.getUserRating();
       this.mainPic = foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 1 && d.Order == 1)[0].Address;
       this.mainImages = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 1).sort(m => m.Order));
+      this.mainImagesExceptFirst = this.getFoodImageAddressList(foodsResponse.data.foodImages.filter(d => d.foodImageType == 1 && d.order != 1).sort(m => m.order));
       this.wideImages = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 2).sort(m => m.Order));
       this.backgroundImageUrl = this.getFullImageAddress(this.wideImages[0]);
       console.log(this.food);
@@ -201,11 +202,15 @@ export default {
           headers: { Authorization: `Bearer ${this.tokenCookieValue}` },
         };
 
-        const ratingResponse = await axios.get(
+        return await axios.get(
           this.userFoodsRatingAddress,
           config
-        );
-        return ratingResponse.data.Rating;
+        ).then(function (response) {
+                // handle success
+                return response.data.Rating;
+              }).catch(function(error) {
+                return null;
+            });
       }
     },
     getFoodImageAddressList(images) {
@@ -359,6 +364,7 @@ export default {
       dataLoad: false,
       backgroundImageUrl: "",
       mainImages: [],
+      mainImagesExceptFirst: [],
       wideImages: [],
       apiBaseAddress: "https://services.mehrbanoo.restaurant/api",
       //apiBaseAddress: 'https://localhost:44324/api',
