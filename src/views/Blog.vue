@@ -21,12 +21,12 @@
                     <div v-for="blog in blogs" class="col-lg-4 col-md-6 col-sm-12">
                         <div class="blog-portion-part fadeInUp">
                             <div class="post-thumbnail">
-                                <img :src="getFullImageAddress(blog.picAddress)" alt="Post Image">
+                                <img :src="getFullImageAddress(blog.PicAddress)" alt="Post Image">
                             </div>
                             <div class="entries">
-                                <span class="tag-btn">{{blog.tag.text}}</span>
-                                <h3 class="title"><a href="">{{blog.title}}</a></h3>
-                                <p>{{blog.description}}</p>
+                                <span class="tag-btn">{{blog.Tag.Text}}</span>
+                                <h3 class="title"><a href="">{{blog.Title}}</a></h3>
+                                <p>{{blog.Description}}</p>
                             </div>
                         </div>
                     </div>
@@ -55,10 +55,10 @@ export default {
     data () {
         return {
             blogs: [],
-            //apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
-            apiBaseAddress: 'https://localhost:7267/api',
-            //imageBaseAddress : 'https://admin.mehrbanoo.restaurant'
-            imageBaseAddress : 'https://localhost:51034'
+            apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
+            //apiBaseAddress: 'https://localhost:7267/api',
+            imageBaseAddress : 'https://admin.mehrbanoo.restaurant'
+            //imageBaseAddress : 'https://localhost:51034'
         }
     },
     computed: {

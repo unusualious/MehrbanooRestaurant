@@ -174,8 +174,8 @@ export default {
     },
     data () {
         return {
-            //apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
-            apiBaseAddress: 'https://localhost:7267/api',
+            apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
+            //apiBaseAddress: 'https://localhost:7267/api',
             Email: '',
             password: '',
             confirmPassword: '',
