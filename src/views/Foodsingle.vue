@@ -9,7 +9,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
                         <div class="page-banner-content text-center">
-                            <h1 class="page-title">{{food.title}}</h1>
+                            <h1 class="page-title">{{food.Title}}</h1>
                         </div>
                     </div>
                 </div>
@@ -59,9 +59,9 @@
                                     <div class="col-md-7">
                                         <!--=== Product Info ===-->
                                         <div class="product-info pl-lg-70 mb-50 wow fadeInRight">
-                                            <h3 class="title">{{food.title}}</h3>
+                                            <h3 class="title">{{food.Title}}</h3>
 
-                                            <span class="price"><span class="curreny"></span>{{food.price}} تومان</span>
+                                            <span class="price"><span class="curreny"></span>{{food.Price}} تومان</span>
                                             <ul class="ratings">
                                                 <li><span><a href="#">امتیاز کاربران 
                                                     <star-rating v-model:rating="totalRating" 
@@ -70,7 +70,7 @@
                                                         v-bind:round-start-rating="false">
                                             </star-rating></a></span></li>
                                             </ul>
-                                            <p>{{food.shortDescription}}
+                                            <p>{{food.ShortDescription}}
                                             </p>
                                         </div>
                                     </div>
@@ -90,18 +90,18 @@
                                         مهربانو با تمام تلاش برای یک تجربه شادی آور برای شما مشتریان عزیز تمام تلاشش را می کند تا بتواند کیفیت مناسب را با تنوع بالا ترکیب کرده و شما را از یک تصمیم خوب، راضی نگه دارد. 
                                         در ادامه توضیحات بیشتری درباره 
                                         <b>
-                                            {{food.title}}
+                                            {{food.Title}}
                                         </b>
                                          خدمتتان ارائه خواهیم داد 
 
-                                         <div id="htmlContentDiv" class="content-box-gap" :innerHTML="food.htmlContent">         
+                                         <div id="htmlContentDiv" class="content-box-gap" :innerHTML="food.HtmlContent">         
                                             </div>
                                         </div>                                
                             </section>
                             <div class="parallax-sight mehrbanoo-desc-parallax" v-bind:style="{ backgroundImage: 'url(' + this.backgroundImageUrl + ')' }">
 
                                     <div class="desc-parallax-box">
-                                        {{food.description}}
+                                        {{food.Description}}
                                     </div>
                             </div>  
                             <FoodsComments :foodId="this.$route.params.id"/>
@@ -129,7 +129,7 @@
                                 </Form>
                             </div>
                             <div v-else>
-                                <router-link to="/Login/Foods/{{this.$route.params.id}}" class="login-signup">برای ثبت نظر ابتدا باید وارد حساب کاربری خود شوید</router-link>
+                                <router-link :to="'/Login/Foods/' + this.$route.params.id" class="login-signup">برای ثبت نظر ابتدا باید وارد حساب کاربری خود شوید</router-link>
                             </div>
                    
         
@@ -175,7 +175,7 @@ export default {
     userFoodsRatingAddress() {
       return (
         this.apiBaseAddress +
-        "/FoodRatings/" +
+        "/FoodRatings/GetUserFoodsRating/" +
         this.$route.params.id
       );
     },
@@ -184,10 +184,10 @@ export default {
     async getFoodInfo() {
       const foodsResponse = await axios.get(this.foodApiAddress);
       this.food = foodsResponse.data;
-      this.totalRating = this.getRating(foodsResponse.data.foodRatings);
+      this.totalRating = this.getRating(foodsResponse.data.FoodRatings);
       this.userRating = await this.getUserRating();
       this.mainPic = foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 1 && d.Order == 1)[0].Address;
-      this.mainImagesExceptFirst = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.foodImageType == 1 && d.order != 1).sort(m => m.order));
+      this.mainImagesExceptFirst = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 1 && d.Order != 1).sort(m => m.Order));
       this.mainImages = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 1).sort(m => m.Order));
       this.wideImages = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 2).sort(m => m.Order));
       this.backgroundImageUrl = this.getFullImageAddress(this.wideImages[0]);
@@ -215,7 +215,7 @@ export default {
     getFoodImageAddressList(images) {
       var imageList = []
       for (let i = 0; i < images.length; i++) {
-        imageList.push(images[i].address)
+        imageList.push(images[i].Address)
       }
 
       return imageList;
@@ -339,7 +339,7 @@ export default {
       }
       var sum = 0;
       for (let i = 0; i < collection.length; i++) {
-        sum += collection[i].rating;
+        sum += collection[i].Rating;
       }
       return sum / collection.length;
     },
@@ -366,9 +366,10 @@ export default {
       mainImages: [],
       mainImagesExceptFirst: [],
       wideImages: [],
-      apiBaseAddress: "https://services.mehrbanoo.restaurant/api",
+      apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
       //apiBaseAddress: 'https://localhost:44324/api',
-      imageBaseAddress: "https://admin.mehrbanoo.restaurant",
+      imageBaseAddress: 'https://admin.mehrbanoo.restaurant',
+      //imageBaseAddress : 'https://localhost:51034',
 
       comment: "",
       totalRating: 5,
@@ -377,12 +378,8 @@ export default {
         "https://cosmos-images2.imgix.net/file/spina/photo/20565/191010_nature.jpg?ixlib=rails-2.1.4&auto=format&ch=Width%2CDPR&fit=max&w=835",
         "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/nature-quotes-1557340276.jpg?crop=0.666xw:1.00xh;0.168xw,0&resize=640:*",
       ],
-      index: null,
 
-      //apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
-      apiBaseAddress: 'https://localhost:7267/api',
-      //imageBaseAddress: 'https://admin.mehrbanoo.restaurant',
-      imageBaseAddress : 'https://localhost:51034'
+      index: null
     };
   },
 };
