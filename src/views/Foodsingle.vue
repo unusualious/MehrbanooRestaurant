@@ -9,7 +9,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-12">
                         <div class="page-banner-content text-center">
-                            <h1 class="page-title">{{food.Title}}</h1>
+                            <h1 class="page-title">{{food.title}}</h1>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                                         <div class="product-gallery-area">
                                             <div class="product-big-slider">
                                                 <div class="product-img gallery__wrapper">
-                                                        <inner-image-zoom  :src="getFullImageAddress(mainPic)" :zoomSrc="mainPic" />
+                                                        <inner-image-zoom  :src="getFullImageAddress(mainPic)" :zoomSrc="getFullImageAddress(mainPic)" />
                                                         <!-- <img v-if="food.PicAddress" :src="getFullImageAddress(food.PicAddress)" alt="Img"> -->
                                                     <!-- <img v-else src="/src/images/foods/default.png" alt="Img">      -->
                                                     <div class="galleryview">
@@ -46,7 +46,7 @@
                                                 </div>
                                                     
                                                 <div class="hidden-gallery"  >
-                                                         <a v-for="foodUrl,index in this.mainImages"
+                                                         <a v-for="foodUrl,index in this.mainImagesExceptFirst"
                                                          :href="getFullImageAddress(foodUrl)"  class="glightbox" style="display:none">
                                                           <img :src="getFullImageAddress(foodUrl)" alt="" />
                                                         </a>
@@ -59,9 +59,9 @@
                                     <div class="col-md-7">
                                         <!--=== Product Info ===-->
                                         <div class="product-info pl-lg-70 mb-50 wow fadeInRight">
-                                            <h3 class="title">{{food.Title}}</h3>
+                                            <h3 class="title">{{food.title}}</h3>
 
-                                            <span class="price"><span class="curreny"></span>{{food.Price}} تومان</span>
+                                            <span class="price"><span class="curreny"></span>{{food.price}} تومان</span>
                                             <ul class="ratings">
                                                 <li><span><a href="#">امتیاز کاربران 
                                                     <star-rating v-model:rating="totalRating" 
@@ -70,7 +70,7 @@
                                                         v-bind:round-start-rating="false">
                                             </star-rating></a></span></li>
                                             </ul>
-                                            <p>{{food.ShortDescription}}
+                                            <p>{{food.shortDescription}}
                                             </p>
                                         </div>
                                     </div>
@@ -90,18 +90,18 @@
                                         مهربانو با تمام تلاش برای یک تجربه شادی آور برای شما مشتریان عزیز تمام تلاشش را می کند تا بتواند کیفیت مناسب را با تنوع بالا ترکیب کرده و شما را از یک تصمیم خوب، راضی نگه دارد. 
                                         در ادامه توضیحات بیشتری درباره 
                                         <b>
-                                            {{food.Title}}
+                                            {{food.title}}
                                         </b>
                                          خدمتتان ارائه خواهیم داد 
 
-                                         <div id="htmlContentDiv" class="content-box-gap" :innerHTML="food.HtmlContent">         
+                                         <div id="htmlContentDiv" class="content-box-gap" :innerHTML="food.htmlContent">         
                                             </div>
                                         </div>                                
                             </section>
                             <div class="parallax-sight mehrbanoo-desc-parallax" v-bind:style="{ backgroundImage: 'url(' + this.backgroundImageUrl + ')' }">
 
                                     <div class="desc-parallax-box">
-                                        {{food.Description}}
+                                        {{food.description}}
                                     </div>
                             </div>  
                             <FoodsComments :foodId="this.$route.params.id"/>
@@ -114,7 +114,7 @@
                                             v-bind:rtl="true"
                                             @update:rating ="submitRating" >
                                 </star-rating>
-                                <h3 >لطفا نطر خود را در مورد این غذا بنویسید</h3>
+                                <h3 >لطفا نظر خود را در مورد این غذا بنویسید</h3>
                                 <Form class="review-form" @submit="SubmitFeedback">
                                     <div class="row">
                                         <div class="col-lg-12">
@@ -175,19 +175,19 @@ export default {
     userFoodsRatingAddress() {
       return (
         this.apiBaseAddress +
-        "/FoodRatings/GetUserFoodsRating/" +
+        "/FoodRatings/" +
         this.$route.params.id
       );
     },
   },
   methods: {
     async getFoodInfo() {
-      debugger
       const foodsResponse = await axios.get(this.foodApiAddress);
       this.food = foodsResponse.data;
-      this.totalRating = this.getRating(foodsResponse.data.FoodRatings);
+      this.totalRating = this.getRating(foodsResponse.data.foodRatings);
       this.userRating = await this.getUserRating();
       this.mainPic = foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 1 && d.Order == 1)[0].Address;
+      this.mainImagesExceptFirst = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.foodImageType == 1 && d.order != 1).sort(m => m.order));
       this.mainImages = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 1).sort(m => m.Order));
       this.wideImages = this.getFoodImageAddressList(foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 2).sort(m => m.Order));
       this.backgroundImageUrl = this.getFullImageAddress(this.wideImages[0]);
@@ -201,17 +201,21 @@ export default {
           headers: { Authorization: `Bearer ${this.tokenCookieValue}` },
         };
 
-        const ratingResponse = await axios.get(
+        return await axios.get(
           this.userFoodsRatingAddress,
           config
-        );
-        return ratingResponse.data.Rating;
+        ).then(function (response) {
+                // handle success
+                return response.data.Rating;
+              }).catch(function(error) {
+                return null;
+            });
       }
     },
     getFoodImageAddressList(images) {
       var imageList = []
       for (let i = 0; i < images.length; i++) {
-        imageList.push(images[i].Address)
+        imageList.push(images[i].address)
       }
 
       return imageList;
@@ -222,11 +226,11 @@ export default {
     },
 
     getPriceString(priceInt) {
-      var length = priceInt.toString().length;
+      var length = priceInt.length;
       if (length <= 3) {
         return priceInt;
       } else {
-        var priceStr = priceInt.toString();
+        var priceStr = priceInt;
         var numberOfSeparators = Math.floor(length / 3);
         if (numberOfSeparators * 3 == length) {
           numberOfSeparators--;
@@ -264,6 +268,7 @@ export default {
         .then(
           function (response) {
             alert("از شما برای امتیاز دهی به این غذا سپاسگزاریم");
+            location.reload();
           }.bind(this)
         )
         .catch(function (error) {
@@ -334,7 +339,7 @@ export default {
       }
       var sum = 0;
       for (let i = 0; i < collection.length; i++) {
-        sum += collection[i].Rating;
+        sum += collection[i].rating;
       }
       return sum / collection.length;
     },
@@ -359,6 +364,7 @@ export default {
       dataLoad: false,
       backgroundImageUrl: "",
       mainImages: [],
+      mainImagesExceptFirst: [],
       wideImages: [],
       apiBaseAddress: "https://services.mehrbanoo.restaurant/api",
       //apiBaseAddress: 'https://localhost:44324/api',
@@ -372,6 +378,11 @@ export default {
         "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/nature-quotes-1557340276.jpg?crop=0.666xw:1.00xh;0.168xw,0&resize=640:*",
       ],
       index: null,
+
+      //apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
+      apiBaseAddress: 'https://localhost:7267/api',
+      //imageBaseAddress: 'https://admin.mehrbanoo.restaurant',
+      imageBaseAddress : 'https://localhost:51034'
     };
   },
 };
