@@ -6,9 +6,24 @@
           <div class="title"><span class='text'>ثبت نام</span></div>
           <Form id="submit_form"  v-slot="{ meta }" class='login--body row' @submit="">
             <div class="form-item col-md-6">
+              <label class='label'>نام</label>
+              <Field :rules="validateText" name="name" type='text' v-model="name" placeholder='نام' />
+              <ErrorMessage name="name" />
+            </div>
+            <div class="form-item col-md-6">
+              <label class='label'>نام خانوادگی</label>
+              <Field :rules="validateText" name="sirname" type='text' v-model="sirname" placeholder='نام خانوادگی' />
+              <ErrorMessage name="sirname" />
+            </div>
+            <div class="form-item col-md-6">
               <label class='label'>آدرس ایمیل</label>
               <Field :rules="validateEmail" type='email' name="email" v-model="Email" disabled readonly='true' value="{{this.Email}}" placeholder='آدرس ایمیل'/>
               <ErrorMessage name="email" />
+            </div>
+            <div class="form-item col-md-6">
+              <label class='label'>تلفن همراه</label>
+              <Field :rules="validateMobile" name="mobile" type='phone' v-model="mobile" placeholder='تلفن همراه' />
+              <ErrorMessage name="mobile" />
             </div>
             <div class="form-item col-md-6">
               <label class='label'>کلمه عبور</label>
@@ -20,22 +35,6 @@
               <Field :rules="validateConfPass" name="confpass" type='password' v-model="confirmPassword" placeholder='*********' />
               <ErrorMessage name="confpass" />
             </div>
-            <div class="form-item col-md-6">
-              <label class='label'>نام</label>
-              <Field :rules="validateText" name="name" type='text' v-model="name" placeholder='نام' />
-              <ErrorMessage name="name" />
-            </div>
-            <div class="form-item col-md-6">
-              <label class='label'>نام خانوادگی</label>
-              <Field :rules="validateText" name="sirname" type='text' v-model="sirname" placeholder='نام خانوادگی' />
-              <ErrorMessage name="sirname" />
-            </div>
-            <div class="form-item col-md-6">
-              <label class='label'>تلفن همراه</label>
-              <Field :rules="validateMobile" name="mobile" type='phone' v-model="mobile" placeholder='تلفن همراه' />
-              <ErrorMessage name="mobile" />
-            </div>
-
             <div class='sbmt'>
               <vue-recaptcha :sitekey="siteKey" :language ="lang" @verify="verifyMethod">
                 <button :disabled="!meta.valid" class='main-btn black'> <span class="main-btn-span"> ثبت نام </span></button>
@@ -65,7 +64,7 @@ export default {
               encryptedEmail: this.$route.params.email,
               code: this.$route.params.code
           }).then(function (response) {                  
-            this.Email = response.data.Email
+            this.Email = response.data.email
  
                 }.bind(this))
               .catch(function (error) {
@@ -87,13 +86,13 @@ export default {
           location.reload()
         }
         axios.post(this.RegisterationAddress, {
-            encryptedEmail: this.$route.params.email,
-            code: this.$route.params.code,
-            password: this.password,
-            confirmPassword: this.confirmPassword,
-            name: this.name,
-            sirname: this.sirname,
-            phonenumber: this.mobile,
+            EncryptedEmail: this.$route.params.email,
+            Code: this.$route.params.code,
+            Password: this.password,
+            ConfirmPassword: this.confirmPassword,
+            Name: this.name,
+            Sirname: this.sirname,
+            Phonenumber: this.mobile,
             RecapToken: token
         }).then(function (response) {                  
               alert("باموفقیت ثبت نام شدید.")
@@ -124,7 +123,6 @@ export default {
           if (!regex.test(value)) {
             return 'لطفا آدرس ایمیل معتبر وارد کنید';
           }
-          debugger
           return true;
         },
         validatePass(value) {
@@ -176,7 +174,8 @@ export default {
     },
     data () {
         return {
-            apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
+            //apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
+            apiBaseAddress: 'https://localhost:7267/api',
             Email: '',
             password: '',
             confirmPassword: '',
