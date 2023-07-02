@@ -13,7 +13,9 @@
                         تلاش تیم مهربانو رضایت و خوشنودی شماست که امیدواریم بتوانیم تجربه ای لذیذ را برایتان پدید آوریم .
                     </p>
                 </div>
-                <input type="button" @click="this.Logout()" value="خروج از حساب کاربری" />
+                <a  class="main-btn green" @click="this.Logout()" ><span>خروج از حساب کاربری</span></a>
+
+                <!-- <input type="button" @click="this.Logout()" value="خروج از حساب کاربری" /> -->
             </div>
         </div>
     </section>
@@ -87,6 +89,13 @@ export default {
 }
 </script>
 <style lang="scss">
+.main-btn.green {
+    margin-top: 15px;
+    cursor: pointer;
+    span:hover {
+   color: #556b2f !important;
+    }
+}
 .user-profile {
     padding: 140px 20px;
 

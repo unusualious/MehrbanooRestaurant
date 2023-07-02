@@ -119,7 +119,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <div class="form_group">
-                                                <Field :rules="validateComment" name="comment" as="textarea" type="text" v-model="comment" class="form_control" placeholder="متن نظر" />
+                                                <Field  name="comment" as="textarea" type="text" v-model="comment" class="form_control" placeholder="متن نظر" />
                                                 <ErrorMessage name="comment" />
                                             </div>
                                         </div>
@@ -146,6 +146,8 @@ import InnerImageZoom from "vue-inner-image-zoom";
 import "glightbox/dist/css/glightbox.css";
 import "glightbox/dist/js/glightbox.js";
 import GLightbox from "glightbox";
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
 
 export default {
   components: {
@@ -248,7 +250,13 @@ export default {
 
     submitRating(rating) {
       if (!this.isLogin()) {
-        alert("ابتدا باید وارد حساب کاربری خود شوید.");
+        // alert("ابتدا باید وارد حساب کاربری خود شوید.");
+        createToast('ابتدا باید وارد حساب کاربری خود شوید.', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'danger',
+        });
         return;
       }
 
@@ -267,22 +275,44 @@ export default {
         )
         .then(
           function (response) {
-            alert("از شما برای امتیاز دهی به این غذا سپاسگزاریم");
+            // alert("از شما برای امتیاز دهی به این غذا سپاسگزاریم");
+            createToast('از شما برای امتیاز دهی به این غذا سپاسگزاریم', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'success',
+        });
             location.reload();
           }.bind(this)
         )
         .catch(function (error) {
-          alert("خطای سرور لطفا ساعاتی دیگر مجددا اقدام فرمایید.");
+          createToast('خطای سرور ؛ لطفا ساعاتی دیگر مجددا اقدام فرمایید', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'danger',
+        });
         });
     },
     SubmitFeedback(values) {
       if (!this.isLogin()) {
-        alert("ابتدا باید وارد حساب کاربری خود شوید.");
+        createToast('ابتدا باید وارد حساب کاربری خود شوید', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'danger',
+        });
         return;
       }
 
       if (this.comment == null || this.comment.length == 0) {
-        alert("متن نظر نمی تواند خالی باشد");
+        // alert("متن نظر نمی تواند خالی باشد");
+        createToast('متن نظر نمی تواند خالی باشد', {
+          autoClose: 170000,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'success',
+        });
         return;
       }
 
@@ -301,23 +331,43 @@ export default {
         )
         .then(
           function (response) {
-            alert(
-              "نظر شما با موفقیت ثبت و به زودی در سایت نمایش داده خواهد شد."
-            );
+            createToast('نظر شما با موفقیت ثبت و به زودی در سایت نمایش داده خواهد شد', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'success',
+        });
             location.reload();
           }.bind(this)
         )
         .catch(function (error) {
-          alert("خطای سرور لطفا ساعاتی دیگر مجددا اقدام فرمایید.");
+          createToast('خطای سرور ؛ لطفا ساعاتی دیگر مجددا اقدام فرمایید', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'danger',
+        });
         });
     },
 
     validateComment(value) {
       if (!value) {
-        return "متن نظر نمی تواند خالی باشد";
+        // return "متن نظر نمی تواند خالی باشد";
+        createToast('متن نظر نمی تواند خالی باشد', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'success',
+        });
       }
       if (value.lenght > 800) {
-        return "نظر نمی تواند بیشتر از 800 کاراکتر باشد";
+        // return "نظر نمی تواند بیشتر از 800 کاراکتر باشد";
+        createToast('نظر نمی تواند بیشتر از 800 کاراکتر باشد', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'danger',
+        });
       }
 
       return true;

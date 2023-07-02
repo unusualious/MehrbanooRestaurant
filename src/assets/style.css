@@ -991,6 +991,16 @@ button {
   right: -25px;
 }
 
+.mosha__icon {
+  margin-left: 16px !important;
+}
+
+.mosha__toast__content__text {
+  font-size: 17px !important;
+  font-weight: 400 !important;
+  font-family: 'yekan' !important;
+}
+
 /*---==================
     02. Sections css 
 =================----*/

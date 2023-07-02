@@ -14,4 +14,17 @@ import 'vue-inner-image-zoom/lib/vue-inner-image-zoom.css';
 
 createApp(App)
 .use(router)
+// .use(
+//     Vue3Toasity,
+//     {
+//      rtl: true,
+//       limit: 2,
+//       autoClose: 7000,
+//       hideProgressBar: false,
+//       position: toast.POSITION.BOTTOM_CENTER,
+//       pauseOnHover: true,
+//       progress: 0.2,
+//       theme: "colored",
+//     },
+//   )
 .component("font-awesome-icon", FontAwesomeIcon).mount('#app')

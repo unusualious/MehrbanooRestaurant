@@ -53,150 +53,171 @@ import { Alert } from 'bootstrap';
 import { useRouter } from 'vue-router';
 import { VueRecaptcha } from 'vue-recaptcha';
 import { Form, Field, ErrorMessage, useIsFormValid, useForm } from 'vee-validate';
-
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
 export default {
   components: {
-    VueRecaptcha , Form, Field, ErrorMessage
+    VueRecaptcha, Form, Field, ErrorMessage
   },
-   methods: {
-      ValidateEmailActivationCode(){
-          axios.post(this.EmailActivationAddress, {
-              encryptedEmail: this.$route.params.email,
-              code: this.$route.params.code
-          }).then(function (response) {                  
-            this.Email = response.data.email
- 
-                }.bind(this))
-              .catch(function (error) {
-                if(error.response.status == 404){ //User not found
-                  alert("کد فعال سازی منقضی شده است لطفاجهت دریافت لینک جدید ایمیل خود را در بخش ثبت نام وارد کنید.")
-                  location.replace('/login');
-                }else{ // Exception
-                  alert("خطای سرور لطفا ساعاتی دیگر مجددا اقدام فرمایید.")
-                }
-              })
-              .finally(function () {
-                  // always executed
-              }
-            );
-          },
-      SendRegisterRequest(token){
-        if(!token){
-          alert("خطا در برقراری ارتباط")
-          location.reload()
+  methods: {
+    ValidateEmailActivationCode() {
+      axios.post(this.EmailActivationAddress, {
+        encryptedEmail: this.$route.params.email,
+        code: this.$route.params.code
+      }).then(function (response) {
+        this.Email = response.data.email
+
+      }.bind(this))
+        .catch(function (error) {
+          if (error.response.status == 404) { //User not found
+            createToast('کد فعال سازی منقضی شده است لطفاجهت دریافت لینک جدید ایمیل خود را در بخش ثبت نام وارد کنید', {
+              autoClose: 1700,
+              showIcon: 'true',
+              position: 'bottom-center',
+              type: 'danger',
+            });
+            location.replace('/login');
+          } else { // Exception
+            createToast('خطای سرور لطفا ساعاتی دیگر مجددا اقدام فرمایید', {
+              autoClose: 1700,
+              showIcon: 'true',
+              position: 'bottom-center',
+              type: 'danger',
+            });
+          }
+        })
+        .finally(function () {
+          // always executed
         }
-        axios.post(this.RegisterationAddress, {
-            EncryptedEmail: this.$route.params.email,
-            Code: this.$route.params.code,
-            Password: this.password,
-            ConfirmPassword: this.confirmPassword,
-            Name: this.name,
-            Sirname: this.sirname,
-            Phonenumber: this.mobile,
-            RecapToken: token
-        }).then(function (response) {                  
-              alert("باموفقیت ثبت نام شدید.")
-              this.$router.push('/login')
-              }.bind(this))
-            .catch(function (error) {
-                console.log(error);
-            })
-            .finally(function () {
-                // always executed
-            }
-          );
-        },
-        verifyMethod(response){
-          this.SendRegisterRequest(response)
-        },
-        expiredMethod(){
-          console.log(response)
-        },
-        validateEmail(value) {
-          if (!value) {
-            return 'این فیلد نمی تواند خالی باشد';
-          }
-          if(value.lenght > 100){
-            return 'ایمیل نباید بیشتر از 100 کاراکتر باشد';          
-          }
-          const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-          if (!regex.test(value)) {
-            return 'لطفا آدرس ایمیل معتبر وارد کنید';
-          }
-          return true;
-        },
-        validatePass(value) {
-            if (!value) {
-                return 'این فیلد نمی تواند خالی باشد';
-            }
-            if(value.lenght > 100){
-              return 'پسورد نباید بیشتر از 100 کاراکتر باشد';          
-            }
-            const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
-            if(!passwordRegex.test(value)){
-              return 'طول پسورد باید 8 کاراکتر شامل حرف کوچک، حرف بزرگ و عدد باشد';          
-            }
-            return true;
-        },
-        validateConfPass(value){
-          if (!value) {
-              return 'این فیلد نمی تواند خالی باشد';
-            }
-
-            if(this.password != value){
-              return 'با کلمه عبور مغایرت دارد';
-            }
-            return true;
-        },
-        validateText(value){
-          if (!value) {
-                return 'این فیلد نمی تواند خالی باشد';
-            }
-
-          if(value.lenght > 100){
-            return 'این فیلد نمی تواند بیشتر از 100 کاراکتر باشد';          
-          }
-
-            return true;
-        },
-        validateMobile(value){
-          if (!value) {
-            return 'این فیلد نمی تواند خالی باشد';
-          }
-
-          const regex = /^09\d{9}$/;
-          if (!regex.test(value)) {
-            return 'لطفا شماره موبایل خود را صحیح وارد کنید';
-          }
-
-          return true;
-        }
+        );
     },
-    data () {
-        return {
-            apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
-            //apiBaseAddress: 'https://localhost:7267/api',
-            Email: '',
-            password: '',
-            confirmPassword: '',
-            name: '',
-            sirname: '',
-            mobile: null,
-            siteKey: "6LdOU_QlAAAAADdv6_gT1QLKuphLbRakmzE0L3fP",
-            lang: "fa"
+    SendRegisterRequest(token) {
+      if (!token) {
+        createToast('خطا در برقراری ارتباط', {
+              autoClose: 1700,
+              showIcon: 'true',
+              position: 'bottom-center',
+              type: 'danger',
+            });
+        location.reload()
+      }
+      axios.post(this.RegisterationAddress, {
+        EncryptedEmail: this.$route.params.email,
+        Code: this.$route.params.code,
+        Password: this.password,
+        ConfirmPassword: this.confirmPassword,
+        Name: this.name,
+        Sirname: this.sirname,
+        Phonenumber: this.mobile,
+        RecapToken: token
+      }).then(function (response) {
+        createToast('باموفقیت ثبت نام شدید', {
+              autoClose: 1700,
+              showIcon: 'true',
+              position: 'bottom-center',
+              type: 'success',
+            });
+        this.$router.push('/login')
+      }.bind(this))
+        .catch(function (error) {
+          console.log(error);
+        })
+        .finally(function () {
+          // always executed
         }
+        );
     },
-    computed: {
-        EmailActivationAddress() {
-            return this.apiBaseAddress + '/Account/ValidateActivationCode'
-        },
-        RegisterationAddress() {
-            return this.apiBaseAddress + '/Account/Register'
-        }
+    verifyMethod(response) {
+      this.SendRegisterRequest(response)
     },
-    mounted(){
-        this.ValidateEmailActivationCode()
+    expiredMethod() {
+      console.log(response)
+    },
+    validateEmail(value) {
+      if (!value) {
+        return 'این فیلد نمی تواند خالی باشد';
+      }
+      if (value.lenght > 100) {
+        return 'ایمیل نباید بیشتر از 100 کاراکتر باشد';
+      }
+      const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+      if (!regex.test(value)) {
+        return 'لطفا آدرس ایمیل معتبر وارد کنید';
+      }
+      return true;
+    },
+    validatePass(value) {
+      if (!value) {
+        return 'این فیلد نمی تواند خالی باشد';
+      }
+      if (value.lenght > 100) {
+        return 'پسورد نباید بیشتر از 100 کاراکتر باشد';
+      }
+      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
+      if (!passwordRegex.test(value)) {
+        return 'طول پسورد باید 8 کاراکتر شامل حرف کوچک، حرف بزرگ و عدد باشد';
+      }
+      return true;
+    },
+    validateConfPass(value) {
+      if (!value) {
+        return 'این فیلد نمی تواند خالی باشد';
+      }
+
+      if (this.password != value) {
+        return 'با کلمه عبور مغایرت دارد';
+      }
+      return true;
+    },
+    validateText(value) {
+      if (!value) {
+        return 'این فیلد نمی تواند خالی باشد';
+      }
+
+      if (value.lenght > 100) {
+        return 'این فیلد نمی تواند بیشتر از 100 کاراکتر باشد';
+      }
+
+      return true;
+    },
+    validateMobile(value) {
+      if (!value) {
+        return 'این فیلد نمی تواند خالی باشد';
+      }
+
+      const regex = /^09\d{9}$/;
+      if (!regex.test(value)) {
+        return 'لطفا شماره موبایل خود را صحیح وارد کنید';
+      }
+
+      return true;
     }
+  },
+  data() {
+    return {
+      apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
+      //apiBaseAddress: 'https://localhost:7267/api',
+      Email: '',
+      password: '',
+      confirmPassword: '',
+      name: '',
+      sirname: '',
+      mobile: null,
+      siteKey: "6LdOU_QlAAAAADdv6_gT1QLKuphLbRakmzE0L3fP",
+      lang: "fa"
+    }
+  },
+  computed: {
+    EmailActivationAddress() {
+      return this.apiBaseAddress + '/Account/ValidateActivationCode'
+    },
+    RegisterationAddress() {
+      return this.apiBaseAddress + '/Account/Register'
+    }
+  },
+  mounted() {
+    this.ValidateEmailActivationCode()
+  }
 }
 </script>
 <style lang="">

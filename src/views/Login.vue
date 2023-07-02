@@ -8,7 +8,7 @@
                                             <a class="nav-link active" data-bs-toggle="tab" href="#login">ورود</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" data-bs-toggle="tab" href="#signup">ثبت نام</a>
+                                            <a class="nav-link" data-bs-toggle="tab" href="#signup" >ثبت نام</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -16,7 +16,8 @@
                                     <div class="tab-pane fade show active" id="login">
                                         <div class="content-box-gap">
                                           <div class="login--l">
-            <div class="title"><span class='text'>ورود به حساب</span></div>
+                                            <div class="title"><span class='text'>ورود به حساب</span></div>
+                                        
           <Form id="login_form" v-slot="{ meta }" class='login--body' @submit="" >
               <label class='label'>آدرس ایمیل</label>
               <Field :rules="validateEmail" type='email' name="emailToLogin" v-model="emailToLogin" placeholder='آدرس ایمیل'/>
@@ -109,8 +110,11 @@
 import axios from 'axios';
 import { Alert } from 'bootstrap';
 import { useRouter, useRoute } from 'vue-router';
+import router from '/router';
 import { VueRecaptcha } from 'vue-recaptcha';
 import { Form, Field, ErrorMessage, useIsFormValid, useForm } from 'vee-validate';
+import { createToast } from 'mosha-vue-toastify';
+import 'mosha-vue-toastify/dist/style.css'
 
 export default {
   components: {
@@ -126,31 +130,67 @@ export default {
     },
     SendEmailActivationRequest(token) {
       if (!token) {
-        alert("خطا در برقراری ارتباط")
-        location.reload()
+        createToast('خطا در برقراری ارتباط', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'success',
+        });
+        // location.reload()
+        router.push({ path: '/login' })
       }
 
       axios.post(this.EmailActivationAddress, {
         email: this.emailToSubmit,
         token: token
       }).then(function (response) {
-        alert("ایمیل فعال سازی برای شما ارسال شد لطفا صندوق ورودی ایمیل خود و یا فولدر اسپن را چک کنید.")
-        location.replace('/')
+        // alert("ایمیل فعال سازی برای شما ارسال شد لطفا صندوق ورودی ایمیل خود و یا فولدر اسپن را چک کنید.")
+        createToast('ایمیل فعال سازی برای شما ارسال شد لطفا صندوق ورودی ایمیل خود و یا فولدر اسپن را چک کنید', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'success',
+        });
+        setTimeout(() => {
+          // location.replace('/')
+          router.push({ path: '/login' })
+        }, 3000);
       }.bind(this))
         .catch(function (error) {
           if (error.response.status == 409) { //User already exists
-            alert("ایمیل وارد شده قبلا ثبت شده است")
+            createToast('ایمیل وارد شده قبلا ثبت شده است', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'danger',
+        });
           } else if (error.response.status == 503) { //Activation link already has been sent and not yet expired
-            alert(".ایمیل فعالسازی قبلا ارسال شده است. برای دریافت مجدد باید 5 دقیقه از زمان ارسال ایمیل آخر گذشته باشد")
+            createToast('ایمیل فعالسازی قبلا ارسال شده است. برای دریافت مجدد باید 5 دقیقه از زمان ارسال ایمیل آخر گذشته باشد', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'danger',
+        });
           } else { // Exception
-            alert("خطای سرور لطفا ساعاتی دیگر مجددا اقدام فرمایید.")
+            createToast('خطای سرور لطفا ساعاتی دیگر مجددا اقدام فرمایید', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'danger',
+        });
           }
         });
     },
     SendLogingRequest() {
       if (!this.token) {
-        alert("خطا در برقراری ارتباط")
-        location.reload()
+        createToast('خطا در برقراری ارتباط', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'danger',
+        });
+        // location.reload()
+        router.push({ path: '/login' })
       }
 
       axios.post(this.LoginAddress, {
@@ -158,24 +198,44 @@ export default {
         password: this.pass,
         token: this.token
       }).then(function (response) {
-        alert("با موفقیت وارد سیستم شدید")
+        // alert("با موفقیت وارد سیستم شدید")
+        createToast('با موفقیت وارد سیستم شدید', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'success',
+        });
 
-        let d = new Date()
-        d.setTime(response.data.expire_in)
-        let expires = "expires=" + d.toUTCString()
-        document.cookie = "access_token=" + response.data.access_token + ";" + expires + ";path=/"
+          let d = new Date()
+          d.setTime(response.data.expire_in)
+          let expires = "expires=" + d.toUTCString()
+          document.cookie = "access_token=" + response.data.access_token + ";" + expires + ";path=/"
 
-        if (this.$route.params.action) {
-          var redirectURL = "/" + this.$route.params.action + "/" + this.$route.params.id
-          location.replace(redirectURL)
-        } else {
-          location.replace("/")
-        }
+          if (this.$route.params.action) {
+            var redirectURL = "/" + this.$route.params.action + "/" + this.$route.params.id
+            // location.replace(redirectURL)
+            router.push({ path: redirectURL, replace: true })
+          } else {
+            // location.replace("/")
+            router.push({ path: '/', replace: true })
+          }
+     
+
       }.bind(this)).catch(function (error) {
         if (error.response.status == 404) { //user not found
-          alert("ایمیل و یا کلمه عبور اشتباه است")
+          createToast('ایمیل و یا کلمه عبور اشتباه است', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'danger',
+        });
         } else { // Exception
-          alert("خطای سرور لطفا ساعاتی دیگر مجددا اقدام فرمایید.")
+          createToast('خطای سرور لطفا ساعاتی دیگر مجددا اقدام فرمایید', {
+          autoClose: 1700,
+          showIcon: 'true',
+          position: 'bottom-center',
+          type: 'danger',
+        });
         }
       });
     },
