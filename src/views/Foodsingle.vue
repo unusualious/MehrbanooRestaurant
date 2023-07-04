@@ -211,7 +211,7 @@ export default {
                 // handle success
                 return response.data.Rating;
               }).catch(function(error) {
-                if(error.response.status == 401){}
+                // if(error.response.status == 401){}
                 return null;
             });
       }
