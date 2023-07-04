@@ -61,7 +61,7 @@
                                         <div class="product-info pl-lg-70 mb-50 wow fadeInRight">
                                             <h3 class="title">{{food.Title}}</h3>
 
-                                            <span class="price"><span class="curreny"></span>{{food.Price}} تومان</span>
+                                            <span class="price"><span class="curreny"></span>{{this.price}} تومان</span>
                                             <ul class="ratings">
                                                 <li><span><a href="#">امتیاز کاربران 
                                                     <star-rating v-model:rating="totalRating" 
@@ -186,6 +186,7 @@ export default {
     async getFoodInfo() {
       const foodsResponse = await axios.get(this.foodApiAddress);
       this.food = foodsResponse.data;
+      this.price = this.getPriceString(foodsResponse.data.Price);
       this.totalRating = this.getRating(foodsResponse.data.FoodRatings);
       this.userRating = await this.getUserRating();
       this.mainPic = foodsResponse.data.FoodImages.filter(d => d.FoodImageType == 1 && d.Order == 1)[0].Address;
@@ -210,6 +211,7 @@ export default {
                 // handle success
                 return response.data.Rating;
               }).catch(function(error) {
+                if(error.response.status == 401){}
                 return null;
             });
       }
@@ -228,11 +230,11 @@ export default {
     },
 
     getPriceString(priceInt) {
-      var length = priceInt.length;
+      var length = priceInt.toString().length;
       if (length <= 3) {
         return priceInt;
       } else {
-        var priceStr = priceInt;
+        var priceStr = priceInt.toString();
         var numberOfSeparators = Math.floor(length / 3);
         if (numberOfSeparators * 3 == length) {
           numberOfSeparators--;
@@ -414,8 +416,10 @@ export default {
       dataLoad: false,
       backgroundImageUrl: "",
       mainImages: [],
-      mainImagesExceptFirst: [],
+      mainImagesExceptFirst: [],      
       wideImages: [],
+      index: null,
+
       apiBaseAddress: 'https://services.mehrbanoo.restaurant/api',
       //apiBaseAddress: 'https://localhost:44324/api',
       imageBaseAddress: 'https://admin.mehrbanoo.restaurant',
@@ -424,12 +428,11 @@ export default {
       comment: "",
       totalRating: 5,
       userRating: 1,
+      price: "",
       items: [
         "https://cosmos-images2.imgix.net/file/spina/photo/20565/191010_nature.jpg?ixlib=rails-2.1.4&auto=format&ch=Width%2CDPR&fit=max&w=835",
         "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/nature-quotes-1557340276.jpg?crop=0.666xw:1.00xh;0.168xw,0&resize=640:*",
-      ],
-
-      index: null
+      ]
     };
   },
 };
